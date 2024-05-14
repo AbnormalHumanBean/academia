@@ -8,4 +8,20 @@
     margin: 0 auto;
     object-fit: cover;
   }
-  
+
+
+[data-bs-theme='light'] .d-dark {
+  display: none;
+}
+
+[data-bs-theme='dark'] .d-light {
+  display: none;
+}
+
+[data-bs-theme='light'] .d-auto {
+  display: none;
+}
+
+[data-bs-theme='dark'] .d-auto {
+  display: none;
+}
