@@ -1,53 +1,51 @@
-
 .avatar-circle {
     border-radius: 50%;
-  }
-  .avatar {
+}
+
+.avatar {
     width: 270px;
     height: 270px;
     margin: 0 auto;
     object-fit: cover;
-  }
-
+}
 
 [data-bs-theme='light'] .d-dark {
-  display: none;
+    display: none;
 }
 
 [data-bs-theme='dark'] .d-light {
-  display: none;
+    display: none;
 }
 
 [data-bs-theme='light'] .d-auto {
-  display: none;
+    display: none;
 }
 
 [data-bs-theme='dark'] .d-auto {
-  display: none;
+    display: none;
 }
 
-ul.icon
-{
-	list-style-type: none;
+ul.mine {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
 }
 
-ul.icon li
-{
-	text-indent: -1em;
+ul.mine.grad li {
+    padding-left: 1em;
+    text-indent: 1em;
 }
 
-ul.icon li:before
-{
-	font-family: bullets;
-	content: "\e800";
-	float: left;
-	width: 1em;
+ul.mine.grad li:before {
+    font-family: 'FontAwesome';
+    content: '\f19d';
+    margin: 0 5px 0 -15px;
+    color: #fff;
 }
 
-ul.icon li.info:before { content: "\e800"; }
-ul.icon li.star:before { content: "\e803"; }
-ul.icon li.help:before { content: "\e801"; }
-ul.icon li.bulb:before { content: "\e804"; }
-ul.icon li.hand:before { content: "\e805"; }
-ul.icon li.bgrad:before { content: "\f19d"; }
-ul.icon li.grad::before { content: "\f19d"; }
+ul.mine.grad li:before {
+    font-family: 'FontAwesome';
+    content: '\f19d';
+    margin: 0 5px 0 -15px;
+    color: #fff;
+}
