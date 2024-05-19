@@ -23,11 +23,11 @@
     "test": "npm run build"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3"
+    "@popperjs/core": "^2.11.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
+    "bootstrap": "^5.3.3",
     "css-loader": "^7.1.1",
     "esbuild": "0.21.3",
     "html-loader": "^5.0.0",

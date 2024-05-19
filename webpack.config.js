@@ -3,6 +3,7 @@
 const path = require('path')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -11,29 +12,36 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devServer:{
+  devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 8080,
     hot: true
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' })
-  ],
+    new HtmlWebpackPlugin({ template: './src/index.html',  favicon: './src/favicon/favicon-32x32.png', // Add this line to include favicon
+  }),
+  new CopyWebpackPlugin({
+    patterns: [
+      { from: 'src/css', to: 'css' },
+      { from: 'src/favicon', to: 'favicon' },
+    ],
+  }),
+],
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
+        test: /\.css$/,
         use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
           {
-            // Adds CSS to the DOM by injecting a `<style>` tag
-            loader: 'style-loader'
-          },
-          {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: 'css-loader'
-          },
-          {
-            // Loader for webpack to process CSS with PostCSS
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
@@ -43,10 +51,7 @@ module.exports = {
               }
             }
           },
-          {
-            // Loads a SASS/SCSS file and compiles it to CSS
-            loader: 'sass-loader'
-          }
+          'sass-loader'
         ]
       }
     ]
