@@ -1,9 +1,12 @@
 {
-  "name": "sass-js",
-  "description": "Include Bootstrap's source Sass and compiled JavaScript bundle via npm.",
+  "name": "ivanna",
+  "description": "My Website via npm hopefully",
   "version": "0.0.0",
   "private": true,
-  "repository": "twbs/examples",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbnormalHumanBean/crispy-memory"
+  },
   "license": "MIT",
   "stackblitz": {
     "startCommand": "npm start"
