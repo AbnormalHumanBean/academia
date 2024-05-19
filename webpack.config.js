@@ -20,6 +20,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html',  favicon: './src/favicon/favicon-32x32.png', // Add this line to include favicon
   }),
+  new HtmlWebpackPlugin({ template: './src/about.html', filename: 'about.html' }),
+  new HtmlWebpackPlugin({ template: './src/resources.html', filename: 'resources.html' }),
+  new HtmlWebpackPlugin({ template: './src/explore.html', filename: 'explore.html' }),
+  new HtmlWebpackPlugin({ template: './src/research.html', filename: 'research.html' }),
+  new HtmlWebpackPlugin({ template: './src/resources_research.html', filename: 'resources._research.html' }),
+  new HtmlWebpackPlugin({ template: './src/teaching.html', filename: 'teaching.html' }),
   new CopyWebpackPlugin({
     patterns: [
       { from: 'src/css', to: 'css' },
