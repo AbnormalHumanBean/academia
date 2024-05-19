@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/AbnormalHumanBean/crispy-memory"
+    "url": "git+https://github.com/AbnormalHumanBean/crispy-memory.git"
   },
   "license": "MIT",
   "scripts": {
@@ -37,7 +37,7 @@
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-loader": "^8.1.1",
-    "sass": "^1.76.0",
+    "sass": "^1.77.2",
     "sass-loader": "^14.2.1",
     "sirv-cli": "^2.0.2",
     "style-loader": "^4.0.0",
@@ -46,5 +46,12 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
-  }
+  },
+  "main": "webpack.config.js",
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/AbnormalHumanBean/crispy-memory/issues"
+  },
+  "homepage": "https://github.com/AbnormalHumanBean/crispy-memory#readme"
 }

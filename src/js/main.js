@@ -2,12 +2,13 @@
 //
 // This includes Popper and all of Bootstrap's JS plugins.
 
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
-
+import '../scss/styles.scss';
 
 //
 // Place any custom JS here
 //
+
+import { Popover } from 'bootstrap';
 
 
 // Create an example popover
