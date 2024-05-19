@@ -1,7 +1,6 @@
 {
   "name": "ivanna",
   "description": "My Website via npm hopefully",
-  "main": "index.html",
   "version": "0.0.0",
   "private": true,
   "repository": {
@@ -29,6 +28,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
+    "esbuild": "0.21.3",
     "nodemon": "^3.1.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
