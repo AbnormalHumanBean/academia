@@ -3,11 +3,12 @@
 // This includes Popper and all of Bootstrap's JS plugins.
 
 import '../scss/styles.scss'
-
+import '../css/additions.css';
+// import './githubget.js';
+ import './color-modes.js';
 //
 // Place any custom JS here
 //
-
 import * as bootstrap from 'bootstrap'
 
 
