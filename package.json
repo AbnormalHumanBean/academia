@@ -1,6 +1,7 @@
 {
   "name": "ivanna",
   "description": "My Website via npm hopefully",
+  "main": "index.html",
   "version": "0.0.0",
   "private": true,
   "repository": {
