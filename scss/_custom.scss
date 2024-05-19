@@ -1,0 +1,33 @@
+
+
+@for $i from 1 through 6 {
+    h#{$i} {
+      font-weight: 500;
+    }
+  }
+  
+  hr {
+    $class1-color: #000000;
+    $class2-color: #343a40;
+    $class3-color: #54289C;
+    
+    &.b {
+        color: $class1-color;
+        border-top-color: $class1-color;
+        border-top: 5px solid;
+         opacity: 1;
+    }
+    
+    &.dark {
+        color: $class2-color;
+        border-top-color: $class2-color;
+        border-top: 2px solid;
+    }
+    &.purple {
+        color: var(--#{$prefix}border-color);
+        border-top-color: var(--#{$prefix}border-color);
+        border-top: 5px solid;
+        opacity: .90;
+    }
+    
+  }

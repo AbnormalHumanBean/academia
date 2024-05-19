@@ -77,7 +77,7 @@ ul.mine.grad li:before {
   --bs-body-color-rgb: rgba(217, 213, 221, 0.874);
   --bs-body-bg: #151316;
   --bs-body-bg-rgb:21, 19, 23;
-  --bs-emphasis-color: #E0DCE4;
+  --bs-emphasis-color: #e0dce4;
   --bs-emphasis-color-rgb:224, 220, 228;
   --bs-secondary-color: #dee2e6bf;
   --bs-secondary-color-rgb: 222, 226, 230;
@@ -98,4 +98,5 @@ ul.mine.grad li:before {
   --bs-border-color:#54289C;
   --bs-border-color-translucent: rgba(133, 64, 245, 0.5);
   --bs-border-width: 2px;
+  --bs-heading-color: #e0dce4;
 }

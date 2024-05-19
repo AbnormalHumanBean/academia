@@ -35,23 +35,11 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
 
 // Customize some defaults
 
-hr {
-  $class1-color: #ff0000;
-  $class2-color: #343a40;
-  
-  &.bottom {
-      color: $class1-color;
-  }
-  
-  &.dark {
-      color: $class2-color;
-  }
-}
-
 // Required
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 $accordion-border-color: var(--#{$prefix}secondary-bg);
+@import "custom";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
@@ -99,4 +87,5 @@ $accordion-border-color: var(--#{$prefix}secondary-bg);
 //
 $accordion-button-color: var(--#{$prefix}primary-text-emphasis) !default;
 $accordion-button-active-color:var(--#{$prefix}body-color) !default;
+
 @import "icon-list";
