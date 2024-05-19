@@ -2,13 +2,13 @@
 //
 // This includes Popper and all of Bootstrap's JS plugins.
 
-import '../scss/styles.scss';
+import '../scss/styles.scss'
 
 //
 // Place any custom JS here
 //
 
-import { Popover } from 'bootstrap';
+import * as bootstrap from 'bootstrap'
 
 
 // Create an example popover
