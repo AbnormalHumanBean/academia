@@ -25,30 +25,25 @@
     display: none;
 }
 
-ul.mine {
+ul.mine.grad {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
 }
 
 ul.mine.grad li {
-    padding-left: 1em;
-    text-indent: 1em;
+    padding-left: 2em; /* Adjust the padding as needed */
+    text-indent: -2em;
+    margin-bottom:1.5em; /* Adjust the text-indent to align with the bullet */
 }
 
 ul.mine.grad li:before {
-    font-family: 'FontAwesome';
     content: '\f19d';
-    margin: 0 5px 0 -15px;
+    font-family: 'FontAwesome';
+    margin-right: 5px; /* Adjust the margin to position the bullet */
     color: #fff;
 }
 
-ul.mine.grad li:before {
-    font-family: 'FontAwesome';
-    content: '\f19d';
-    margin: 0 5px 0 -15px;
-    color: #fff;
-}
 .img-size {
     max-width: 50%;
     height: auto;
@@ -99,3 +94,18 @@ ul.mine.grad li:before {
   --bs-border-width: 2px;
   --bs-heading-color: #e0dce4;
 }
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Optional, adds space between header and progress bar */
+  }
+  
+  .skill-header span:first-child {
+    font-weight: bold; /* Optional, emphasizes skill name */
+  }
+  
+  .skill-value {
+    margin-left: auto; /* Aligns the value to the right */
+  }
