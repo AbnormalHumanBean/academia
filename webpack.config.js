@@ -32,6 +32,12 @@ module.exports = {
       { from: 'src/favicon', to: 'favicon' },
     ],
   }),
+  new CopyWebpackPlugin({
+    patterns: [
+      { from: 'src/images', to: 'images' },
+      // Add other directories or files to copy as needed
+    ],
+  }),
 ],
   module: {
     rules: [
