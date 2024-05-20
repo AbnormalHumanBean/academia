@@ -7,9 +7,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/js/main.js',
+  entry: { 
+  main:'./src/js/main.js',
+  githubget: './src/js/githubget.js',},
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
