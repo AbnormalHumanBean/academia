@@ -70,9 +70,8 @@ ul.mine.grad li:before {
         margin-bottom: calc(1*var(--bs-gutter-y));
     }
     
-:root,
-[data-bs-theme=dark] {
-  color-scheme: dark;
+[data-bs-theme=dark]
+{color-scheme:dark;
   --bs-body-color: #d9d5dddf;
   --bs-body-color-rgb: rgba(217, 213, 221, 0.874);
   --bs-body-bg: #151316;
