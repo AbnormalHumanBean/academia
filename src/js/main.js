@@ -46,14 +46,6 @@ import { fetchFile } from './httpHelpers.js';
 // bundle font and image files and register them in the virtual fs
 import './registerStaticFiles.js';
 
-v
-fetchFile(testImageURL)
-  .then(testImageData => {
-    fs.writeFileSync('images/test.jpg', testImageData);
-  })
-  .catch(error => {
-    console.error(error);
-  });
 
 var initialFnCode = `// create a document
 var doc = new PDFDocument();
