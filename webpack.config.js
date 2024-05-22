@@ -1,20 +1,29 @@
-'use strict'
-
+'use strict';
 const path = require('path');
-const webpack = require('webpack');
+const webpack = require("webpack"); 
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const htmlWebpackPluginConfig = (template, filename, chunks) => ({
+  template,
+  filename,
+  chunks,
+  inject: 'body',
+});
+
 module.exports = {
-  mode: 'development',
-  entry: { 
+  context: __dirname,
+  mode: 'none',
+  entry: {
     main: './src/js/main.js',
-    githubget: './src/js/githubget.js',
+    githubget: './src/js/githubget.js'
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    clean: true,
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -22,37 +31,45 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html', favicon: './src/favicon/favicon-32x32.png' }),
-    new HtmlWebpackPlugin({ template: './src/about.html', filename: 'about.html' }),
-    new HtmlWebpackPlugin({ template: './src/resources.html', filename: 'resources.html' }),
-    new HtmlWebpackPlugin({ template: './src/explore.html', filename: 'explore.html' }),
-    new HtmlWebpackPlugin({ template: './src/research.html', filename: 'research.html' }),
-    new HtmlWebpackPlugin({ template: './src/resources_research.html', filename: 'resources._research.html' }),
-    new HtmlWebpackPlugin({ template: './src/teaching.html', filename: 'teaching.html' }),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/index.html', 'index.html', ['main'])),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/about.html', 'about.html', ['main'])),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/resources.html', 'resources.html', ['main'])),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/explore.html', 'explore.html', ['main', 'githubget'])),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/research.html', 'research.html', ['main'])),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/resources_research.html', 'resources_research.html', ['main'])),
+    new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching.html', 'teaching.html', ['main'])),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/css', to: 'css' },
         { from: 'src/favicon', to: 'favicon' },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
         { from: 'src/images', to: 'images' },
+        { from: 'src/includes', to: 'includes' },
       ],
     }),
-    new webpack.ProvidePlugin({
-      Buffer: ['buffer', 'Buffer'],
-      process: 'process/browser',
-    }),
+    function () {
+      this.hooks.compilation.tap('HtmlWebpackPlugin', (compilation) => {
+        HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
+          'InjectCssPlugin',
+          (data, cb) => {
+            const stylesheets = [
+              '<link rel="stylesheet" href="css/styles.css">',
+              '<link rel="stylesheet" href="css/additions.css">'
+            ];
+            data.html = data.html.replace(
+              '</head>',
+              stylesheets.join('\n') + '\n</head>'
+            );
+            cb(null, data);
+          }
+        );
+      });
+    }
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -63,53 +80,34 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  autoprefixer,
-                ],
+                plugins: [autoprefixer],
               },
             },
           },
           'sass-loader',
         ],
       },
-      { 
-        test: /\.afm$/, 
-        type: 'asset/source' 
+      { test: /\.svg$/,
+      loader: 'svg-url-loader',
+      options: {
+        // Images larger than 10 KB won’t be inlined
+        limit: 10 * 1024,
+        // Remove quotes around the encoded URL –
+        // they’re rarely useful
+        noquotes: true,
+      }
       },
       {
-        test: /src[/\\]includes/,
-        type: 'asset/resource',
-      },
-      {
-        enforce: 'post',
-        test: /fontkit[/\\]index.js$/,
-        loader: 'transform-loader',
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
         options: {
-          brfs: {},
-        },
-      },
-      {
-        enforce: 'post',
-        test: /linebreak[/\\]src[/\\]linebreaker.js/,
-        loader: 'transform-loader',
-        options: {
-          brfs: {},
-        },
-      },
+          // Images larger than 10 KB won’t be inlined
+          limit: 10 * 1024
+        }
+      }
     ],
   },
-  resolve: {
-    alias: {
-      fs: 'pdfkit/js/virtual-fs.js',
-      'iconv-lite': false,
-    },
-    fallback: {
-      crypto: false,
-      buffer: require.resolve('buffer/'),
-      stream: require.resolve('readable-stream'),
-      zlib: require.resolve('browserify-zlib'),
-      util: require.resolve('util/'),
-      assert: require.resolve('assert/'),
-    },
+  optimization: {
+    minimize: true,
   },
 };
