@@ -53,7 +53,9 @@ module.exports = {
           (data, cb) => {
             const stylesheets = [
               '<link rel="stylesheet" href="css/styles.css">',
-              '<link rel="stylesheet" href="css/additions.css">'
+              '<link rel="stylesheet" href="css/additions.css">',
+              '<link rel="stylesheet" href="css/icofont.css">',
+              '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">'
             ];
             data.html = data.html.replace(
               '</head>',

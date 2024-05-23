@@ -103,9 +103,45 @@ ul.mine.grad li:before {
   }
   
   .skill-header span:first-child {
-    font-weight: bold; /* Optional, emphasizes skill name */
+    font-weight: bold; 
+    font-family:var(--bs-body-font-family);/* Optional, emphasizes skill name */
+  font-size: var(--bs-body-font-size);
+  line-height: var(--bs-body-line-height);
   }
   
   .skill-value {
     margin-left: auto; /* Aligns the value to the right */
   }
+
+.bi-li{
+  left: calc(var(--fa-li-width, 2em)*-1);
+  font-weight: 800;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+  display: var(inline-block);
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+   top: 10px;
+}
+.ico-li{
+  left: calc(var(--fa-li-width, 2em)*-1);
+  position: absolute;
+  text-align: center;
+  width:2em;
+  line-height: inherit;
+  display: var(inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+   top: 15px;
+}
+
+.ico-adj {
+top: 10px;
+}
+
+
