@@ -1,57 +1,57 @@
 {
-  "name": "ivanna",
-  "description": "My Website via npm hopefully",
-  "version": "0.0.0",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AbnormalHumanBean/crispy-memory.git"
-  },
-  "license": "MIT",
-  "scripts": {
-    "cbuild": "npm run css",
-    "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules scss/:css/",
-    "css-lint": "stylelint scss/ --fix",
-    "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map",
-    "css": "npm-run-all css-compile css-prefix",
-    "server": "sirv --dev --no-clear --port 3000",
-    "cstart": "npm-run-all --parallel watch server",
-    "watch": "nodemon -e html,scss -x \"npm run css\"",
-    "ctest": "npm-run-all css-lint css",
-    "start": "webpack serve",
-    "build": "webpack build --mode=production",
-    "test": "npm run build"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "bootstrap": "^5.3.3",
-    "copy-webpack-plugin": "^12.0.2",
-    "css-loader": "^7.1.1",
-    "html-webpack-plugin": "^5.6.0",
-    "nodemon": "^3.1.0",
-    "npm-run-all": "^4.1.5",
-    "pdfjs-dist": "^4.2.67",
-    "postcss": "^8.4.38",
-    "postcss-cli": "^11.0.0",
-    "postcss-loader": "^8.1.1",
-    "sass": "^1.77.2",
-    "sass-loader": "^14.2.1",
-    "sirv-cli": "^2.0.2",
-    "style-loader": "^4.0.0",
-    "stylelint": "^16.4.0",
-    "stylelint-config-twbs-bootstrap": "^14.1.0",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
-  },
-  "main": "webpack.config.js",
-  "keywords": [],
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/AbnormalHumanBean/crispy-memory/issues"
-  },
-  "homepage": "https://github.com/AbnormalHumanBean/crispy-memory#readme"
+	"name": "ivanna",
+	"description": "My Website via npm hopefully",
+	"version": "0.0.0",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AbnormalHumanBean/crispy-memory.git"
+	},
+	"license": "MIT",
+	"scripts": {
+		"cbuild": "npm run css",
+		"css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules/ src/scss/:src/css/",
+		"css-lint": "stylelint scss/ --fix",
+		"css-prefix": "postcss --replace src/css/styles.css --use autoprefixer --map",
+		"css": "npm-run-all css-compile css-prefix",
+		"server": "sirv --dev --no-clear --port 3000",
+		"cstart": "npm-run-all --parallel watch server",
+		"watch": "nodemon -e html,scss -x \"npm run css\"",
+		"ctest": "npm-run-all css-lint css",
+		"start": "webpack serve",
+		"build": "webpack build --mode=production",
+		"test": "npm run build"
+	},
+	"dependencies": {
+		"@popperjs/core": "^2.11.8"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.19",
+		"bootstrap": "^5.3.3",
+		"copy-webpack-plugin": "^12.0.2",
+		"css-loader": "^7.1.1",
+		"html-webpack-plugin": "^5.6.0",
+		"nodemon": "^3.1.0",
+		"npm-run-all": "^4.1.5",
+		"pdfjs-dist": "^4.2.67",
+		"postcss": "^8.4.38",
+		"postcss-cli": "^11.0.0",
+		"postcss-loader": "^8.1.1",
+		"sass": "^1.77.2",
+		"sass-loader": "^14.2.1",
+		"sirv-cli": "^2.0.2",
+		"style-loader": "^4.0.0",
+		"stylelint": "^16.4.0",
+		"stylelint-config-twbs-bootstrap": "^14.1.0",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^5.0.4"
+	},
+	"main": "webpack.config.js",
+	"keywords": [],
+	"author": "",
+	"bugs": {
+		"url": "https://github.com/AbnormalHumanBean/crispy-memory/issues"
+	},
+	"homepage": "https://github.com/AbnormalHumanBean/crispy-memory#readme"
 }
