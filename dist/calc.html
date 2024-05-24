@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <title>ECO 2305 Grade Calculator</title>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      background: #FDFDFD;
+      color: black;
+      margin: 10px;
+    }
+    p {
+      text-indent: 30px;
+    }
+    header {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      background: #FDFDFD;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .table-container {
+      margin: auto;
+      width: 100%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    table {
+      margin: 0 auto;
+    }
+    table td {
+      padding-right: 10px;
+      padding-top: 2px;
+    }
+    input {
+      font-size: 16px;
+    }
+    input[type="text"] {
+      width: 100px;
+      /* Change this value to adjust the width */
+      height: 25px;
+      /* Change this value to adjust the height */
+      font-size: 16px;
+      /* Optional: Change this value to adjust the font size */
+      color: #333;
+      /* Optional: Change this value to adjust the text color */
+      border: 1px solid #ccc;
+      /* Optional: Change this value to adjust the border color */
+      padding: 5px;
+      /* Optional: Change this value to adjust the padding */
+    }
+    #output {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      font-size: 20px
+    }
+    ul {
+      font-size: 14px;
+      padding-left: 60px;
+    }
+  </style>
+</head>
+<header>
+  <h1>ECO2305 Grade Calculator</h1>
+</header>
+<body>
+  <p><strong>Steps to find grade:</strong></p>
+  <p><strong> 1.</strong> Type in a number for each of the catagories.&nbsp;</p>
+  <ul>
+    <li> For the average hw and quiz grade, drop the lowest grade. </li>
+  </ul>
+  <p><strong>2.</strong> Press calculate grade to the find the results. </p>
+  <p>
+    <ul>
+      <li>For the how each grade is weighted see syllabus. </li>
+    </ul>
+  </p>
+  <div class="table-container">
+    <table>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Exam 1
+        </td>
+        <td>
+          <input type="text" id="exam1" autocomplete="off" />
+        </td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td>
+          Exam 2
+        </td>
+        <td>
+          <input type="text" id="exam2" autocomplete="off" />
+        </td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td>
+          Exam 3
+        </td>
+        <td>
+          <input type="text" id="exam3" autocomplete="off" />
+        </td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td>
+          Average Homework
+        </td>
+        <td>
+          <input type="text" id="avghw" autocomplete="off" />
+        </td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td>
+          Average Quiz
+        </td>
+        <td>
+          <input type="text" id="avgquiz" autocomplete="off" />
+        </td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td>
+          Final Exam
+        </td>
+        <td>
+          <input type="text" id="finalexam" autocomplete="off" />
+        </td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align:center">
+          <br />
+          <input type="button" value="Calculate Grade" onclick="calculateGrade()">
+        </td>
+      </tr>
+    </table>
+    <div id="output">&nbsp;</div>
+  </div>
+  <script>
+    function calculateGrade() {
+      var exam1 = parseFloat(document.getElementById("exam1").value);
+      var exam2 = parseFloat(document.getElementById("exam2").value);
+      var exam3 = parseFloat(document.getElementById("exam3").value);
+      var avgquiz = parseFloat(document.getElementById("avgquiz").value);
+      var avghw = parseFloat(document.getElementById("avghw").value);
+      var finalExam = parseFloat(document.getElementById("finalexam").value);
+
+      // Sort the exam scores
+      var sortedScores = [exam1, exam2, exam3].sort(function (a, b) {
+        return a - b;
+      });
+
+      var maxScore = sortedScores[2];
+      var medianScore = sortedScores[1];
+      var minScore = sortedScores[0];
+
+      var grade = maxScore * 0.25 + medianScore * 0.15 + minScore * 0.1 + avgquiz * 0.1 + avghw * 0.2 + finalExam * 0.2;
+
+      var roundedGrade = Math.round(grade);
+      var letterGrade;
+      if (roundedGrade >= 88) {
+        letterGrade = "A";
+      } else if (roundedGrade >= 78) {
+        letterGrade = "B";
+      } else if (roundedGrade >= 68) {
+        letterGrade = "C";
+      } else if (roundedGrade >= 58) {
+        letterGrade = "D";
+      } else {
+        letterGrade = "F";
+      }
+      // Display the grade
+      var gradeResult = "Your Final Grade would be a(n) " + letterGrade + " (" + grade.toFixed(2) + "%)";
+      document.getElementById("output").innerHTML = gradeResult;
+    }
+  </script>
+</body>
+
+</html>

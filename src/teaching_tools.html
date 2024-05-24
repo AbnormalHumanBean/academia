@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources for teaching</title>
+  <!-- Webpack will inject code here-->
+
+</head>
+
+<body>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#ca" aria-expanded="false" aria-controls="ca">
+            Show Example Review
+          </button>
+        </p>
+        <div class="collapse collapse-horizontal vh-100 vw-100" id="ca">
+          <div class="card card-body h-90 w-sm-95 w-md-75 w-lg-50">
+            <object data="includes/example_review.pdf" type="application/pdf" height="700"></object>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#cb" aria-expanded="false" aria-controls="cb">
+            Show Example Slides
+          </button>
+        </p>
+        <div class="collapse collapse-horizontal vh-100 vw-100" id="cb">
+          <div class="card card-body h-85 w-sm-95 w-md-75 w-lg-50">
+            <object data="includes/example_slides.pdf" type="application/pdf" height="700"> </object>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+    <h1> Embed-able Grade Calculator for Blackboard: </h1>
+    <p> The grading scheme required for the course was confusing to students, and difficult to explain. Thus after much confusion around grades, I created the following calculator. It uses JavaScript within so that it could be easily uploaded to Blackboard and then included as an iframe.</p>
+    <iframe src="./calc.html" style="width: 50%; height: 500px; border: none;"> </iframe>
+    <pre>
+    <code id="pre-code"> &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap&quot;
+          rel=&quot;stylesheet&quot;&gt;
+        &lt;title&gt;ECO 2305 Grade Calculator&lt;/title&gt;
+        &lt;style&gt;
+          body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            background: #FDFDFD;
+            color: black;
+            margin: 10px;
+          }
+          p {
+            text-indent: 30px;
+          }
+          header {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            background: #FDFDFD;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          }
+          .table-container {
+            margin: auto;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+          }
+          table {
+            margin: 0 auto;
+          }
+          table td {
+            padding-right: 10px;
+            padding-top: 2px;
+          }
+          input {
+            font-size: 16px;
+          }
+          input[type=&quot;text&quot;] {
+            width: 100px;
+            /* Change this value to adjust the width */
+            height: 25px;
+            /* Change this value to adjust the height */
+            font-size: 16px;
+            /* Optional: Change this value to adjust the font size */
+            color: #333;
+            /* Optional: Change this value to adjust the text color */
+            border: 1px solid #ccc;
+            /* Optional: Change this value to adjust the border color */
+            padding: 5px;
+            /* Optional: Change this value to adjust the padding */
+          }
+          #output {
+            margin-top: 16px;
+            margin-bottom: 16px;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            font-size: 20px
+          }
+          ul {
+            font-size: 14px;
+            padding-left: 60px;
+          }
+        &lt;/style&gt;
+      &lt;/head&gt;
+      &lt;header&gt;
+        &lt;h1&gt;ECO2305 Grade Calculator&lt;/h1&gt;
+      &lt;/header&gt;
+      &lt;body&gt;
+        &lt;p&gt;&lt;strong&gt;Steps to find grade:&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt; 1.&lt;/strong&gt; Type in a number for each of the catagories.&amp;nbsp;&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt; For the average hw and quiz grade, drop the lowest grade. &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Press calculate grade to the find the results. &lt;/p&gt;
+        &lt;p&gt;
+          &lt;ul&gt;
+            &lt;li&gt;For the how each grade is weighted see syllabus. &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/p&gt;
+        &lt;div class=&quot;table-container&quot;&gt;
+          &lt;table&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &amp;nbsp;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                Exam 1
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; id=&quot;exam1&quot; autocomplete=&quot;off&quot; /&gt;
+              &lt;/td&gt;
+              &lt;td&gt;%&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                Exam 2
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; id=&quot;exam2&quot; autocomplete=&quot;off&quot; /&gt;
+              &lt;/td&gt;
+              &lt;td&gt;%&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                Exam 3
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; id=&quot;exam3&quot; autocomplete=&quot;off&quot; /&gt;
+              &lt;/td&gt;
+              &lt;td&gt;%&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                Average Homework
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; id=&quot;avghw&quot; autocomplete=&quot;off&quot; /&gt;
+              &lt;/td&gt;
+              &lt;td&gt;%&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                Average Quiz
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; id=&quot;avgquiz&quot; autocomplete=&quot;off&quot; /&gt;
+              &lt;/td&gt;
+              &lt;td&gt;%&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                Final Exam
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; id=&quot;finalexam&quot; autocomplete=&quot;off&quot; /&gt;
+              &lt;/td&gt;
+              &lt;td&gt;%&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td colspan=&quot;3&quot; style=&quot;text-align:center&quot;&gt;
+                &lt;br /&gt;
+                &lt;input type=&quot;button&quot; value=&quot;Calculate Grade&quot; onclick=&quot;calculateGrade()&quot;&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+          &lt;div id=&quot;output&quot;&gt;&amp;nbsp;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+          function calculateGrade() {
+            var exam1 = parseFloat(document.getElementById(&quot;exam1&quot;).value);
+            var exam2 = parseFloat(document.getElementById(&quot;exam2&quot;).value);
+            var exam3 = parseFloat(document.getElementById(&quot;exam3&quot;).value);
+            var avgquiz = parseFloat(document.getElementById(&quot;avgquiz&quot;).value);
+            var avghw = parseFloat(document.getElementById(&quot;avghw&quot;).value);
+            var finalExam = parseFloat(document.getElementById(&quot;finalexam&quot;).value);
+      
+            // Sort the exam scores
+            var sortedScores = [exam1, exam2, exam3].sort(function (a, b) {
+              return a - b;
+            });
+      
+            var maxScore = sortedScores[2];
+            var medianScore = sortedScores[1];
+            var minScore = sortedScores[0];
+      
+            var grade = maxScore * 0.25 + medianScore * 0.15 + minScore * 0.1 + avgquiz * 0.1 + avghw * 0.2 + finalExam * 0.2;
+      
+            var roundedGrade = Math.round(grade);
+            var letterGrade;
+            if (roundedGrade &gt;= 88) {
+              letterGrade = &quot;A&quot;;
+            } else if (roundedGrade &gt;= 78) {
+              letterGrade = &quot;B&quot;;
+            } else if (roundedGrade &gt;= 68) {
+              letterGrade = &quot;C&quot;;
+            } else if (roundedGrade &gt;= 58) {
+              letterGrade = &quot;D&quot;;
+            } else {
+              letterGrade = &quot;F&quot;;
+            }
+            // Display the grade
+            var gradeResult = &quot;Your Final Grade would be a(n) &quot; + letterGrade + &quot; (&quot; + grade.toFixed(2) + &quot;%)&quot;;
+            document.getElementById(&quot;output&quot;).innerHTML = gradeResult;
+          }
+        &lt;/script&gt;
+      &lt;/body&gt;
+      
+      &lt;/html&gt;</code>
+    </pre>
+  </div>
+</section>
+</body>
+<hr class="b">
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Copyright © Ivanna Porter. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>
