@@ -74,7 +74,7 @@ module.exports = {
                             '<link rel="preload" href="css/icofont.css">',
                             '<link rel="preload" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">',
                             '<link rel="preload" href="css/bootstrap-icons.css">',
-                            '<script rel="preload" src="https://kit.fontawesome.com/33332c4d45.js" crossorigin="anonymous"></script>',
+                            '<script src="https://kit.fontawesome.com/33332c4d45.js" crossorigin="anonymous"></script>',
                             '<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">',
                             '<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">',
                             '<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">',
