@@ -78,7 +78,7 @@ $utilities: map-merge(
 @import "../../node_modules/bootstrap/scss/progress";
 //@import "../../node_modules/bootstrap/scss/list-group";
 // @import "bootstrap/scss/close";
-@import "../../node_modules/bootstrap/scss/toasts";
+//@import "../../node_modules/bootstrap/scss/toasts";
 // @import "bootstrap/scss/modal"; // Requires transitions
 @import "../../node_modules/bootstrap/scss/tooltip";
 @import "../../node_modules/bootstrap/scss/popover";
@@ -88,7 +88,7 @@ $utilities: map-merge(
 // @import "bootstrap/scss/placeholders";
 
 // Helpers
-//@import "../../node_modules/bootstrap/scss/helpers";
+@import "../../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/utilities/api";
 //
 // Custom styles
