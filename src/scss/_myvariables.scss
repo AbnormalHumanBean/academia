@@ -576,7 +576,7 @@ $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color
 // scss-docs-start caret-variables
 $caret-width:                 .3em !default;
 $caret-vertical-align:        $caret-width * .85 !default;
-$caret-spacing:               $caret-width * .85 !default;
+$caret-spacing:               $caret-width * .25 !default;
 // scss-docs-end caret-variables
 
 $transition-base:             all .2s ease-in-out !default;

@@ -18,7 +18,7 @@
 		"cstart": "npm-run-all --parallel watch server",
 		"watch": "nodemon -e html,scss -x \"npm run css\"",
 		"ctest": "npm-run-all css-lint css",
-		"start": "webpack serve",
+		"start": "webpack serve --no-client-overlay",
 		"build": "webpack build --mode=production",
 		"test": "npm run build"
 	},
