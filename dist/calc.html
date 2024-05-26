@@ -43,17 +43,11 @@
     }
     input[type="text"] {
       width: 100px;
-      /* Change this value to adjust the width */
       height: 25px;
-      /* Change this value to adjust the height */
       font-size: 16px;
-      /* Optional: Change this value to adjust the font size */
       color: #333;
-      /* Optional: Change this value to adjust the text color */
       border: 1px solid #ccc;
-      /* Optional: Change this value to adjust the border color */
       padding: 5px;
-      /* Optional: Change this value to adjust the padding */
     }
     #output {
       margin-top: 16px;
@@ -86,67 +80,28 @@
   </p>
   <div class="table-container">
     <table>
-      <tr>
-        <td>
+      <tr><td>
           &nbsp;
-        </td>
+        </td></tr>
+      <tr><td> Exam 1 </td> 
+        <td> <input type="text" id="exam1" autocomplete="off" /> </td><td>%</td>
       </tr>
-      <tr>
-        <td>
-          Exam 1
-        </td>
-        <td>
-          <input type="text" id="exam1" autocomplete="off" />
-        </td>
-        <td>%</td>
+      <tr><td> Exam 2 </td>
+        <td> <input type="text" id="exam2" autocomplete="off" /> </td> <td>%</td>
       </tr>
-      <tr>
-        <td>
-          Exam 2
-        </td>
-        <td>
-          <input type="text" id="exam2" autocomplete="off" />
-        </td>
-        <td>%</td>
+      <tr><td> Exam 3 </td> 
+        <td> <input type="text" id="exam3" autocomplete="off" /> </td> <td>%</td>
       </tr>
-      <tr>
-        <td>
-          Exam 3
-        </td>
-        <td>
-          <input type="text" id="exam3" autocomplete="off" />
-        </td>
-        <td>%</td>
+      <tr> <td> Average Homework </td> 
+          <td> <input type="text" id="avghw" autocomplete="off" /> </td> <td>%</td>
       </tr>
-      <tr>
-        <td>
-          Average Homework
-        </td>
-        <td>
-          <input type="text" id="avghw" autocomplete="off" />
-        </td>
-        <td>%</td>
+      <tr> <td> Average Quiz </td> 
+        <td> <input type="text" id="avgquiz" autocomplete="off" /> </td> <td>%</td>
       </tr>
-      <tr>
-        <td>
-          Average Quiz
-        </td>
-        <td>
-          <input type="text" id="avgquiz" autocomplete="off" />
-        </td>
-        <td>%</td>
+      <tr> <td> Final Exam </td> 
+        <td> <input type="text" id="finalexam" autocomplete="off" /> </td> <td>%</td>
       </tr>
-      <tr>
-        <td>
-          Final Exam
-        </td>
-        <td>
-          <input type="text" id="finalexam" autocomplete="off" />
-        </td>
-        <td>%</td>
-      </tr>
-      <tr>
-        <td colspan="3" style="text-align:center">
+      <tr> <td colspan="3" style="text-align:center">
           <br />
           <input type="button" value="Calculate Grade" onclick="calculateGrade()">
         </td>
@@ -154,6 +109,7 @@
     </table>
     <div id="output">&nbsp;</div>
   </div>
+  
   <script>
     function calculateGrade() {
       var exam1 = parseFloat(document.getElementById("exam1").value);
@@ -163,7 +119,7 @@
       var avghw = parseFloat(document.getElementById("avghw").value);
       var finalExam = parseFloat(document.getElementById("finalexam").value);
 
-      // Sort the exam scores
+      // Sort the exam scores //
       var sortedScores = [exam1, exam2, exam3].sort(function (a, b) {
         return a - b;
       });
@@ -187,7 +143,7 @@
       } else {
         letterGrade = "F";
       }
-      // Display the grade
+      // Display the grade //
       var gradeResult = "Your Final Grade would be a(n) " + letterGrade + " (" + grade.toFixed(2) + "%)";
       document.getElementById("output").innerHTML = gradeResult;
     }
