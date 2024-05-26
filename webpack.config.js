@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const htmlWebpackPluginConfig = (template, filename, chunks) => ({
     template,
@@ -81,7 +82,7 @@ module.exports = {
                             '<link rel="manifest" href="favicon/site.webmanifest"></link>',
                         ];
                         const nav = [
-									'<nav class="navbar fixed-top navbar-expand bg-body-tertiary bg-nav">',
+									'<nav class="navbar fixed-top navbar-expand-sm bg-body-tertiary bg-nav">',
 									'  <a class="navbar-brand" href="#">',
 									'    <img src="images/ip-icon.png" alt="the letter i with the letter p" width="35" height="35" />',
 									"  </a>",
@@ -118,8 +119,6 @@ module.exports = {
 									"        </ul>",
 									"      </li>",
 									"    </ul>",
-									"  </div>",
-									"  <div>",
 									'    <ul class="navbar-nav ms-0 me-1">',
 									'      <li class="nav-item dropdown">',
 									'        <a href="#" class="nav-link px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-color-mode" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" data-bs-toggle="tooltip" title="Toggle color mode">',
@@ -212,5 +211,6 @@ module.exports = {
     },
     optimization: {
         minimize: true,
-    },
+        minimizer: [new TerserPlugin()],
+      },
 };
