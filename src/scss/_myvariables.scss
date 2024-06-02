@@ -304,7 +304,7 @@ $success:       $teal-500 !default;
 $info:          $pink-300 !default;
 $warning:       $yellow-500 !default;
 $danger:         #CC0000 !default;
-$light:         $gray-100 !default;
+$light:         $indigo-100!default;
 $dark:          $gray-900 !default;
 // scss-docs-end theme-color-variables
 
@@ -1509,7 +1509,7 @@ $modal-title-line-height:           $line-height-base !default;
 
 $modal-content-color:               null !default;
 $modal-content-bg:                  var(--#{$prefix}body-bg) !default;
-$modal-content-border-color:        var(--#{$prefix}border-color-translucent) !default;
+$modal-content-border-color:        rgba($indigo-900, .90)  !default;
 $modal-content-border-width:        var(--#{$prefix}border-width) !default;
 $modal-content-border-radius:       var(--#{$prefix}border-radius-lg) !default;
 $modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
@@ -1519,14 +1519,14 @@ $modal-content-box-shadow-sm-up:    var(--#{$prefix}box-shadow) !default;
 $modal-backdrop-bg:                 $black !default;
 $modal-backdrop-opacity:            .5 !default;
 
-$modal-header-border-color:         var(--#{$prefix}border-color) !default;
+$modal-header-border-color:         $indigo-900 !default;
 $modal-header-border-width:         $modal-content-border-width !default;
 $modal-header-padding-y:            $modal-inner-padding !default;
 $modal-header-padding-x:            $modal-inner-padding !default;
 $modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
 
 $modal-footer-bg:                   null !default;
-$modal-footer-border-color:         $modal-header-border-color !default;
+$modal-footer-border-color:         $indigo-900 !default;
 $modal-footer-border-width:         $modal-header-border-width !default;
 
 $modal-sm:                          300px !default;
@@ -1537,7 +1537,7 @@ $modal-xl:                          1140px !default;
 $modal-fade-transform:              translate(0, -50px) !default;
 $modal-show-transform:              none !default;
 $modal-transition:                  transform .3s ease-out !default;
-$modal-scale-transform:             scale(1.02) !default;
+$modal-scale-transform:             scale(1.01) !default;
 // scss-docs-end modal-variables
 
 
