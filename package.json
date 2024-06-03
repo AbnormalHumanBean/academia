@@ -24,8 +24,8 @@
 	},
 	"dependencies": {
 		"@popperjs/core": "^2.11.8",
-		"@tabler/icons-webfont": "^3.5.0",
-		"jquery": "^3.7.1"
+		"jquery": "^3.7.1",
+		"terser-webpack-plugin": "^5.3.10"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.19",
@@ -35,7 +35,6 @@
 		"html-webpack-plugin": "^5.6.0",
 		"nodemon": "^3.1.0",
 		"npm-run-all": "^4.1.5",
-		"pdfjs-dist": "^4.2.67",
 		"postcss": "^8.4.38",
 		"postcss-cli": "^11.0.0",
 		"postcss-loader": "^8.1.1",
