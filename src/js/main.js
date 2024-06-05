@@ -2,8 +2,8 @@
 //
 // This includes Popper and all of Bootstrap's JS plugins.
 import * as bootstrap from 'bootstrap';
+// Makes the auto light dark button
 import './color-modes.js';
-
 
 // Create an example popover
 document.querySelectorAll('[data-bs-toggle="popover"]')
