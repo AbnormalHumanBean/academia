@@ -799,7 +799,6 @@ const defaultOptions = {
     kind: OptionKind.VIEWER
   };
 
- 
 
   defaultOptions.viewerCssTheme = {
     value: 0,
@@ -12533,7 +12532,7 @@ const PDFViewerApplication = {
     this._caretBrowsing ||= new CaretBrowsingMode(this.appConfig.mainContainer, this.appConfig.viewerContainer, this.appConfig.toolbar?.container);
     this._caretBrowsing.moveCaret(isUp, select);
   },
-  setTitleUsingUrl(url = "", downloadUrl = null) {
+  setTitleUsingUrl(url = " ", downloadUrl = null) {
     this.url = url;
     this.baseUrl = url.split("#", 1)[0];
     if (downloadUrl) {
