@@ -1,1 +1,0 @@
-document.addEventListener("adobe_dc_view_sdk.ready",(function(){new AdobeDC.View({clientId:"37247b4b3eda4e51b6a644ef06e078dc",divId:"adobe-dc-view"}).previewFile({content:{location:{promise:"./includes/example_review.pdf"}},metaData:{fileName:""}},{embedMode:"SIZED_CONTAINER"})}));

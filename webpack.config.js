@@ -14,17 +14,23 @@ const htmlWebpackPluginConfig = (template, filename, chunks) => ({
     filename,
     chunks,
     inject: 'body',
+    meta:{
+        "Content-Security-Policy": {
+          "http-equiv": "Content-Security-Policy",
+          content: "default-src 'self' 'unsafe-inline' 'unsafe-eval'",
+        },
+          robots: "index,follow",
+          googlebot: "index,follow",}
 });
 
 module.exports = {
     context: __dirname,
-    mode: 'production',
+    mode: 'development',
     entry: {
         main: './src/js/main.js',
         githubget: './src/js/githubget.js',
         html_highlight: './src/js/html_highlight.js',
         adjust: './src/js/adjustment.js',
-        adobe_api: './src/js/adobe_api.js'
     },
     output: {
         filename: '[name].js',
@@ -33,7 +39,8 @@ module.exports = {
         clean: true,
     },
     devServer: {
-        static: path.resolve(__dirname, 'dist'),
+        static: {
+            directory: path.resolve(__dirname, 'dist'), publicPath: '/'},
         port: 8080,
         hot: true,
     },
@@ -46,7 +53,7 @@ module.exports = {
         new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_show.html', 'coding_show.html', ['main', 'githubget'])),
         new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_explain.html', 'coding_explain.html', ['main'])),
         new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/connect.html', 'connect.html', ['main'])),
-        new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['main','adobe_api'])),
+        new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['main'])),
         
         
         new CopyWebpackPlugin({
@@ -64,17 +71,21 @@ module.exports = {
                 },
                 {
                     from: 'src/includes',
-                    to: 'includes'
+                    to: 'dist'
                 },
                 {
                     from: 'src/calc.html',
                     to: 'calc.html'
                 },
+                {
+                    from: 'src/pdfjs',
+                    to: 'pdfjs'
+                },
             ],
         }),
         function() {
-            this.hooks.compilation.tap('HtmlWebpackPlugin', (inject) => {
-                HtmlWebpackPlugin.getHooks(inject).beforeEmit.tapAsync(
+            this.hooks.compilation.tap('HtmlWebpackPlugin', (compilation) => {
+                HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
                     'InjectCssPlugin',
                     (data, cb) => {stylesheets + nav;
                         data.html = data.html.replace(
@@ -127,7 +138,7 @@ module.exports = {
                 options: {
                         limit: 10 * 1024
                 }
-            }
+            },
         ],
     },
     optimization: {
