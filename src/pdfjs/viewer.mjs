@@ -783,19 +783,8 @@ const defaultOptions = {
     kind: OptionKind.WORKER
   }
 };
-{
-  function updateDefaultUrl() {
-    const iframe = document.querySelector('.pdfjs');
-    if (iframe) {
-      const id = iframe.id;
-      const pdf_url = `./dist/${id}`;
-      const pdf_url2 = `'${pdf_url}'`;
-      return pdf_url2 }
-      else { 
-      return 'broken'}};
-      
-  defaultOptions.defaultUrl = {
-    value: updateDefaultUrl,
+{  defaultOptions.defaultUrl = {
+    value:'',
     kind: OptionKind.VIEWER
   };
 
