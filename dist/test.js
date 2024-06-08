@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelector(".pdfurlsel");document.addEventListener("DOMContentLoaded",(()=>{const t=e&&"example_review"===e.id?"https://ivannaporter.com/dist/example_review.pdf":e&&"example_slides"===e.id?"https://ivannaporter.com/dist/example_slides.pdf":"./files";localStorage.setItem("DEFAULT_URL",t)}))})();

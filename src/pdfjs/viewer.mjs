@@ -51,7 +51,6 @@ __webpack_require__.d(__webpack_exports__, {
   PDFViewerApplicationOptions: () => (/* reexport */ AppOptions)
 });
 
-//
 ;// CONCATENATED MODULE: ./web/ui_utils.js
 const DEFAULT_SCALE_VALUE = "auto";
 const DEFAULT_SCALE = 1.0;
@@ -719,7 +718,7 @@ const defaultOptions = {
     kind: OptionKind.API
   },
   cMapUrl: {
-    value: "./cmaps/",
+    value: "../web/cmaps/",
     kind: OptionKind.API
   },
   disableAutoFetch: {
@@ -767,7 +766,7 @@ const defaultOptions = {
     kind: OptionKind.API
   },
   standardFontDataUrl: {
-    value: "./standard_fonts/",
+    value: "../web/standard_fonts/",
     kind: OptionKind.API
   },
   verbosity: {
@@ -779,16 +778,19 @@ const defaultOptions = {
     kind: OptionKind.WORKER
   },
   workerSrc: {
-    value: "./pdf.worker.mjs",
+    value: "../build/pdf.worker.mjs",
     kind: OptionKind.WORKER
   }
 };
-{  defaultOptions.defaultUrl = {
-    value:'',
+{
+  defaultOptions.defaultUrl = {
+    value: "compressed.tracemonkey-pldi-09.pdf",
     kind: OptionKind.VIEWER
   };
-
-
+  defaultOptions.sandboxBundleSrc = {
+    value: "../build/pdf.sandbox.mjs",
+    kind: OptionKind.VIEWER
+  };
   defaultOptions.viewerCssTheme = {
     value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
@@ -12521,7 +12523,7 @@ const PDFViewerApplication = {
     this._caretBrowsing ||= new CaretBrowsingMode(this.appConfig.mainContainer, this.appConfig.viewerContainer, this.appConfig.toolbar?.container);
     this._caretBrowsing.moveCaret(isUp, select);
   },
-  setTitleUsingUrl(url = null, downloadUrl = null) {
+  setTitleUsingUrl(url = "", downloadUrl = null) {
     this.url = url;
     this.baseUrl = url.split("#", 1)[0];
     if (downloadUrl) {
@@ -14283,6 +14285,9 @@ function webViewerReportTelemetry({
 }
 
 ;// CONCATENATED MODULE: ./web/viewer.js
+
+
+
 
 const pdfjsVersion = "4.4.0";
 const pdfjsBuild = "";
