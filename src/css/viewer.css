@@ -103,6 +103,7 @@ footer {
 }
 
 #pageNumber {
+  appearance: textfield;
   -moz-appearance: textfield; /* hides the spinner in moz */
   position: absolute;
   width: 28%;
@@ -263,6 +264,7 @@ canvas {
 
 /* Firefox */
 .pdf_controls input[type=number] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 
