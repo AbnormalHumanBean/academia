@@ -12,5 +12,9 @@ ID = "1bcb19ba-093b-4901-8e27-0591316a92f1"
   max-age=31536000,
   must-revalidate'''
   Access-Control-Allow-Origin: *
-  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Methods: '''
+  GET,
+  POST,
+  OPTIONS
+  '''
   Access-Control-Allow-Headers: Content-Type
