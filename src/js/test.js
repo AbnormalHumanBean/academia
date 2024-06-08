@@ -1,5 +1,5 @@
-const example_review = "https://ivannaporter.com/dist/example_review.pdf";
-const example_slides = "https://ivannaporter.com/dist/example_slides.pdf";
+const example_review = "https://ivannaporter.com/files/example_review.pdf";
+const example_slides = "https://ivannaporter.com/files/example_slides.pdf";
 const urlgetter = "./files"
 
 const pdfurlC = document.querySelector('.pdfurlsel')
