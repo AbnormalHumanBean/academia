@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" id="this_one"  dir="ltr">
+<html lang="en" id="this_one"  dir="ltr" data-bs-theme="auto">
 <head>
   <meta charset="UTF-8">
-  <title>webpack example</title>
+  <title>Viewer</title>
 </head>
 <body>
   <div class='pdf_controls'>
     <div style='justify-self: start;'>
-      <button id='prev' title="Previous Page">
-      ⬆️
+      <button class="btn btn-primary" id='prev' title="Previous Page">
+      <i class="icon icon-arrow-big-up"></i>
       </button>
         <input id='go_page' class='go_page' style='width: 20px;' type='number'> / <span id='total_pages'></span>
-      <button id='next' title="Next Page">
-      ⬇️
+      <button  class="btn btn-primary" id='next' title="Next Page">
+        <i class="icon icon-arrow-big-down"></i>
       </button>
     </div>
     <div style='justify-self: center;'>
-      <button id='zoom_out' title='Zoom out'>
+      <button  class="btn btn-primary" id='zoom_out' title='Zoom out'>
         -
       </button>
       <span id='zoom_lvl'>100%</span>
-      <button id='zoom_in' title='Zoom in'>
+      <button  class="btn btn-primary" id='zoom_in' title='Zoom in'>
         +
       </button>
     </div>
     <div style='justify-self: end;'>
-      <button id='download'>
+      <button  class="btn btn-primary" id='download'>
         Download
       </button>
     </div>

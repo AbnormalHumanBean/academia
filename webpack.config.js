@@ -63,7 +63,7 @@ module.exports = {
         new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_explain.html', 'coding_explain.html', ['main','style','add'])),
         new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/connect.html', 'connect.html', ['main','style','add'])),
         new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['main','style','add','test'])),
-        new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/view.html', 'view.html', ['yay','pdf_style','style','add'])),
+        new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/view.html', 'view.html', ['main','yay','pdf_style','style','add'])),
         new MiniCssExtractPlugin({filename: 'css/[name].css',}),
         new FaviconsWebpackPlugin({logo: './src/images/icon2.png',cache: true,
         outputPath: 'favicon/',

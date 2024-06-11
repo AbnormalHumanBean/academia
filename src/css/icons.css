@@ -79,6 +79,16 @@ Generated using nucleoapp.com
 }
 
 /* icons */
-.icon-zzz::before {
+.icon-arrow-big-down::before {
   content: "\ea01";
 }
+
+.icon-arrow-big-up::before {
+  content: "\ea02";
+}
+
+.icon-zzz::before {
+  content: "\ea03";
+}
+
+
