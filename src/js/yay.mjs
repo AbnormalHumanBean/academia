@@ -41,34 +41,7 @@ function initializePdfViewer(defaultUrl) {
     });
     pdfLinkService.setViewer(pdfViewer);
     pdfScriptingManager.setViewer(pdfViewer);
-    
-    pdfViewer.pdf.getOutline().then(outline => {
-        const bookmarks = outline.items;
-      
-        // Create a side panel element to display bookmarks
-        const bookmarkPanel = document.createElement('div');
-        bookmarkPanel.id = 'bookmark-panel';
-        bookmarkPanel.style.width = '200px';
-        bookmarkPanel.style.height = '100%';
-        bookmarkPanel.style.overflowY = 'auto';
-        bookmarkPanel.style.padding = '10px';
-        document.body.appendChild(bookmarkPanel);
-      
-        // Create bookmark elements and add event listeners
-        bookmarks.forEach(bookmark => {
-          const bookmarkElement = document.createElement('div');
-          bookmarkElement.textContent = bookmark.title;
-          bookmarkElement.style.padding = '10px';
-          bookmarkElement.style.borderBottom = '1px solid #ccc';
-          bookmarkElement.addEventListener('click', () => {
-            // Navigate to the bookmarked page
-            pdfViewer.pdf.getPageIndex(bookmark.dest[0]).then(pageIndex => {
-              pdfViewer.currentPageNumber = pageIndex + 1;
-            });
-          });
-          bookmarkPanel.appendChild(bookmarkElement);
-        });
-      })
+
 
     eventBus.on("pagesinit", () => {
         // We can use pdfViewer now, e.g. let's change default scale.
@@ -93,6 +66,7 @@ function initializePdfViewer(defaultUrl) {
         url: defaultUrl,
         enableXfa: ENABLE_XFA,
     });
+
     loadingTask.promise.then((pdfDocument) => {
         // Document loaded, specifying document for the viewer and
         // the (optional) linkService.
@@ -101,10 +75,34 @@ function initializePdfViewer(defaultUrl) {
         pdfLinkService.setDocument(pdfDocument, null);
         document.getElementById('total_pages').textContent = pdfDocument.numPages;
         document.getElementById('go_page').value = pdfViewer.currentPageNumber;
-    }).catch((error) => {
-        console.error("Error loading PDF:", error);
-        alert("Failed to load PDF: " + error.message);
-    });
+
+        const outline = pdfDocument.getOutline();
+        const bookmarks =  outline.items;
+          
+            // Create a side panel element to display bookmarks
+            const bookmarkPanel = document.createElement('div');
+            bookmarkPanel.id = 'bookmark-panel';
+            bookmarkPanel.style.width = '200px';
+            bookmarkPanel.style.height = '100%';
+            bookmarkPanel.style.overflowY = 'auto';
+            bookmarkPanel.style.padding = '10px';
+            document.body.appendChild(bookmarkPanel);
+          
+            // Create bookmark elements and add event listeners
+            bookmarks.forEach(bookmark => {
+              const bookmarkElement = document.createElement('div');
+              bookmarkElement.textContent = bookmark.title;
+              bookmarkElement.style.padding = '10px';
+              bookmarkElement.style.borderBottom = '1px solid #ccc';
+              bookmarkElement.addEventListener('click', () => {
+                // Navigate to the bookmarked page
+                pdfDocument.getPageIndex(bookmark.dest[0]).then(pageIndex => {
+                    pdfDocument.currentPageNumber = pageIndex + 1;
+                });
+              });
+              bookmarkPanel.appendChild(bookmarkElement);
+            });
+          });
 
     document.getElementById('prev').addEventListener('click', onPrevPage);
     document.getElementById('next').addEventListener('click', onNextPage);
@@ -168,7 +166,7 @@ function initializePdfViewer(defaultUrl) {
         // Remove the link from the document body
         document.body.removeChild(link);
     }
-}
+};
 
 function waitForDefaultUrl() {
     return new Promise((resolve) => {
