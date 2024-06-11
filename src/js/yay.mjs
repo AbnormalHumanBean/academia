@@ -41,8 +41,36 @@ function initializePdfViewer(defaultUrl) {
     });
     pdfLinkService.setViewer(pdfViewer);
     pdfScriptingManager.setViewer(pdfViewer);
+    
+    pdfViewer.pdf.getOutline().then(outline => {
+        const bookmarks = outline.items;
+      
+        // Create a side panel element to display bookmarks
+        const bookmarkPanel = document.createElement('div');
+        bookmarkPanel.id = 'bookmark-panel';
+        bookmarkPanel.style.width = '200px';
+        bookmarkPanel.style.height = '100%';
+        bookmarkPanel.style.overflowY = 'auto';
+        bookmarkPanel.style.padding = '10px';
+        document.body.appendChild(bookmarkPanel);
+      
+        // Create bookmark elements and add event listeners
+        bookmarks.forEach(bookmark => {
+          const bookmarkElement = document.createElement('div');
+          bookmarkElement.textContent = bookmark.title;
+          bookmarkElement.style.padding = '10px';
+          bookmarkElement.style.borderBottom = '1px solid #ccc';
+          bookmarkElement.addEventListener('click', () => {
+            // Navigate to the bookmarked page
+            pdfViewer.pdf.getPageIndex(bookmark.dest[0]).then(pageIndex => {
+              pdfViewer.currentPageNumber = pageIndex + 1;
+            });
+          });
+          bookmarkPanel.appendChild(bookmarkElement);
+        });
+      })
 
-    eventBus.on("pagesinit", function() {
+    eventBus.on("pagesinit", () => {
         // We can use pdfViewer now, e.g. let's change default scale.
         // pdfViewer.currentScaleValue = "page-width";
         pdfViewer.currentScaleValue = 1;
@@ -56,7 +84,7 @@ function initializePdfViewer(defaultUrl) {
         }
     });
 
-    eventBus.on("pagechanging", function (evt) {
+    eventBus.on("pagechanging", (evt) => {
         document.getElementById('go_page').value = evt.pageNumber;
     }, true);
 
@@ -148,7 +176,7 @@ function waitForDefaultUrl() {
         if (storedUrl) {
             resolve(storedUrl);
         } else {
-            window.addEventListener('storage', function(event) {
+            window.addEventListener('storage', (event) => {
                 if (event.key === 'DEFAULT_URL' && event.newValue) {
                     resolve(event.newValue);
                 }
