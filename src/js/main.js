@@ -4,32 +4,24 @@
 import * as bootstrap from 'bootstrap';
 // Makes the auto light dark button
 import './color-modes.js';
-
-// Create an example popover
-document.querySelectorAll('[data-bs-toggle="popover"]')
-    .forEach(popover => {
-        new bootstrap.Popover(popover)
-    })
 // Initialize tooltip
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+const tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+	return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
 function updateProgressBars(selector) {
-    let skills = document.querySelectorAll(selector);
-    skills.forEach(skill => {
-        let value = skill.dataset.value;
-        let progressBar = skill.querySelector('.progress-bar');
-        progressBar.style.width = value + '%';
-        progressBar.setAttribute('aria-valuenow', value);
-        skill.querySelector('.skill-value').textContent = "lvl." + value;
-    });
+	const skills = document.querySelectorAll(selector);
+	skills.forEach(skill => {
+		const value = skill.dataset.value;
+		const progressBar = skill.querySelector('.progress-bar');
+		progressBar.style.width = `${value}%`;
+		progressBar.setAttribute('aria-valuenow', value);
+		skill.querySelector('.skill-value').textContent = `lvl.${value}`;
+	});
 };
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Example usage on a page with skills
-    let skillsSelector = '#skills-list .skill';
-    updateProgressBars(skillsSelector);
+	// Example usage on a page with skills
+	const skillsSelector = '#skills-list .skill';
+	updateProgressBars(skillsSelector);
 });
-

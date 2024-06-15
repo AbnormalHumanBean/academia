@@ -12,10 +12,16 @@
 		<div>
 			<h1> Curriculum vitae </h1>
 		</div>
-		<div class="w-95">
-			<embed class="pdfurlsel" id="example_review" src="./view.html" type="text/html" width="100%" height="600px">
-			<hr class="b">
+		<div class="container h-97 w-95">
+			<div class="row  h-97 w-95">
+		<div class="col h-97 w-95">
+			<pdfjs-viewer-element src="/files/CV_IvannaPorter.pdf" viewer-path="/pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
+			viewer-extra-styles-urls="['/css/pdf_viewer_element.css']">
+			</pdfjs-viewer-element>
 		</div>
+			</div>
+		</div>
+		<hr class="b">
 	</body>
 	<footer class="text-center">
 		<div class="container">

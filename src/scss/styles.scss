@@ -97,7 +97,7 @@ $utilities: map-merge(
 //@import "../../node_modules/bootstrap/scss/toasts";
 @import "../../node_modules/bootstrap/scss/modal"; // Requires transitions
 @import "../../node_modules/bootstrap/scss/tooltip";
-@import "../../node_modules/bootstrap/scss/popover";
+// @import "../../node_modules/bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
 // @import "../../node_modules/bootstrap/scss/offcanvas"; // Requires transitions
@@ -125,7 +125,5 @@ $accordion-button-active-color:var(--#{$prefix}body-color) !default;
   width: 95%;
   
 }
-
-
 
 @import "icon-list";

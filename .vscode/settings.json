@@ -1,6 +1,10 @@
 {
     "cSpell.words": [
         "CRAN",
+        "favicons",
+        "Favicons",
+        "githubget",
+        "googlebot",
         "Honorum",
         "knitr",
         "Knitr",
@@ -11,5 +15,11 @@
         "Tinytex",
         "xelatex",
         "Xelatex"
+    ],
+    "cSpell.language": "en,en-US,lorem",
+    "cSpell.enableFiletypes": [
+        "markdown_latex_combined",
+        "powershell",
+        "tex"
     ]
 }

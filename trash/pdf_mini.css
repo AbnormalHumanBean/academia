@@ -1,0 +1,1025 @@
+.pdf-mini-viewer {
+  position: relative;
+  display: block;
+  border: 1px solid #323639;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.pdf-mini-viewer .pdf-main-toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  line-height: 0;
+  background-color: #323639;
+  color: #f1f1f1;
+}
+.pdf-mini-viewer .pdf-main-toolbar .pdf-icon,
+.pdf-mini-viewer .pdf-main-toolbar svg.pdf-icon {
+  fill: #f1f1f1;
+}
+.pdf-mini-viewer .pdf-main-toolbar .pdf-icon:hover,
+.pdf-mini-viewer .pdf-main-toolbar svg.pdf-icon:hover {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-main-toolbar .page-up {
+  display: none;
+}
+.pdf-mini-viewer .pdf-main-toolbar .page-down {
+  display: none;
+}
+.pdf-mini-viewer .pdf-main-toolbar .page-wrapper {
+  flex: 1;
+  margin: 0 15px;
+  font-family: monospace;
+  font-size: 15px;
+}
+.pdf-mini-viewer .pdf-main-toolbar .page-wrapper .current-page {
+  -appearance: textfield;
+  outline-style: none;
+  text-align: right;
+  width: 40px;
+  padding: 3px 5px;
+  border-radius: 2px;
+  border: 1px solid #777c81;
+  background-color: #525659;
+  font-family: monospace;
+  font-size: 15px;
+  color: #f1f1f1;
+}
+.pdf-mini-viewer .pdf-main-toolbar .page-wrapper .current-page::-webkit-outer-spin-button,
+.pdf-mini-viewer .pdf-main-toolbar .page-wrapper .current-page::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.pdf-mini-viewer .pdf-main-toolbar .download {
+  width: 40px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-main-toolbar .print {
+  width: 40px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-main-toolbar .open-fullscreen {
+  width: 40px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-main-toolbar .open-fullscreen .pdf-icon {
+  height: 20px;
+}
+.pdf-mini-viewer .pdf-main-toolbar .close-fullscreen {
+  display: none;
+  width: 40px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-main-toolbar .close-fullscreen .pdf-icon {
+  height: 20px;
+}
+.pdf-mini-viewer .pdf-main-toolbar .bookmark {
+  width: 40px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-main-toolbar.single-page .page-up,
+.pdf-mini-viewer .pdf-main-toolbar.single-page .page-down,
+.pdf-mini-viewer .pdf-main-toolbar.single-page .page-wrapper {
+  pointer-events: none;
+  opacity: 0;
+}
+.pdf-mini-viewer .pdf-main-toolbar.no-page-up .page-up {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-main-toolbar.no-page-down .page-down {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-main-toolbar.no-download .download {
+  display: none;
+}
+.pdf-mini-viewer .pdf-main-toolbar.no-print .print {
+  display: none;
+}
+.pdf-mini-viewer .pdf-viewer {
+  overflow: auto;
+  padding: 15px 0;
+  background-color: #525659;
+}
+.pdf-mini-viewer .pdf-viewer .page {
+  position: relative;
+  margin: 15px auto;
+  direction: ltr;
+  width: 816px;
+  height: 1056px;
+  overflow: visible;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, 0.2);
+
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.2;
+  line-height: 1;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer > span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .highlight {
+  margin: -1px;
+  padding: 1px;
+  background-color: #b400aa;
+  border-radius: 4px;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .highlight.begin {
+  border-radius: 4px 0 0 4px;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .highlight.end {
+  border-radius: 0 4px 4px 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .highlight.middle {
+  border-radius: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .highlight.selected {
+  background-color: #006400;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer::-moz-selection {
+  background: #0000ff;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer::selection {
+  background: #0000ff;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .endOfContent {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .text-layer .endOfContent.active {
+  top: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section {
+  position: absolute;
+  text-align: initial;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .link-annotation > a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: transparent;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .link-annotation > a:hover {
+  opacity: 0.2;
+  background: #ffff00;
+  box-shadow: 0 2px 10px #ffff00;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.pushButton > a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.pushButton > a:hover {
+  opacity: 0.2;
+  background: #ffff00;
+  box-shadow: 0 2px 10px #ffff00;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textAnnotation img {
+  position: absolute;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation input {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation input:hover {
+  border: 1px solid #000000;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation input:focus {
+  background: none;
+  border: 1px solid transparent;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation textarea {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+  font: message-box;
+  font-size: 9px;
+  resize: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation textarea:hover {
+  border: 1px solid #000000;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation textarea:focus {
+  background: none;
+  border: 1px solid transparent;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation input[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation textarea[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation input.comb {
+  font-family: monospace;
+  padding-left: 2px;
+  padding-right: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .textWidgetAnnotation input.comb:focus {
+  width: 115%;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .choiceWidgetAnnotation select {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .choiceWidgetAnnotation select option {
+  padding: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .choiceWidgetAnnotation select:hover {
+  border: 1px solid #000000;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .choiceWidgetAnnotation select:focus {
+  background: none;
+  border: 1px solid transparent;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .choiceWidgetAnnotation select[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.checkBox input {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.checkBox input:hover {
+  border: 1px solid #000000;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.checkBox input:checked:before {
+  background-color: #000000;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 80%;
+  left: 45%;
+  width: 1px;
+  transform: rotate(45deg);
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.checkBox input:checked:after {
+  background-color: #000000;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 80%;
+  left: 45%;
+  width: 1px;
+  transform: rotate(-45deg);
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.checkBox input[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.radioButton input {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.radioButton input:hover {
+  border: 1px solid #000000;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.radioButton input:checked:before {
+  background-color: #000000;
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  height: 50%;
+  left: 30%;
+  top: 20%;
+  width: 50%;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .buttonWidgetAnnotation.radioButton input[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .popupWrapper {
+  position: absolute;
+  width: 20em;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .popup {
+  position: absolute;
+  z-index: 200;
+  max-width: 20em;
+  background-color: #ffff99;
+  box-shadow: 0 2px 5px #888888;
+  border-radius: 2px;
+  padding: 6px;
+  margin-left: 5px;
+  cursor: pointer;
+  font: message-box;
+  font-size: 9px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .popup > * {
+  font-size: 9px;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .popup h1 {
+  display: inline-block;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .popup span {
+  display: inline-block;
+  margin-left: 5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .popup p {
+  border-top: 1px solid #333333;
+  margin-top: 2px;
+  padding-top: 2px;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .highlightAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .underlineAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .squigglyAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .strikeoutAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .freeTextAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .lineAnnotation svg line {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .squareAnnotation svg rect {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .circleAnnotation svg ellipse {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .polylineAnnotation svg polyline {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .polygonAnnotation svg polygon {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .caretAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .inkAnnotation svg polyline {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .stampAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer .fileAttachmentAnnotation {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  transform-origin: 0 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLayer * {
+  color: inherit;
+  font: inherit;
+  -webkit-font-kerning: inherit;
+  font-kerning: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: border-box;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaFont {
+  color: black;
+  font-weight: normal;
+  -webkit-font-kerning: none;
+  font-kerning: none;
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0;
+  text-decoration: none;
+  vertical-align: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaDraw {
+  z-index: 200;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaExclgroup {
+  z-index: 300;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaField {
+  z-index: 300;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaSubform {
+  z-index: 100;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLabel > input[type="checkbox"] {
+  position: absolute;
+  left: -99999px;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLabel > input[type="checkbox"]:focus .xfaCheckboxMark {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaCaption {
+  flex: 1 1 auto;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTextfield {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  border: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaSelect {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  border: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaCheckboxMark {
+  cursor: pointer;
+  flex: 0 0 auto;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #8f8f9d;
+  font-size: 10px;
+  line-height: 10px;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaCheckbox:checked .xfaCheckboxMark::after {
+  content: attr(mark);
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaButton {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaButton:hover {
+  background: Highlight;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLrTb {
+  display: block;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaLrTb > div {
+  display: inline;
+  float: left;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaRlTb {
+  display: block;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaRlTb > div {
+  display: inline;
+  float: right;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTb {
+  display: block;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaPosition {
+  display: block;
+  position: relative;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaValignMiddle {
+  display: flex;
+  align-items: center;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTable {
+  display: flex;
+  flex-direction: column;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTable .xfaRow {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTable .xfaRow > div {
+  flex: 1 1 auto;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTable .xfaRlRow {
+  display: flex;
+  flex-direction: row-reverse;
+  flex: 1;
+}
+.pdf-mini-viewer .pdf-viewer .page .xfaTable .xfaRlRow > div {
+  flex: 1;
+}
+.pdf-mini-viewer .pdf-viewer .page .canvasWrapper {
+  overflow: hidden;
+}
+.pdf-mini-viewer .pdf-viewer .page canvas {
+  margin: 0;
+  display: block;
+}
+.pdf-mini-viewer .pdf-viewer .page canvas[hidden] {
+  display: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .loadingIcon {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: center no-repeat;
+}
+.pdf-mini-viewer .pdf-viewer .page .removePageBorders {
+  margin-left: 0;
+  margin-right: 0;
+}
+.pdf-mini-viewer .pdf-viewer .page .removePageBorders .page {
+  margin: 0 auto 10px;
+  border: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .removePageBorders .spread .page {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .singlePageView {
+  display: inline-block;
+}
+.pdf-mini-viewer .pdf-viewer .page .singlePageView .page {
+  margin: 0;
+  border: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .scrollHorizontal {
+  margin-left: 3.5px;
+  margin-right: 3.5px;
+  text-align: center;
+  white-space: nowrap;
+}
+.pdf-mini-viewer .pdf-viewer .page .scrollHorizontal .spread {
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pdf-mini-viewer .pdf-viewer .page .scrollHorizontal .page {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -3.5px;
+  margin-right: -3.5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .scrollWrapped {
+  margin-left: 3.5px;
+  margin-right: 3.5px;
+  text-align: center;
+}
+.pdf-mini-viewer .pdf-viewer .page .scrollWrapped .spread {
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pdf-mini-viewer .pdf-viewer .page .scrollWrapped .page {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -3.5px;
+  margin-right: -3.5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .spread {
+  margin-left: 3.5px;
+  margin-right: 3.5px;
+  text-align: center;
+  white-space: nowrap;
+}
+.pdf-mini-viewer .pdf-viewer .page .spread .page {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -3.5px;
+  margin-right: -3.5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .removePageBorders.scrollHorizontal .page {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .removePageBorders.scrollWrapped .page {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer {
+  pointer-events: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section {
+  pointer-events: all;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section body,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section input,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section textarea,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section select,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section button {
+  outline: none;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section input[type="button"] {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.buttonWidgetAnnotation.checkBox input {
+  border: 1px solid #525659;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.buttonWidgetAnnotation.radioButton input {
+  border: 1px solid #525659;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.buttonWidgetAnnotation.radioButton input[type="radio"]:checked:before {
+  top: 25%;
+  left: 25%;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.buttonWidgetAnnotation.checkBox input:disabled,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.buttonWidgetAnnotation.radioButton input:disabled {
+  border: 1px solid #525659;
+  background-color: rgba(82, 86, 89, 0.3);
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.choiceWidgetAnnotation select {
+  border: 1px solid #525659;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.choiceWidgetAnnotation select:disabled {
+  background-color: rgba(82, 86, 89, 0.3);
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.textWidgetAnnotation input,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.textWidgetAnnotation textarea {
+  padding: 5px;
+  border: 1px solid #525659;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.textWidgetAnnotation input:disabled,
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.textWidgetAnnotation textarea:disabled {
+  border: 1px solid #525659;
+  background-color: rgba(82, 86, 89, 0.3);
+  cursor: not-allowed;
+}
+.pdf-mini-viewer .pdf-viewer .page .annotation-layer section.textWidgetAnnotation .comb {
+  padding-left: 5px;
+}
+.pdf-mini-viewer .pdf-resize-toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  line-height: 0;
+  background-color: #323639;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .pdf-icon,
+.pdf-mini-viewer .pdf-resize-toolbar svg.pdf-icon {
+  fill: #f1f1f1;
+  color: #f1f1f1;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .pdf-icon:hover,
+.pdf-mini-viewer .pdf-resize-toolbar svg.pdf-icon:hover {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .zoom-reset {
+  display: none;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .zoom-expand {
+  display: none;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .zoom-compress {
+  display: none;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .zoom-in {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-resize-toolbar .zoom-out {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-outline {
+  position: absolute;
+  top: 50px;
+  right: -350px;
+  bottom: 0;
+  z-index: 100;
+  width: 300px;
+  overflow-y: auto;
+  background-color: #323639;
+  padding: 15px;
+  font-size: 15px;
+  transition: right 0.55s linear;
+}
+.pdf-mini-viewer .pdf-outline ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+}
+.pdf-mini-viewer .pdf-outline ul li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "toggle link" "nested nested";
+}
+.pdf-mini-viewer .pdf-outline ul li.open > ul {
+  display: block;
+}
+.pdf-mini-viewer .pdf-outline ul li.open > .toggle .close .pdf-icon {
+  display: none;
+}
+.pdf-mini-viewer .pdf-outline ul li.open > .toggle .open .pdf-icon {
+  display: block;
+}
+.pdf-mini-viewer .pdf-outline ul ul {
+  display: none;
+  margin-left: 15px;
+  grid-area: nested;
+}
+.pdf-mini-viewer .pdf-outline ul a,
+.pdf-mini-viewer .pdf-outline ul .heading {
+  text-decoration: none;
+  border-radius: 5px;
+  color: #f1f1f1;
+  grid-area: link;
+  padding: 5px 3px;
+}
+.pdf-mini-viewer .pdf-outline ul a:hover,
+.pdf-mini-viewer .pdf-outline ul .heading:hover {
+  background-color: #525659;
+}
+.pdf-mini-viewer .pdf-outline ul .toggle {
+  display: flex;
+  align-items: center;
+  grid-area: toggle;
+}
+.pdf-mini-viewer .pdf-outline ul .toggle .pdf-icon,
+.pdf-mini-viewer .pdf-outline ul .toggle svg.pdf-icon {
+  fill: #f1f1f1;
+  width: 14px;
+  height: 14px;
+}
+.pdf-mini-viewer .pdf-outline ul .toggle .pdf-icon:hover,
+.pdf-mini-viewer .pdf-outline ul .toggle svg.pdf-icon:hover {
+  cursor: pointer;
+}
+.pdf-mini-viewer .pdf-outline ul .toggle .open .pdf-icon {
+  display: none;
+}
+.pdf-mini-viewer.bookmarks-open .pdf-outline {
+  right: 0;
+}
+.pdf-mini-viewer.fullscreen-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  border: 0px none;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  z-index: 1000;
+}
+.pdf-mini-viewer.fullscreen-mode .pdf-main-toolbar .open-fullscreen {
+  display: none;
+}
+.pdf-mini-viewer.fullscreen-mode .pdf-main-toolbar .close-fullscreen {
+  display: inline-block;
+}
+.pdf-mini-viewer.fullscreen-mode .pdf-viewer {
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .pdf-mini-viewer .pdf-main-toolbar .page-up {
+    display: inline-block;
+    width: 40px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .pdf-mini-viewer .pdf-main-toolbar .page-down {
+    display: inline-block;
+    width: 40px;
+    cursor: pointer;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar {
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    height: initial;
+    width: 55px;
+    background-color: initial;
+    pointer-events: none;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 15px;
+    pointer-events: auto;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .button .pdf-icon,
+  .pdf-mini-viewer .pdf-resize-toolbar .button svg.pdf-icon {
+    fill: #525659;
+    color: #525659;
+    width: 16px;
+    height: 16px;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-reset {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s linear;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-expand {
+    display: none;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-compress {
+    display: none;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-in {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-out {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar.zoomed .zoom-reset {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .pdf-mini-viewer .pdf-resize-toolbar {
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    height: initial;
+    width: 65px;
+    background-color: initial;
+    pointer-events: none;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 15px;
+    pointer-events: auto;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .button .pdf-icon,
+  .pdf-mini-viewer .pdf-resize-toolbar .button svg.pdf-icon {
+    fill: #525659;
+    color: #525659;
+    width: 16px;
+    height: 16px;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-reset {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s linear;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-expand {
+    display: none;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-compress {
+    display: none;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-in {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar .zoom-out {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar.page-actual .zoom-compress {
+    display: flex;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar.page-fit .zoom-expand {
+    display: flex;
+  }
+  .pdf-mini-viewer .pdf-resize-toolbar.zoomed .zoom-reset {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}

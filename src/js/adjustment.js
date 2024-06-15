@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-import $ from 'jquery';
 document.addEventListener('DOMContentLoaded', function(){
     $('[data-bs-toggle="collapse"]').on( "click", function() {
       $(this).toggleClass("active");
