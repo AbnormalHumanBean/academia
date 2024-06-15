@@ -80,6 +80,10 @@ module.exports = {
                     to: 'images'
                 },
                 {
+                    from: 'src/_headers.txt',
+                    to: '_headers.txt'
+                },
+                {
                     from: 'src/includes',
                     to: 'files'
                 },
