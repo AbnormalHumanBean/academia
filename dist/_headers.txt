@@ -1,0 +1,8 @@
+/*
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://api https://platform.linkedin.com https://kit.; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://kit.; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com https://kit. ;
+X-Content-Type-Options: nosniff;
+X-Frame-Options: SAMEORIGIN;
+X-XSS-Protection: 1; mode=block;
+Referrer-Policy: no-referrer-when-downgrade
+Cache-Control: max-age=13600, must-revalidate
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
