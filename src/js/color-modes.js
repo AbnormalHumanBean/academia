@@ -31,7 +31,7 @@
       document.documentElement.setAttribute('data-bs-theme', theme);
     }
   };
-
+ 
   setTheme(getPreferredTheme());
 
   const showActiveTheme = (theme, focus = false) => {

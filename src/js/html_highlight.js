@@ -1,24 +1,25 @@
 
 w3CodeColor(document.getElementById("pre-code"));
+w3CodeColor(document.getElementById("iframe-code"));
 
 function w3CodeColor(elmnt, mode) {
-  var lang = (mode || "html");
-  var elmntObj = (document.getElementById(elmnt) || elmnt);
-  var elmntTxt = elmntObj.innerHTML;
-  var tagcolor = "#38c7bd";
-  var tagnamecolor = "#38c7bd";
-  var attributecolor = "#c7910c";
-  var attributevaluecolor = "white";
-  var commentcolor = "green";
-  var cssselectorcolor = "#d46ec0";
-  var csspropertycolor = "#38c7bd";
-  var csspropertyvaluecolor = "white";
-  var cssdelimitercolor = "#c7910c";
-  var cssimportantcolor = "red";  
-  var jscolor = "white";
-  var jskeywordcolor =  "#38c7bd" ;
-  var jsstringcolor = "#c7910c";
-  var jsnumbercolor = "red";
+  let lang = (mode || "html");
+  const elmntObj = (document.getElementById(elmnt) || elmnt);
+  let elmntTxt = elmntObj.innerHTML;
+  const tagcolor = "#38c7bd";
+  const tagnamecolor = "#38c7bd";
+  const attributecolor = "#c7910c";
+  const attributevaluecolor = "white";
+  const commentcolor = "green";
+  const cssselectorcolor = "#d46ec0";
+  const csspropertycolor = "#38c7bd";
+  const csspropertyvaluecolor = "white";
+  const cssdelimitercolor = "#c7910c";
+  const cssimportantcolor = "red";
+  const jscolor = "white";
+  const jskeywordcolor =  "#38c7bd";
+  const jsstringcolor = "#c7910c";
+  const jsnumbercolor = "red";
   var jspropertycolor = "#38c7bd";
   elmntObj.style.fontFamily = "Consolas,'Courier New', monospace";
   if (!lang) {lang = "html"; }
@@ -323,5 +324,4 @@ function w3CodeColor(elmnt, mode) {
       }
     }  
     return [-1, -1, func];
-  }  
-}
+  }}

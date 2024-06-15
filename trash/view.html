@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" id="this_one" dir="ltr" data-bs-theme="auto">
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>Viewer</title>
+	</head>
+	
+	<body tabindex="1">
+		<div class="container" id="outerContainer">
+			<div id="sidebarContainer">
+				<div id="toolbarSidebarLeft">
+						<div id="bookmarkPanel"> </div>
+						</div>
+					</div>
+		</div>
+			<div id="mainContainer">
+		<div class='pdf_controls'>
+			<div style='justify-self: start;'>
+				<button class="btn btn-primary" id='prev' title="Previous Page">
+					<i class="icon icon-arrow-big-up"></i>
+				</button>
+				<input id='go_page' class='go_page' style='width: 20px;' type='number'> / <span id='total_pages'></span>
+				<button class="btn btn-primary" id='next' title="Next Page">
+					<i class="icon icon-arrow-big-down"></i>
+				</button>
+			</div>
+			<div style='justify-self: center;'>
+				<button class="btn btn-primary" id='zoom_out' title='Zoom out'>
+					-
+				</button>
+				<span id='zoom_lvl'>100%</span>
+				<button class="btn btn-primary" id='zoom_in' title='Zoom in'>
+					+
+				</button>
+			</div>
+			<div style='justify-self: end;'>
+				<button class="btn btn-primary" id='download'>
+					Download
+				</button>
+			</div>
+		</div>
+		<div id="viewerContainer" style="position: absolute;">
+			<div id="viewer" class="pdfViewer"></div>
+		</div>
+		</div>
+		</div>
+	</body>
+	
+</html>
