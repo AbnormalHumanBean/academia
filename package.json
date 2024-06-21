@@ -27,6 +27,7 @@
 		"assert": "^2.1.0",
 		"browserify-zlib": "^0.2.0",
 		"buffer": "^6.0.3",
+		"Buffer": "^0.0.0",
 		"canvas": "^2.11.2",
 		"fs": "^0.0.1-security",
 		"https-browserify": "^1.0.0",

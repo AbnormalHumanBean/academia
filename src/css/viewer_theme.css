@@ -1,11 +1,22 @@
 
-  #viewAttachments{
-    display: none;
-  }
-  #viewLayers{
-    display: none;
-  }
-  #secondaryOpenFile{
-    display:none;
+  #editorFreeText,#editorInk,#editorStamp,#documentProperties,#secondaryDownload,#viewAttachments,#viewLayers,#secondaryOpenFile,#viewFind{
+    display: none; /* limiting viewable buttons  */
   }
 
+  .toolbarButtonSpacer {
+    display: inline-block;
+    height: 1px;
+    width: 15px;
+  }
+
+#pageNumber {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  background-size: 0 0;
+  text-align: end;
+  transition-property: none;
+  width: 25px;
+}
+.dropdownToolbarButton{
+  min-width: 100px;
+}

@@ -1,79 +1,91 @@
 /*!
- * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
- * Copyright 2011-2024 The Bootstrap Authors
- * Licensed under the Creative Commons Attribution 3.0 Unported License.
- */
+	* Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+	* Copyright 2011-2024 The Bootstrap Authors
+	* Licensed under the Creative Commons Attribution 3.0 Unported License.
+	*/
 /*!
- * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
- * Copyright 2011-2023 The Bootstrap Authors
- * Licensed under the Creative Commons Attribution 3.0 Unported License.
- */
-
-(() => {
-  'use strict';
-
-  const getStoredTheme = () => localStorage.getItem('theme');
-  const setStoredTheme = theme => localStorage.setItem('theme', theme);
-
-  const getPreferredTheme = () => {
-    const storedTheme = getStoredTheme();
-    if (storedTheme) {
-      return storedTheme;
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
-
-  const setTheme = theme => {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-bs-theme', theme);
-    }
-  };
- 
-  setTheme(getPreferredTheme());
-
-  const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#bd-color-mode');
-
-    if (!themeSwitcher) {
-      return;
-    }
-
-    const activeThemeIcon = document.querySelector('.theme-icon-active use');
-    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
-
-    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove('active');
-      element.setAttribute('aria-pressed', 'false');
+	* Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+	* Copyright 2011-2023 The Bootstrap Authors
+	* Licensed under the Creative Commons Attribution 3.0 Unported License.
+	*/
+  (() => {
+    'use strict';
+  
+    const getStoredTheme = () => localStorage.getItem('theme');
+    const setStoredTheme = theme => localStorage.setItem('theme', theme);
+  
+    const getPreferredTheme = () => {
+      const storedTheme = getStoredTheme();
+      if (storedTheme) {
+        return storedTheme;
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+  
+    const setTheme = theme => {
+      if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-bs-theme', theme);
+      }
+    };
+  
+    const showActiveTheme = (theme, focus = false) => {
+      const themeSwitcher = document.querySelector('#bd-color-mode');
+      if (!themeSwitcher) {
+        return;
+      }
+  
+      const activeThemeIcon = document.querySelector('.theme-icon-active use');
+      const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+  
+      document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+        element.classList.remove('active');
+        element.setAttribute('aria-pressed', 'false');
+      });
+  
+      btnToActive.classList.add('active');
+      btnToActive.setAttribute('aria-pressed', 'true');
+  
+      if (focus) {
+        themeSwitcher.focus();
+      }
+  
+      const allDivs = document.querySelectorAll('.color-mode-choice');
+  
+      const storedTheme = getStoredTheme();
+      const theme_stable = storedTheme === 'auto'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : storedTheme;
+  
+      allDivs.forEach(div => {
+        div.classList.add('d-none');
+        if (div.matches(`.color-mode-${theme_stable}-visible`)) {
+          div.classList.remove('d-none');
+        }
+      });
+    };
+  
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      const storedTheme = getStoredTheme();
+      if (storedTheme !== 'light' && storedTheme !== 'dark') {
+        setTheme(getPreferredTheme());
+      }
     });
-
-    btnToActive.classList.add('active');
-    btnToActive.setAttribute('aria-pressed', 'true');
-
-    if (focus) {
-      themeSwitcher.focus();
-    }
-  };
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const storedTheme = getStoredTheme();
-    if (storedTheme !== 'light' && storedTheme !== 'dark') {
-      setTheme(getPreferredTheme());
-    }
-  });
-
-  window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme());
-
-    document.querySelectorAll('[data-bs-theme-value]').forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const theme = toggle.getAttribute('data-bs-theme-value');
-        setStoredTheme(theme);
-        setTheme(theme);
-        showActiveTheme(theme, true);
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      const preferredTheme = getPreferredTheme();
+      setTheme(preferredTheme);
+      showActiveTheme(preferredTheme);
+  
+      document.querySelectorAll('[data-bs-theme-value]').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const theme = toggle.getAttribute('data-bs-theme-value');
+          setStoredTheme(theme);
+          setTheme(theme);
+          showActiveTheme(theme, true);
+        });
       });
     });
-  });
-})();
+  })();
+  
