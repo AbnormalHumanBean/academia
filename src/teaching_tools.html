@@ -13,18 +13,20 @@
 	
 	<body>
 		<section>
-			<div class="container-fluid p-3 mt-2">
+			<div class="sp-container p-3 mt-2">
 				<h1> Example Materials </h1>
 				<p> In order to help students, I created my own slides and review based on the textbook we use. I wanted to narrow down the content compared to that the
 					provided material. The lecture slides are given to students ahead of time, while reviews are given near exams. The example review provided covers material
 					for a singular exam, while the example slides show a flexible section, which can change in how long it takes to cover it. </p>
 			</div>
-			<div class="container-fluid p-3 mt-2">
+			<div class="sp-container p-3 mt-2">
 				<div class="row">
-					<div class="col-6 text-center"> <button id="togglePdf1" class="btn btn-outline-light sp-accord-btn fs-5b" data-bs-toggle="button">Show Example
-							Review</button> </div>
-					<div class="col-6 text-center"> <button id="togglePdf2" class="btn btn-outline-light sp-accord-btn fs-5b" data-bs-toggle="button">Show Example
-							Slides</button> </div>
+					<div class="col-6 text-center">
+						<button id="togglePdf1" class="btn btn-cute sp-accord-btn fs-5b" data-bs-toggle="button">Show Example Review</button>
+					</div>
+					<div class="col-6 text-center">
+						<button id="togglePdf2" class="btn btn-cute sp-accord-btn fs-5b" data-bs-toggle="button">Show Example Slides</button>
+					</div>
 				</div>
 			</div>
 			<div class="row pdf-container" id="pdfContainer1">
@@ -59,30 +61,28 @@
 				university, didn't allow direct inclusion of the JavaScript, thus the iframe. I can no longer find the instructions that I followed so the closest
 				explanation is <a href="https://community.canvaslms.com/t5/Canvas-Question-Forum/Embed-HTML-file-in-assignment-page/m-p/519604"> here</a>. The iframe would
 				look like this, with the proper URL. </p>
-        <div class="hstack gap-3">
-          <pre> <code id="iframe-code">
-          &lt;p&gt;&lt;iframe style=&quot;width: 100%; height: 800px; border: none;&quot; src=&quot;Permanent URL from content collection&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
-        </code></pre> 
-        <div class="ms-auto"><a href="./calc.html" download="embed-able-calc.html" class="btn btn-outline-success sp-btn-small "> download html file</a> </div>
-    </div> 
-    </div>
+			<div class="hstack">
+				<pre
+					class="m-auto"><code id="iframe-code">&lt;p&gt;&lt;iframe style=&quot;width: 100%; height: 800px; border: none;&quot; src=&quot;Permanent URL from content collection&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;</code></pre>
+				<div>
+					<a href="./calc.html" download="embed-able-calc.html" class="btn btn-outline-success sp-btn-small "> download html file</a>
+				</div>
+			</div>
 			<div class="row center">
-				<p> The styling is minimal, and it has no input restrictions. You can test it for yourself. </p> <button id="s-calc"
-					class="btn btn-outline-light sp-accord-btn fs-5b" data-bs-toggle="collapse" data-bs-target="#calc" aria-expanded="false"
+				<p> The styling is minimal, and it has no input restrictions. You can test it for yourself. </p>
+				<button id="s-calc" class="btn btn-outline-light sp-accord-btn fs-5b" data-bs-toggle="collapse" data-bs-target="#calc" aria-expanded="false"
 					aria-controls="collapseExample">Show calculator</button>
 			</div>
 			<div class="row mt-3">
 				<div class="col-12 col-lg-10 collapse mx-auto" id="calc"> <embed src="./calc.html" type="text/html" width="100%" height="400px"> </div>
 			</div>
-			<div class="row"> </div>
 			<div class="row center">
-				<p> The file itself has some explanations of what each step does, and shows how the grade is determined. </p> <button
-					class="btn btn-outline-light sp-accord-btn fs-5b" data-bs-toggle="collapse" data-bs-target="#calc-code" aria-expanded="false"
+				<p> The file itself has some explanations of what each step does, and shows how the grade is determined. </p>
+				<button class="btn btn-outline-light sp-accord-btn fs-5b" data-bs-toggle="collapse" data-bs-target="#calc-code" aria-expanded="false"
 					aria-controls="collapseExample">Show calc. HTML code</button>
 			</div>
-		</div>
-		<div class="row collapse" id="calc-code">
-			<pre> <code id="pre-code"> 
+			<div class="row collapse" id="calc-code">
+				<pre> <code id="pre-code"> 
       &lt;!DOCTYPE html&gt;
       &lt;html&gt;
       &lt;head&gt;
@@ -236,8 +236,7 @@
       &lt;/body&gt;
       
       &lt;/html&gt;</code></pre>
-		</div>
-		</div>
+			</div>
 		</div>
 		</section>
 	</body>

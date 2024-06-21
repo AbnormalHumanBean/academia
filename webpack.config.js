@@ -31,11 +31,11 @@ module.exports = {
         style: './src/css/styles.css',
         githubget: './src/js/githubget.js',
         html_highlight: './src/js/html_highlight.js',
-        adjust: './src/js/adjustment.js',
+        adjust: {import: './src/js/adjustment.js',  dependOn: 'main'},
         add: ['./src/css/additions.css', './src/css/icofont.css','./src/css/icons.css','./src/css/bootstrap-icons.css'],
         to_html:['./src/pdf_js_generic/web/viewer.css','./src/pdf_js_generic/build/pdf.mjs','./src/pdf_js_generic/web/viewer.mjs'],
         pdf_viewer_element: './src/js/pdf_viewer_element.js',
-        gh_card: ['./src/mine/github_profile.js'],
+        gh_card: ['./src/js/github_profile.js'],
     },
     output: {
         filename: '[name].js',
@@ -106,10 +106,6 @@ module.exports = {
                 {
                     from: 'src/pdf_js_generic/build/pdf.worker.mjs',
                     to: 'pdf_js/build/pdf.worker.mjs'
-                },
-                {
-                    from: 'src/mine',
-                    to: 'mine'
                 },
             ],
         }),
