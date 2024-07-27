@@ -196,7 +196,6 @@ module.exports = {
 			$: 'jquery',
 			jQuery: 'jquery'
 		}),
-        new RemoveEmptyJSChunksPlugin(),
 		  new Dotenv(),
 
 	],
