@@ -1,0 +1,60 @@
+:root,
+[data-bs-theme=light] {
+--bs-body-color: #151316;
+--bs-body-color-rgb: 21, 19, 23;
+
+--bs-body-bg: #f1ebfa;
+--bs-body-bg-rgb: 241, 235, 250;
+
+--bs-emphasis-color: #35054f;
+--bs-emphasis-color-rgb: 23, 2, 34;
+
+--bs-secondary-color: rgba(33, 37, 41, 0.75);
+--bs-secondary-color-rgb:  33, 37, 41;
+
+--bs-secondary-bg: #e2d6f5;
+--bs-secondary-bg-rgb:226, 214, 245;
+
+--bs-tertiary-color: #302b35;
+--bs-tertiary-color-rgb: 48, 43, 53;
+
+--bs-tertiary-bg: rgba(142, 109, 217, 0.5);
+--bs-tertiary-bg-rgb:  rgba(142, 109, 217, 0.5);
+
+--bs-link-color: #9D66F7;;
+--bs-link-hover-color:#9D66F7;;
+--bs-link-color-rgb:84, 40, 156;
+--bs-link-hover-color-rgb: 84, 40, 156;
+
+--bs-border-color: #54289C;
+--bs-border-color-translucent: #9D66F7;
+
+--bs-heading-color: #26212b;
+
+--iv-tag: #4219a3;
+--iv-attribute: #081CF3;
+--iv-attributeV: #BC048A;
+--iv-comment: #89929d;
+--iv-cssselector: #081CF3;
+--iv-cssproperty: #000;
+--iv-csspropertyV: #7942D2;
+--iv-js: #151316;
+--iv-jskey: #5100ff;
+--iv-jsstring: #BC048A;
+--iv-jsnum: #ff0000;
+--iv-jsproperty: #081CF3;
+
+--bs-sp-bg: #e4dcf5;
+--iv-nav: #35054f;
+
+--iv-con-bg:#572eb2;
+--iv-con-fg: #e7dff7;
+
+--iv-nav-border: #d6c4f0;
+--bs-border-width: 3px;
+--bs-nav-bg: var(--bs-body-bg);
+--bs-table-hover-bg: rgba(var(--bs-primary-bg-subtle),0.99);
+--bs-iv-active-hover: var(--bs-navbar-hover-color);
+--bs-dd-bd-iv:#b399e5;
+--sp-color:#54289c80;
+}

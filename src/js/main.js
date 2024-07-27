@@ -10,6 +10,10 @@ const tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
 	return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	// Get current page URL path and filename
 	let path = window.location.pathname;
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	dropitem.forEach(drop => {
 		drop.classList.remove("active");
 		if (drop.getAttribute("href") === page) {
-			if (drop.getAttribute("href").includes("code")) {
+			if (drop.getAttribute("href").includes("cod")) {
 		const	getit =	document.getElementById("code")
 				getit.classList.add("active");
 			};	
@@ -42,7 +46,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				getit2.classList.add("active");
 			};	
 			};
+			console.log("Current page:", page);
+			console.log("Checking drop item:", drop.getAttribute("href"));
 		 });
+		 
 	});
  
 
@@ -59,12 +66,12 @@ function createProgressBars() {
 
 	  // Create base progress bar
 	  const baseProgressBar = document.createElement('div');
-	  baseProgressBar.className = 'progress-bar sp-pbar-shadow';
+	  baseProgressBar.className = 'progress-bar bg-primary sp-pbar-shadow';
 	  baseProgressBar.style.width = '0%';
 
 	  // Create overlay progress bar
 	  const overlayProgressBar = document.createElement('div');
-	  overlayProgressBar.className = 'progress-bar overlay-bar bg-primary';
+	  overlayProgressBar.className = 'progress-bar overlay-bar ';
 	  overlayProgressBar.style.width = '0%';
 
 	  // Append progress bars to the container

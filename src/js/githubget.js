@@ -1,139 +1,146 @@
+const { marked } = require('marked')
 const username = 'abnormalhumanbean';
-const token =
-	'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';
-const cacheKey = `githubRepos_${username}`;
-const cacheDuration = 5 * 24 * 60 * 60 * 1000; // 5 days in milliseconds
-function fetchData() {
-	fetch(`https://api.github.com/users/${username}/repos`, {
-			headers: {
-				'Authorization': `token ${token}`
-			}
-		})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-			return response.json();
-		})
-		.then(data => {
-			console.log('Fetched data:', data);
-			debugger;
-			if (!Array.isArray(data)) {
-				throw new TypeError('Expected an array of repositories');
-			}
-			localStorage.setItem(cacheKey, JSON.stringify({
-				data,
-				timestamp: Date.now()
-			}));
-			displayData(data);
-		})
-		.catch(error => {
-			console.error('Error fetching data:', error);
-		});
+const token = process.env.GITHUB_TOKEN;
+const cacheKey = `githubRepos`;
+const cacheDuration = 1000; // 5 days in milliseconds  5 * 24 * 60 * 60 *
+
+async function fetchRequest(url, headers = {}) {
+    const response = await fetch(url, { headers });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+}
+
+async function fetchTextRequest(url, headers = {}) {
+    const response = await fetch(url, { headers });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text();
+}
+
+async function getCommitCount(repo) {
+    try {
+        console.log(`Fetching commit count for repo: ${repo}`);
+        const commitsUrl = `https://api.github.com/repos/${username}/${repo}/commits?sha=main&per_page=1&page=1`;
+        const response = await fetch(commitsUrl, {
+            headers: {
+                'Authorization': `token ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`GitHub API returned an error: ${response.statusText}`);
+        }
+
+        const linkHeader = response.headers.get('Link');
+        if (!linkHeader) {
+            console.log('No Link header found in the response');
+            return 1; // If there's no Link header, assume only one page of commits
+        }
+
+        const lastPageLink = linkHeader.split(',').find(link => link.includes('rel="last"'));
+        if (!lastPageLink) {
+            console.log('No rel="last" link found in the Link header');
+            return 1; // If there's no rel="last" link, assume only one page of commits
+        }
+
+        const pageCount = lastPageLink.match(/&page=(\d+)>/)[1];
+        return parseInt(pageCount, 10);
+    } catch (error) {
+        console.error('Error fetching total commits:', error);
+        return null;
+    }
+}
+
+async function fetchData() {
+    try {
+        console.log(`Fetching repositories for user: ${username}`);
+        const repos = await fetchRequest(`https://api.github.com/users/${username}/repos`, {
+            'Authorization': `token ${token}`
+        });
+
+        const promises = repos.map(async repo => {
+            const repoName = repo.name;
+            console.log(`Processing repo: ${repoName}`);
+
+            // Fetch last commit date
+            const commits = await fetchRequest(`https://api.github.com/repos/${username}/${repoName}/commits?per_page=100`, {
+                'Authorization': `token ${token}`
+            });
+            const lastCommitDate = commits.length > 0 ? new Date(commits[0].commit.author.date).toLocaleDateString('en-US') : 'No commits';
+            console.log(`Last commit date for ${repoName}: ${lastCommitDate}`);
+
+                // Fetch README
+                let readmeText = '';
+                try {
+                    readmeText = await fetchTextRequest(`https://api.github.com/repos/${username}/${repoName}/readme`, {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3.raw'
+                    });
+                } catch (error) {
+                    console.error(`Error fetching README for ${repoName}:`, error);
+                    readmeText = 'No README available';
+                }
+    
+                const readmeHtml = marked(readmeText);
+
+            // Fetch total commits
+            const totalCommits = await getCommitCount(repoName);
+            console.log(`Total commits for ${repoName}: ${totalCommits}`);
+
+            return {
+                name: repoName,
+                html_url: repo.html_url,
+                language: repo.language,
+                lastCommitDate,
+                totalCommits,
+                description: repo.description,
+                readmeHtml
+            };
+        });
+
+        const repoData = await Promise.all(promises);
+        console.log('Repository data fetched successfully:', repoData);
+
+        localStorage.setItem(cacheKey, JSON.stringify({
+            data: repoData,
+            timestamp: Date.now()
+        }));
+
+        displayData(repoData);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
 function displayData(data) {
-	let tableBody = document.getElementById('repoTableBody');
-	tableBody.innerHTML = ''; // Clear previous content
-	data.forEach(repo => {
-		let lastUpdated = new Date(repo.updated_at).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric'
-		});
-		let row = `<tr>
-            <td style="font-weight: bold;">${repo.name}</td>
-            <td>${repo.language ? repo.language : 'N/A'}</td>
-            <td>${repo.description ? repo.description : 'No description'}</td>
-            <td><a href="${repo.html_url}"> link </a></td>
-            <td id="lastCommit_${repo.name}">Fetching last commit...</td>
-            <td id="commitsSince_${repo.name}">Fetching commits...</td>
-            <td><ul id="files_${repo.name}"></ul></td>
-        </tr>`;
-		tableBody.innerHTML += row;
-		let page = 1;
-		let totalCommits = 0;
-		const fetchCommits = () => {
-			fetch(
-					`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=100&page=${page}`, {
-						headers: {
-							'Authorization': `token ${token}`
-						}
-					})
-				.then(response => response.json())
-				.then(commits => {
-					if (commits.length === 0) {
-						// No more commits, update UI with total count
-						document.getElementById(`commitsSince_${repo.name}`).textContent = totalCommits;
-					} else {
-						// Add commits to total count and fetch next page
-						totalCommits += commits.length;
-						page++;
-						fetchCommits();
-					}
-				})
-				.catch(error => {
-					console.error('Error fetching commits:', error);
-					document.getElementById(`commitsSince_${repo.name}`).textContent =
-						'Unable to fetch commits';
-				});
-		};
-		fetchCommits();
-		fetch(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=100`, {
-				headers: {
-					'Authorization': `token ${token}`
-				}
-			})
-			.then(response => response.json())
-			.then(commits => {
-				let lastCommitDate = commits.length > 0 ? new Date(commits[0].commit.author.date)
-					.toLocaleDateString('en-US') : 'No commits';
-				document.getElementById(`lastCommit_${repo.name}`).textContent = lastCommitDate;
-			})
-			.catch(error => {
-				console.error('Error fetching commits:', error);
-				document.getElementById(`lastCommit_${repo.name}`).textContent =
-					'Unable to fetch last commit';
-			});
-		fetch(`https://api.github.com/repos/${username}/${repo.name}/contents`, {
-				headers: {
-					'Authorization': `token ${token}`
-				}
-			})
-			.then(response => response.json())
-			.then(files => {
-				files.sort((a, b) => {
-					if (a.type === 'dir' && b.type !== 'dir') {
-						return -1; // Directory before file
-					} else if (a.type !== 'dir' && b.type === 'dir') {
-						return 1; // File after directory
-					} else {
-						return 0; // Maintain current order
-					}
-				});
-				let filesList = files.map(file => {
-					if (file.type === 'dir') {
-						return `<li><i class="fas fa-folder"></i> ${file.name}</li>`;
-					} else if (file.type === 'file' && file.name.endsWith('.md')) {
-						return `<li><i class="fab fa-markdown"></i> ${file.name}</li>`;
-					} else if (file.type === 'file' && (file.name.endsWith('.Rmd') || file.name.endsWith(
-							'.Rproj'))) {
-						return `<li><i class="fab fa-r-project"></i>${file.name}</li>`;
-					} else {
-						return `<li><i class="bi bi-file-earmark-code"></i>${file.name}</li>`;
-					}
-				}).join('');
-				document.getElementById(`files_${repo.name}`).innerHTML = filesList;
-			})
-			.catch(error => {
-				console.error('Error fetching files:', error);
-				document.getElementById(`files_${repo.name}`).innerHTML = '<li>Unable to fetch files</li>';
-			});
-	}, );
-};
+    const tableBody = document.getElementById('repoTableBody');
+    tableBody.innerHTML = ''; // Clear previous content
+
+    data.forEach(repo => {
+        const uniqueId = `repo_${repo.name.replace(/\s+/g, '_')}`;
+        const row = `
+            <tr>
+                <td style="font-weight: bold;">${repo.name}</td>
+                <td><a href="${repo.html_url}">link</a></td>
+                <td>${repo.language ? repo.language : 'N/A'}</td>
+                <td id="lastCommit_${uniqueId}">${repo.lastCommitDate}</td>
+                <td id="commitsSince_${uniqueId}">${repo.totalCommits}</td>
+                <td>${repo.description ? repo.description : 'No description'}</td>
+                <td class="readme" id="readme_${uniqueId}"><div>${repo.readmeHtml}</div></td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
+    });
+    
+}
+
 const cachedData = JSON.parse(localStorage.getItem(cacheKey));
 if (cachedData && (Date.now() - cachedData.timestamp) < cacheDuration) {
-	displayData(cachedData.data);
+    console.log('Using cached data');
+    displayData(cachedData.data);
 } else {
-	fetchData();
-};
+    fetchData();
+}

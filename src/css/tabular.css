@@ -1,0 +1,42 @@
+/**
+* @license
+*
+* Font Family: Tabular
+* Designed by: Jérémie Hornus, Julie Soudanne
+* URL: https://www.fontshare.com/fonts/tabular
+* © 2024 Indian Type Foundry
+*
+*
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 700.0;
+*
+* available axes:
+'wght' (range from 300.0 to 700.0
+*/
+@font-face {
+  font-family: 'Tabular';
+  src: url('./fonts/Tabular-Variable.woff2') format('woff2'),
+       url('./fonts/Tabular-Variable.woff') format('woff'),
+       url('./fonts/Tabular-Variable.ttf') format('truetype');
+  font-weight: 300 700;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 700.0;
+*
+* available axes:
+'wght' (range from 300.0 to 700.0
+*/
+@font-face {
+  font-family: 'Tabular';
+  src: url('./fonts/Tabular-VariableItalic.woff2') format('woff2'),
+       url('./fonts/Tabular-VariableItalic.woff') format('woff'),
+       url('./fonts/Tabular-VariableItalic.ttf') format('truetype');
+  font-weight: 300 700;
+  font-display: swap;
+  font-style: italic;
+}
