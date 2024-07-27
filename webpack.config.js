@@ -177,7 +177,7 @@ module.exports = {
 		new nav_inject({
 			options: ""
 		}),
-		new FileManagerPlugin({
+		/* new FileManagerPlugin({
 			events: {
 				onEnd: {
 					move: [{
@@ -191,7 +191,7 @@ module.exports = {
 					],
 				},
 			},
-		}),
+		}), */
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery'
