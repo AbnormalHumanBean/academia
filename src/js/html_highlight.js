@@ -21,7 +21,6 @@ function w3CodeColor(elmnt, mode) {
   const jsstringcolor = "var(--iv-jsstring)";
   const jsnumbercolor = "var(--iv-jsnum)";
   var jspropertycolor = "var(--iv-jsproperty)";
-  elmntObj.style.fontFamily = "Consolas,'Courier New', monospace";
   if (!lang) {lang = "html"; }
   if (lang == "html") {elmntTxt = htmlMode(elmntTxt);}
   if (lang == "css") {elmntTxt = cssMode(elmntTxt);}
