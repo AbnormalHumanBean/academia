@@ -4,4 +4,5 @@ ID = "1bcb19ba-093b-4901-8e27-0591316a92f1"
 [build]
   publish = "dist"
   command = "npm run build"
+  functions="functions"
 
