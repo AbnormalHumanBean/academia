@@ -1,6 +1,6 @@
 function loadGithubCard() {
 	const githubUsername = "AbnormalHumanBean";
-	const githubToken = process.env.GITHUB_TOKEN;
+	const githubToken = process.env.REACT_APP_GITHUB_TOKEN;
 	// Fetch user data from GitHub API
 	fetch(`https://api.github.com/users/${githubUsername}`, {
 			headers: {
