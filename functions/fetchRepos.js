@@ -5,20 +5,23 @@ const username = 'abnormalhumanbean';
 const token = process.env.GITHUB_TOKEN;
 
 async function fetchRequest(url, headers = {}) {
-    const response = await fetch(url, { headers });
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
+   const { default: fetch } = await import('node-fetch');
+   const response = await fetch(url, { headers });
+   if (!response.ok) {
+       throw new Error(`HTTP error! status: ${response.status}`);
+   }
+   return response.json();
 }
 
 async function fetchTextRequest(url, headers = {}) {
-    const response = await fetch(url, { headers });
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.text();
+   const { default: fetch } = await import('node-fetch');
+   const response = await fetch(url, { headers });
+   if (!response.ok) {
+       throw new Error(`HTTP error! status: ${response.status}`);
+   }
+   return response.text();
 }
+
 exports.handler = async function(event, context) {
    try {
        const repos = await fetchRequest(`https://api.github.com/users/${username}/repos`, {
