@@ -15,7 +15,7 @@ async function fetchRepos() {
 }
 
 function displayData(repos) {
-    const tableBody = document.getElementById('repos');
+    const tableBody = document.getElementById('repoTable');
     tableBody.innerHTML = ''; // Clear any existing content
 
     repos.forEach((repo, index) => {
