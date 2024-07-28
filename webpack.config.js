@@ -196,7 +196,7 @@ module.exports = {
 			$: 'jquery',
 			jQuery: 'jquery'
 		}),
-		  new Dotenv(),
+		  // new Dotenv(),
 
 	],
 	optimization: {
