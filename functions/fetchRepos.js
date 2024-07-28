@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const { marked } = require('marked');
 
 const username = 'abnormalhumanbean';
