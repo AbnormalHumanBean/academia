@@ -1,6 +1,6 @@
 const { marked } = require('marked')
 const username = 'abnormalhumanbean';
-const token = process.env.GITHUB_TOKEN;
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 const cacheKey = `githubRepos`;
 const cacheDuration = 1000; // 5 days in milliseconds  5 * 24 * 60 * 60 *
 
