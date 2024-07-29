@@ -1,7 +1,7 @@
 {
 	"name": "ivanna",
 	"description": "My Website via npm hopefully",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"private": true,
 	"repository": {
 		"type": "git",
