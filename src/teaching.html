@@ -297,96 +297,126 @@
 		</section>
 		<section>
 			<!-- Modal -->
-			<div class="modal fade" id="feedback3" tabindex="-1" aria-labelledby="feedback1" aria-hidden="true">
+			<div class="modal fade" id="feedback3" tabindex="-1" aria-labelledby="feedback3Label" aria-hidden="true">
 				<div class="modal-dialog modal-fullscreen">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="feedback1">Evaluations from Fall 2024</h1>
+							<h1 class="modal-title fs-5" id="feedback3Label">Evaluations from Fall 2024</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body px-5">
 							<div class="container-fluid px-3">
+								<!-- Summary Card -->
+					<div class="card mb-3">
+						<div class="card-body">
+						<h5 class="card-title mb-2">Summary</h5>
+						<p class="mb-1"><strong>Number of Students Responded:</strong> 59/109 (54%)</p>
+						<p class="mb-1"><strong>Overall Instructor Effectiveness (Class):</strong> 4.0/5</p>
+						<p class="mb-1"><strong>Overall Course Helped Learn Concepts (Class):</strong> 4.1/5</p>
+						</div>
+					</div>
+					<!-- Accordion for details -->
+					<div class="accordion" id="accordionFall2024">
+						<!-- Quantitative Results -->
+						<div class="accordion-item">
+						<h2 class="accordion-header" id="headingQuant">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuant" aria-expanded="true" aria-controls="collapseQuant">
+								Quantitative Results
+							</button>
+						</h2>
+						<div id="collapseQuant" class="accordion-collapse collapse show" aria-labelledby="headingQuant" data-bs-parent="#accordionFall2024">
+							<div class="accordion-body">
 								<div class="table-responsive">
-									<table class="table table-hover">
-										<thead>
-											<tr>
-												<th rowspan="2"> Question Text</th>
-												<th class="text-center" colspan="4"> Avg. Rating out of 5</th>
-											</tr>
-											<tr>
-												<th>Class </th>
-												<th>Dept. </th>
-												<th>Col. </th>
-												<th>Sch. </th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Course assignments facilitated learning</td>
-												<td>4.2</td>
-												<td>4.3</td>
-												<td>4.5</td>
-												<td>4.5</td>
-											</tr>
-											<tr>
-												<td>Course was organized</td>
-												<td>4.2</td>
-												<td>4.0</td>
-												<td>4.3</td>
-												<td>4.3<br></td>
-											</tr>
-											<tr>
-												<td>Opportunities to be successful in course</td>
-												<td>4.4</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td>Overall course helped learn required concepts/skills</td>
-												<td>4.1</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td>Instructor presented material in way that helped engage in course</td>
-												<td>4.0</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td>Instructor helped to understand relevance of course content</td>
-												<td>4.1</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td>Instructor tailored instructions/ lessons to variety of perspectives</td>
-												<td>4.0</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td>Instructors teaching methods helped to learn course content</td>
-												<td>3.9</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td class="fs-6"> <strong>Number of Students:</strong></td>
-												<td class="text-center" colspan="4"><strong> 59/109 (54%) </strong></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="container-fluid px-4"> <strong>Most effective learning aspects of course:</strong>
-								<ul>
+								<table class="table table-hover">
+									<thead>
+										<tr>
+										<th rowspan="2">Question Text</th>
+										<th class="text-center" colspan="4">Avg. Rating out of 5</th>
+										</tr>
+										 <tr>
+                          <th>Class</th>
+                          <th>Dept.</th>
+                          <th>Col.</th>
+                          <th>Sch.</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Course assignments facilitated learning</td>
+                          <td>4.2</td>
+                          <td>4.3</td>
+                          <td>4.5</td>
+                          <td>4.5</td>
+                        </tr>
+                        <tr>
+                          <td>Course was organized</td>
+								  <td>4.2</td>
+                          <td>4.0</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+                        </tr>
+                        <tr>
+                          <td>Opportunities to be successful in course</td>
+                          <td>4.4</td>
+                          <td>4.1</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+                        </tr>
+                        <tr>
+                          <td>Overall course helped learn required concepts/skills</td>
+                          <td>4.1</td>
+                          <td>4.1</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+                        </tr>
+                        <tr>
+                          <td>Instructor presented material in way that helped engage in course</td>
+                          <td>4.0</td>
+                          <td>4.1</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+								  </tr>
+                        <tr>
+                          <td>Instructor helped to understand relevance of course content</td>
+                          <td>4.1</td>
+                          <td>4.1</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+                        </tr>
+                        <tr>
+                          <td>Instructor tailored instructions/lessons to variety of perspectives</td>
+                          <td>4.0</td>
+                          <td>4.1</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+                        </tr>
+                        <tr>
+									 <td>Instructor's teaching methods helped to learn course content</td>
+                          <td>3.9</td>
+                          <td>4.1</td>
+                          <td>4.3</td>
+                          <td>4.3</td>
+                        </tr>
+                        <tr>
+                          <td class="fs-6"><strong>Number of Students:</strong></td>
+                          <td class="text-center" colspan="4"><strong>59/109 (54%)</strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Most Effective Aspects -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEffective">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEffective" aria-expanded="false" aria-controls="collapseEffective">
+                  Most Effective Learning Aspects
+                </button>
+              </h2>
+              <div id="collapseEffective" class="accordion-collapse collapse" aria-labelledby="headingEffective" data-bs-parent="#accordionFall2024">
+                <div class="accordion-body">
+                  <ul>
 									<li>The homeworks. It not only tested my knowledge of the required material but also further made sure I understood it.</li>
 									<li>Your mock exams on blackboard were helpful because it prepared me for the actual exam. Made the real exam less scary and more familiar.</li>
 									<li>I liked the way the lectures were organized.</li>
@@ -436,8 +466,20 @@
 										assignments; if you do the work, you will be fine.</li>
 									<li>Definitely the practice exams and the in class activities we did before exams to cement what we know before taking the exam.</li>
 									<li>Taught with understandable terms and examples</li>
-								</ul> <strong>Least effective learning aspects of course:</strong>
-								<ul>
+								 </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Least Effective Aspects -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingLeast">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLeast" aria-expanded="false" aria-controls="collapseLeast">
+                  Least Effective Learning Aspects
+                </button>
+              </h2>
+              <div id="collapseLeast" class="accordion-collapse collapse" aria-labelledby="headingLeast" data-bs-parent="#accordionFall2024">
+                <div class="accordion-body">
+                  <ul>
 									<li>The lack of interaction because of individuals fearing being wrong during class when asked a question.</li>
 									<li>That one review day where we had to be in team was distracting, and not helpful.</li>
 									<li>Required attendance</li>
@@ -484,8 +526,20 @@
 									<li>The excessively long homework's</li>
 									<li>Nothing really comes to mind I felt like there were resources for anything with multiple ways to study for test provided to us.</li>
 									<li>Not enough in class quizzes for students to ask questions based on the answers</li>
-								</ul> <strong>Additional comments about instructor:</strong>
-								<ul>
+								 </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Additional Comments -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingComments">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComments" aria-expanded="false" aria-controls="collapseComments">
+                  Additional Comments About Instructor
+                </button>
+              </h2>
+              <div id="collapseComments" class="accordion-collapse collapse" aria-labelledby="headingComments" data-bs-parent="#accordionFall2024">
+                <div class="accordion-body">
+                  <ul>
 									<li>I enjoyed this class.</li>
 									<li>Good instructor made it easy to understand and made class engaging.</li>
 									<li>goat.</li>
@@ -513,6 +567,11 @@
 									<li>Great!</li>
 									<li>Good instructor that gave us plenary of resources needed for success and responded to emails very quickly.</li>
 								</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Accordion -->
 							</div>
 						</div>
 						<div class="modal-footer p-1">
