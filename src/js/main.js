@@ -102,3 +102,35 @@ function createProgressBars() {
  // Create and update progress bars on page load
  document.addEventListener('DOMContentLoaded', createProgressBars);
 
+import Masonry from 'masonry-layout';
+
+// ...other code...
+
+function layoutMasonry(grid) {
+  if (grid) {
+    if (grid.masonryInstance) {
+      grid.masonryInstance.layout();
+    } else {
+      grid.masonryInstance = new Masonry(grid, {
+        itemSelector: '.col',
+        percentPosition: true,
+        gutter: 16,
+        columnWidth: '.col'
+      });
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize Masonry for all visible grids on page load
+  document.querySelectorAll('.masonry-grid').forEach(layoutMasonry);
+
+  // Listen for Bootstrap accordion show event
+  document.querySelectorAll('.accordion').forEach(acc => {
+    acc.addEventListener('shown.bs.collapse', function(e) {
+      // Only layout Masonry for the grid in the opened panel
+      const grid = e.target.querySelector('.masonry-grid');
+      if (grid) layoutMasonry(grid);
+    });
+  });
+});

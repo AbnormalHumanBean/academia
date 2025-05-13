@@ -508,3 +508,48 @@ hr.opt2 {
 	border: 2px solid var(--sp-color);
 	padding: 20px 0px 15px 10px;
 }
+
+/* Masonry adaptive columns */
+.masonry-grid {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.masonry-grid .card {
+  background-color: var(--bs-primary-bg-subtle);
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+  box-shadow: 0 2px 8px rgba(100, 50, 150, 0.08);
+  border-radius: 1rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  padding: 0.25rem 0.25rem;
+}
+
+.masonry-grid .card-body {
+  padding: 0.3rem 0.3rem;
+  color: var(--bs-body-color);
+}
+
+.masonry-grid .card:hover {
+  background-color: var(--bs-secondary-bg-subtle);
+  border-color: var(--bs-border-color-translucent);
+  color: var(--bs-body-color);
+}
+.masonry-grid .col {
+  width: 100%;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (min-width: 600px) {
+  .masonry-grid .col {
+    max-width: 48%; /* 2 columns with gutter */
+  }
+}
+
+@media (min-width: 992px) {
+  .masonry-grid .col {
+    max-width: 32%; /* 3 columns on large screens */
+  }
+}
