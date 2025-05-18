@@ -133,4 +133,29 @@ document.addEventListener("DOMContentLoaded", function() {
       if (grid) layoutMasonry(grid);
     });
   });
+   document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(tabBtn => {
+    tabBtn.addEventListener('shown.bs.tab', function (e) {
+      const tabPane = document.querySelector(e.target.getAttribute('data-bs-target'));
+      if (tabPane) {
+        tabPane.querySelectorAll('.masonry-grid').forEach(layoutMasonry);
+      }
+    });
+  });
+});
+document.querySelectorAll('[data-bs-toggle="modal"][data-bs-tab]').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const tabSelector = btn.getAttribute('data-bs-tab');
+    const modal = document.querySelector(btn.getAttribute('data-bs-target'));
+    if (!modal) return;
+
+    // Listen for the modal to be fully shown, then switch tab
+    const handler = function () {
+      const tabTrigger = document.querySelector(`[data-bs-target="${tabSelector}"]`);
+      if (tabTrigger) {
+        new bootstrap.Tab(tabTrigger).show();
+      }
+      modal.removeEventListener('shown.bs.modal', handler);
+    };
+    modal.addEventListener('shown.bs.modal', handler);
+  });
 });

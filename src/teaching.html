@@ -14,6 +14,7 @@
 	
 	<body>
 		<section>
+			<!-- Main page -->
 			<div class="sp-container">
 				<div class="row text-center">
 					<h1> Courses </h1>
@@ -28,16 +29,22 @@
 							<div class="px-5">
 								<h3>ECO 2305: Principles of Economics</h3>
 								<div class="ps-5 ul-color">
-									<ul class="fs-4">
-										<li>Fall 2023 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#feedback2"
-												aria-pressed="false">Reviews</button>
+									<ul class="fs-4 eval-list">
+										<li>
+											<button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+												data-bs-tab="#tab-fall24"> Evaluations </button>
 										</li>
-										<li>Spring 2024 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#feedback1"
-												aria-pressed="false">Reviews</button>
+										<li> Spring 2025 <!-- <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+												data-bs-tab="#tab-spring25"> Eval. </button> -->
+												</li>
+										<li> Fall 2024 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+												data-bs-tab="#tab-fall24"> Eval. </button>
 										</li>
-										<li>Fall 2024 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#feedback3"
-												aria-pressed="false">Reviews</button>
+										<li> Spring 2024 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+												data-bs-tab="#tab-spring24"> Eval. </button>
 										</li>
+										<li> Fall 2023 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+												data-bs-tab="#tab-fall23"> Eval. </button>
 										</li>
 									</ul>
 								</div>
@@ -75,1178 +82,1426 @@
 			</div>
 		</section>
 		<section>
-			<!-- Modal -->
-			<div class="modal fade" id="feedback1" tabindex="-1" aria-labelledby="feedback1" aria-hidden="true">
+			<!-- Model pop-up -->
+			<div class="modal fade" id="evaluationsModal" tabindex="-1" aria-labelledby="evaluationsModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-fullscreen">
 					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="feedback1">Evaluations from Spring 2024</h1>
+						<div class="modal-header py-0">
+							<h3 class="modal-title" id="evaluationsModalLabel">Course Evaluations</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
-						<div class="modal-body px-5">
-							<div class="container-fluid px-3">
-								<div class="table-responsive">
-									<table class="table table-hover">
-										<thead>
-											<tr>
-												<th rowspan="2"> Question Text</th>
-												<th class="text-center" colspan="4"> Avg. Rating out of 5</th>
-											</tr>
-											<tr>
-												<th>Class </th>
-												<th>Dept. </th>
-												<th>Col. </th>
-												<th>Sch. </th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Instructor followed course objectives</td>
-												<td>4.6</td>
-												<td>4.3</td>
-												<td>4.5</td>
-												<td>4.5</td>
-											</tr>
-											<tr>
-												<td>Overall Instructor effectiveness</td>
-												<td>4.3</td>
-												<td>4.0</td>
-												<td>4.3</td>
-												<td>4.3<br></td>
-											</tr>
-											<tr>
-												<td>Course a valuable learning experience</td>
-												<td>4.4</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td class="fs-6"> <strong>Number of Students:</strong></td>
-												<td class="text-center" colspan="4"><strong> 18/28 (64%) </strong></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="container-fluid px-4"> <strong>Student Comments:</strong>
-								<ul>
-									<li>She was a great professor</li>
-									<li>None to add</li>
-									<li>Ivanna is a great teacher who thoroughly explains all the subjects! She also cares about her students and helps them achieve their grades. If you
-										go to her class in person, you will succeed in her class.</li>
-									<li>this was by far one of my favorite professors! she is super kind and helpful towards her students!</li>
-									<li>Good teacher, very helpful with giving real world examples. Many opportunities for EC and help with homework</li>
-									<li>This class was not too difficult, but I feel like the instructor could've done better in some places. I have a different learning style than what
-										was used so I think that also impacted my experience. I liked the examples she used and how she related them to things in our demographic.</li>
-									<li>She is amazing!</li>
-									<li>Instructor was great very nice and helpful.</li>
-									<li>Was extremely available for questions and review- paper reviews were also extremely helpful. Would not have done as well in this class without her
-									</li>
-									<li>Course content was taken really really slow.</li>
-									<li>My favorite Professor by far!</li>
-									<li>I appreciated how Ivanna would switch her teaching style when she could tell we were struggling. I also thought class was enjoyable and went at a
-										great pace</li>
-								</ul>
-							</div>
-						</div>
-						<div class="modal-footer p-1">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section>
-			<div class="modal fade" id="feedback2" tabindex="-1" aria-labelledby="feedback2" aria-hidden="true">
-				<div class="modal-dialog modal-fullscreen">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="feedback1">Evaluations from Fall 2023</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body px-5">
-							<div class="container-fluid px-3">
-								<div class="table-responsive">
-									<table class="table table-hover ">
-										<thead>
-											<tr>
-												<th rowspan="2"> Question Text</th>
-												<th class="text-center" colspan="4"> Avg. Rating out of 5</th>
-											</tr>
-											<tr>
-												<th>Class </th>
-												<th>Dept. </th>
-												<th>Col. </th>
-												<th>Sch. </th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Instructor followed course objectives</td>
-												<td>3.8</td>
-												<td>4.3</td>
-												<td>4.5</td>
-												<td>4.5</td>
-											</tr>
-											<tr>
-												<td>Overall Instructor effectiveness</td>
-												<td>3.0</td>
-												<td>4.0</td>
-												<td>4.3</td>
-												<td>4.3<br></td>
-											</tr>
-											<tr>
-												<td>Course a valuable learning experience</td>
-												<td>3.3</td>
-												<td>4.1</td>
-												<td>4.3</td>
-												<td>4.3</td>
-											</tr>
-											<tr>
-												<td class="fs-6"> <strong>Response Rate of Students: </strong></td>
-												<td class="text-center" colspan="4"><strong> 41/99 (41%) </strong></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="container-fluid px-4"> <strong>Student Comments:</strong>
-								<ul>
-									<li>This course, while difficult at times, was wonderful. Ivanna was accessible at reasonable times and made it extremely clear what her expectations
-										were. If you met these expectations, she would be willing to work with you.</li>
-									<li>Very easy to communicate with and helpful throughout the course.</li>
-									<li>Really enjoyed the professor's teaching style!</li>
-									<li>Needs a smaller classroom in order to hear the lecture.</li>
-									<li>Class went great!</li>
-									<li>Mrs. Tindle was a great professor and I learned so much from her. She gave me a great foundation for economics and I look forward to taking
-										Business Economics next semester after taking ECO 2305 with Mrs. Tindle.</li>
-									<li>Like that</li>
-									<li>She lacked the finishing touch of some confidence but was a great and nice professor overall. I see this professor changing students' lives over
-										time.</li>
-									<li>I enjoyed this class and all I learned from the instructor.</li>
-									<li>Ms. Tindle is a very amazing person, but when it comes to teaching she struggles to explain concepts in ways that students will understand it.
-										There were many times where I was super lost in class because of how she explained/showed us how to do things. I was very happy with the SI sessions,
-										and most of the review notes that she posted before the test. I feel like if she were to put the formulas on the test/allow us to use them without
-										having to memorize them, it would be much easier.</li>
-									<li>She was a great professor and teacher and took the time to ensure we learned the material.</li>
-									<li>This class started off not the best, but she asked for feedback and the class gave it to her, after that the class did start improving. Still not
-										the best class but better than the beginning of the year.</li>
-									<li>Good teacher and environment, I learned a lot more than I thought I would and had a good time in this class.</li>
-									<li>Ivanna is very passionate about economics and truly strives to foster a productive learning environment. She makes time to thoroughly explain
-										topics during her office hours when we visit. She used relevant applications in her lectures, and was always wanting to improve the way she approached
-										the class. She needs to work on her oratory skills and delivery of some of the material. Overall, I enjoyed watching Ivanna grow as an instructor.
-									</li>
-									<li>Liked the course and loved the teacher thank you for a great semester. </li>
-									<li>You can tell she is a new professor. I will say at the start of the semester it didn't seem like she cared too much about the class and cared more
-										about her own classes, but a lot of the explanations lack in-depth explanations and are very minimal and the exams are somewhat difficult and worded
-										odd compared to the material that is given in class. She is not a bad teacher but if she just went more in-depth about a lot of important concepts she
-										would definitely be a great professor.</li>
-									<li>Professor speaks too low. You can tell she's only teaching because it's a part of her degree most likely. She pulls up a slide and reads it
-										basically. This is going to be the only class I get a B in because she's a horrible teacher and her class exam average is failing basically.</li>
-									<li> I would really enjoy a meeting with the director of Economics to discuss this class further.</li>
-									<li>The instructor seemed very nice. I thought she wasn't very good at demanding attention, and not in a disrespectful way, but you have to talk louder
-										and more clearly, especially nowadays with the distractions that students have. I had a problem with the way she responded to a question in class one
-										time when a student simply asked "Is there any extra credit," she could have just said no, instead she made an example out of the student and said "If
-										you studied and did the reviews and paid attention in class and did the homework, then you wouldn't have to ask that.</li>
-									<li>The instructor was not the best teacher but was slowly improving over the course of the semester. I think there were sometimes where you would be
-										talking about something and not give enough examples over a specific subject. For me it was examples of different GDP situations.</li>
-									<li>Ivanna doesn't know how to teach economics. I pretty much taught myself the entire thing. Thankfully I had a background in econ beforehand or I
-										would have failed. She overcomplicated just about every topic and made it ten times harder to learn and retain. Econ is already a challenge for some
-										and she made it a nightmare.</li>
-									<li>Instructor Tindle was very good, there was noticeable progression through the semester in her teaching schedule.</li>
-									<li>The first few weeks were rough because she was so quiet, but she has found a good groove.</li>
-									<li>Ms. Tindle was not the best professor for this course. I understand that it was her first time teaching the course and that she is also a student,
-										but she did not do a good job teaching economics this semester. I know that she has a good comprehension of economics, but that doesn't mean she can
-										teach it. She was also very passive-aggressive during class when teaching. None of the students were engaged because she would many times contradict
-										things that she would say about the same topic and not know how to explain topics. When teaching us a new chapter, she would only teach the basics and
-										then test us on very difficult contents. It was a frustrating course to take because economics shouldn't be as hard as she made it. I had to spend
-										hours upon hours going to SI sessions because she did not teach us well enough to prepare for her own exams. I would also like to add a critique for
-										the department as a whole. I think for the next semester, every professor should have to teach the same chapters at the same time because many times
-										during SI sessions, every student would be learning something different so the SI instructor had trouble figuring out what to teach us. And everyone
-										should take the same chapter tests because it is not fair for students to all take different midterm exams, then to all go and take the same common
-										final.</li>
-									<li>This was a fairly okay course. I feel like the teaching barrier between classes and test was a huge difference. I'm glad I have had a background of
-										some economics because this class was a lot of being self-taught.</li>
-									<li>This instructor did not seem quite ready to teach this class this semester. She seemed confused on some of the material she was teaching and
-										demonstrated examples in class wrong multiple times throughout the semester. Her material was extremely abstract, while her tests were extremely
-										specific and difficult. Almost every test score across this class had a 10% or lower median score than my financial accounting class's median test
-										scores. Even with these scores this professor never offered any extra credit and would curve tests just enough so that the median score of every test
-										was not failing. This class very much felt like a learning experience for a first-year professor and not a learning experience for students. Overall,
-										lectures were borderline useless tests were very tough.</li>
-									<li>I'm not this honest but I feel a need to be. This course was possibly one of the worst ones I've taken at tech. This professor seriously needs to
-										revise her way of teaching and presenting information. She did the absolute minimum to teach us and that reflected in our grades. First off she did
-										not provide a course schedule until we were well into class. Secondly, on top of her speaking so softly it was hard to hear what she was saying, she
-										also had horrible handwriting and had the presentation very uninteresting to learn. She also has a very apparent lack of empathy for students, which
-										is especially surprising considering that she is a student herself. She refuses to make exceptions on assignments even when citing serious reasons
-										that you were unable to do the assignment. I personally was going through something very personal to me and was unable to do an assignment and she
-										showed no empathy whatsoever. There is a lot more to express when it comes to this teacher, however, I digress. I sincerely hope she changes so her
-										future students can have a better education.</li>
-									<li>Class notes didn't always reflect material on the test. The teacher would spend 30 minutes on an example and forget how to do it and would say "I'm
-										just going to take this off the test" and it was in fact still on the test. This is just one example out of the many.</li>
-									<li>Her lectures made little to no sense and her tests did not match the overall concepts covered in class.</li>
-								</ul>
-							</div>
-						</div>
-						<div class="modal-footer p-1">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section>
-			<!-- Modal -->
-			<div class="modal fade" id="feedback3" tabindex="-1" aria-labelledby="feedback3Label" aria-hidden="true">
-				<div class="modal-dialog modal-fullscreen">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="feedback3Label">Evaluations from Fall 2024</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body px-5">
-							<div class="container-fluid px-3">
-								<!-- Summary Card -->
-								<div class="card mb-3">
-									<div class="card-body">
-										<h5 class="card-title mb-2">Summary</h5>
-										<p class="mb-1"><strong>Number of Students Responded:</strong> 59/109 (54%)</p>
-										<p class="mb-1"><strong>Overall Instructor Effectiveness:</strong> 4.1/5</p>
+						<div class="modal-body py-0 px-5">
+							<!-- Tabs nav -->
+							<ul class="nav nav-tabs mb-3 sticky-top" id="evalTabs" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab-fall23-tab" data-bs-toggle="tab" data-bs-target="#tab-fall23" type="button" role="tab" aria-controls="tab-fall23"
+										aria-selected="false">Fall 2023</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab-spring24-tab" data-bs-toggle="tab" data-bs-target="#tab-spring24" type="button" role="tab"
+										aria-controls="tab-spring24" aria-selected="false">Spring 2024</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab-fall24-tab" data-bs-toggle="tab" data-bs-target="#tab-fall24" type="button" role="tab" aria-controls="tab-fall24"
+										aria-selected="false">Fall 2024</button>
+								</li>
+							</ul> <!-- Tabs content -->
+							<div class="tab-content" id="evalTabsContent">
+								<!-- Fall 24 -->
+								<div class="tab-pane fade" id="tab-fall24" role="tabpanel" aria-labelledby="tab-fall24-tab">
+									<div class="container-fluid px-3">
+										<div class="card mb-3">
+											<div class="card-body">
+												<h5 class="card-title mb-2 fs-4">Evaluations from Fall 2024</h5>
+												<p class="mb-1 ps-4 sp-eval">Number of Students Responded: 59/109 (54%)</p>
+												<p class="mb-1 ps-4 sp-eval">Overall Average: 4.1/5</p>
+											</div>
+										</div>
+										<div class="container-fluid px-5">
+											<div class="table-responsive">
+												<table class="table table-hover inter-tabular">
+													<thead>
+														<tr>
+															<th>Question Text</th>
+															<th>Avg.</th>
+															<th>Str Agree</th>
+															<th>Agree</th>
+															<th>Neutral</th>
+															<th>Disagree</th>
+															<th>Str Disagree</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Course assignments facilitated learning</td>
+															<td>4.2</td>
+															<td>42%</td>
+															<td>39%</td>
+															<td>14%</td>
+															<td>3%</td>
+															<td>2%</td>
+														</tr>
+														<tr>
+															<td>Course was organized</td>
+															<td>4.2</td>
+															<td>51%</td>
+															<td>29%</td>
+															<td>12%</td>
+															<td>5%</td>
+															<td>3%</td>
+														</tr>
+														<tr>
+															<td>Opportunities to be successful in course</td>
+															<td>4.4</td>
+															<td>47%</td>
+															<td>47%</td>
+															<td>5%</td>
+															<td>0%</td>
+															<td>2%</td>
+														</tr>
+														<tr>
+															<td>Overall course helped learn required concepts/skills</td>
+															<td>4.1</td>
+															<td>41%</td>
+															<td>39%</td>
+															<td>15%</td>
+															<td>3%</td>
+															<td>2%</td>
+														</tr>
+														<tr>
+															<td>Instructor presented material in way that helped engage in course</td>
+															<td>4.0</td>
+															<td>40%</td>
+															<td>38%</td>
+															<td>12%</td>
+															<td>7%</td>
+															<td>3%</td>
+														</tr>
+														<tr>
+															<td>Instructor helped to understand relevance of course content</td>
+															<td>4.1</td>
+															<td>41%</td>
+															<td>38%</td>
+															<td>16%</td>
+															<td>2%</td>
+															<td>3%</td>
+														</tr>
+														<tr>
+															<td>Instructor tailored instructions/lessons to variety of perspectives</td>
+															<td>4.0</td>
+															<td>40%</td>
+															<td>33%</td>
+															<td>17%</td>
+															<td>5%</td>
+															<td>5%</td>
+														</tr>
+														<tr>
+															<td>Instructor's teaching methods helped to learn course content</td>
+															<td>3.9</td>
+															<td>40%</td>
+															<td>33%</td>
+															<td>10%</td>
+															<td>10%</td>
+															<td>7%</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="container-fluid px-5"> <span class="sp-cc"> Student Comments:</span> <!-- Most Effective Aspects -->
+											<div class="accordion accordion-flush" id="accordionFall2024">
+												<div class="accordion-item">
+													<h2 class="accordion-header" id="headingEffective">
+														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEffective" aria-expanded="false"
+															aria-controls="collapseEffective"> Most Effective Learning Aspects </button>
+													</h2>
+													<div id="collapseEffective" class="accordion-collapse collapse" aria-labelledby="headingEffective">
+														<div class="accordion-body">
+															<div class="masonry-grid">
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homeworks. It not only tested my knowledge of the required material but also further made sure I understood it.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Your mock exams on blackboard were helpful because it prepared me for the actual exam. Made the real exam less scary and
+																				more familiar.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I liked the way the lectures were organized.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I sat towards the front rather than me usually sitting in the back. This allowed me to focus more. Focusing more on the
+																				lecture while also having the slides on blackboard were very beneficial.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The most effect aspects were lectures</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Having a professor that believes in you & sets you up for success</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The review and days before the test she did a super good job explaining.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Homeworks</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Extra credit opportunities</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The teacher was really good</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">In terms of my learning the most effective aspects of this course were the homework and practice exams. The homework was
+																				50 questions a piece and although they were long I feel that amount of questions gave me the opportunity to grasp the concept. The practice
+																				exam closely resembled the exams so I really think that helped me in properly understanding the correct concepts needed for the actual exam.
+																			</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The professor made the concepts easy</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Very good slides and extra material</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The most effective aspect of the course was the consistency of the schedule and the platform that the homework was
+																				offered on. Also, the reviews were very helpful for learning and understanding the connections of the material.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Notes in class because the instructor helped make it clear to people if they didn’t fully understand the notes.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The review sheets and reference guides</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The practice tests and review sheets because they showed the most accurate things on the test</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Bonus assignments</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">She was very thorough in her lectures and kept it engaging.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">How the slides were given.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homework assignments were the most effective because it gave us insight into a question that we got wrong and are
+																				able to fix our mistake. </p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">After learning a concept we would try problems related to the new topic.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Review Quizzes</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The most effective aspects were the review format.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">In-person help</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homeworks and the first 2 reviews for the exams.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homework</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homework was question heavy, but informational. The most effective aspect however would be the test reviews.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homework was very effective for this course.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The in-person Kahoot type study sessions</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The instructor was awesome</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">N/A</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The lectures</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The tests were very similar to the practice tests</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The homework assignments were the most helpful.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">For me personally office hours were the most helpful</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">HW</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Speaks very well. Great at her job and always willing to meet with students</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Homework</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The extra explanations</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The connection to real life</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I think the most effective aspects of this course was that if it is very obtainable to do well in this class. She gives
+																				a lot of extra credit assignments; if you do the work, you will be fine.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Definitely the practice exams and the in class activities we did before exams to cement what we know before taking the
+																				exam.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Taught with understandable terms and examples</p>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div> <!-- Least Effective Aspects -->
+												<div class="accordion-item">
+													<h2 class="accordion-header" id="headingLeast">
+														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLeast" aria-expanded="false"
+															aria-controls="collapseLeast"> Least Effective Learning Aspects </button>
+													</h2>
+													<div id="collapseLeast" class="accordion-collapse collapse" aria-labelledby="headingLeast">
+														<div class="accordion-body">
+															<div class="masonry-grid">
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The lack of interaction because of individuals fearing being wrong during class when asked a question.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">That one review day where we had to be in team was distracting, and not helpful.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Required attendance</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I do not necessarily have a least effective aspect.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">None</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The class could drag out sometimes and hard to stay lock in.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Tests</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Homework took a long time</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">none</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I don’t have anything specific that was least effective. However, the only thing I have is that the final exam is not
+																				written by my professor so there will be concepts on the final that were not fully covered in class which is frustrating, but other than
+																				that I don’t have anything.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">nothing</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">-</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The least effective aspect of the course was the lecturing method. The lectures did not have engaging content and were
+																				often slow to the point of distracting from the focus.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The course notes could have been better.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Some of the reviews done in class because I feel they didn’t stick in my brain after the fact and sometimes didn’t
+																				provide much explanation after or during.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Open response notes</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">N/A</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The amount of definitions needed to learn.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The exam reviews because half of the answers were wrong and did not help me to prepare for the test at all.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Skipping over terms or ideas in the course because she didn’t like them...</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Not sure</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The least effective aspects were required attendance.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Online help</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The 3rd review for the exam where we had to buzz in our answers was the worst possible way to review. Overall, it was
+																				okay though.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The lecture structure</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I'm not sure, it is all pretty helpful.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">N/A</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The mistakes that took place during learning</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Nothing really</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">N/A</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The take home quiz</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">She didn't explain herself in any way and didn't explain thoroughly about each concept.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">I don't think there was anything that was ineffective in this course.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Could be better review days or more review days.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Lectures</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The test reviews because of incorrect information on them.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">It was hard for me to take in the amount of information in this course.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Nothing</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Could use better review days or more review days</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Lectures</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">The excessively long homework's</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Nothing really comes to mind I felt like there were resources for anything with multiple ways to study for test provided
+																				to us.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="col mb-2">
+																	<div class="card">
+																		<div class="card-body">
+																			<p class="card-text">Not enough in class quizzes for students to ask questions based on the answers</p>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div> <!-- Additional Comments -->
+													<div class="accordion-item">
+														<h2 class="accordion-header" id="headingComments">
+															<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComments" aria-expanded="false"
+																aria-controls="collapseComments"> Additional Comments About Instructor </button>
+														</h2>
+														<div id="collapseComments" class="accordion-collapse collapse" aria-labelledby="headingComments" data-bs-parent="#accordionFall2024">
+															<div class="accordion-body">
+																<div class="masonry-grid">
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">I enjoyed this class.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Good instructor made it easy to understand and made class engaging.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">goat.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">She put a lot of time into the slides and giving us ample opportunity for extra credit, but in a way we were learning
+																					the material better which I appreciated. She really cared about the class and that was nice. Overall she did a good job.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">She knows her stuff about economics and makes class engaging</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">My favorite this semester</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">She is very understanding and I am so appreciative of her help towards students and her reviews. I just did not
+																					appreciate the in-class lecture style.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Overall good professor, loved the way she talked, it helped me understand what was confusing better.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">A good number of questions on the test reviews have wrong answers and are not fixed until the day of exam and makes
+																					everything confusing.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Well-spoken and easy to understand.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">I learned more from the teacher that filled in for her one day when she was sick then I did the whole semester from
+																					her, extremely slow talker which made it miserable to try and pay attention, messed up the answers on all of her reviews</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Thank you for a good year.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">None</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Super professional and entertaining, it isnt easy to keep economics interesting, but she did a great job.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Great professor who you can tell wanted to help us.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">I know she is new, so I hope she has a more successful semester in the spring.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">N/A</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Overall she is a nice person but it seemed like she didnt have a good grasp on what she was teaching. For example, she
+																					had the wrong answers marked right on several questions on all of the test reviews she gave out. This made the tests super confusing. On of
+																					the girls I talked to in the class said she brought the test reviews to the Econ help desk and they confirmed that the answers where wrong.
+																					Its genuinely a miracle that I scored as high as I did on the exams. Hopefully she can fix those mistakes if she teaches the course again.
+																				</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">know what you are talking about.</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">helpful and understanding</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Very good</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Great!</p>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col mb-2">
+																		<div class="card">
+																			<div class="card-body">
+																				<p class="card-text">Good instructor that gave us plenary of resources needed for success and responded to emails very quickly.</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div> <!-- End Accordion -->
+												</div>
+											</div>
+										</div>
 									</div>
-								</div> <!-- Accordion for details -->
-								<div class="accordion" id="accordionFall2024">
-									<!-- Quantitative Results -->
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="headingQuant">
-											<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuant" aria-expanded="true"
-												aria-controls="collapseQuant"> Quantitative Results </button>
-										</h2>
-										<div id="collapseQuant" class="accordion-collapse collapse show" aria-labelledby="headingQuant" data-bs-parent="#accordionFall2024">
-											<div class="accordion-body">
-												<div class="table-responsive">
-													<table class="table table-hover">
-														<thead>
-															<tr>
-																<th rowspan="2">Question Text</th>
-															</tr>
-															<tr>
-																<th>Avg.</th>
-																<th>Str Agree</th>
-																<th>Agree</th>
-																<th>Neutral</th>
-																<th>Disagree</th>
-																<th>Str Disagree</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td>Course assignments facilitated learning</td>
-																<td>4.2</td>
-																<td>42%</td>
-																<td>39%</td>
-																<td>14%</td>
-																<td>3%</td>
-																<td>2%</td>
-															</tr>
-															<tr>
-																<td>Course was organized</td>
-																<td>4.2</td>
-																<td>51%</td>
-																<td>29%</td>
-																<td>12%</td>
-																<td>5%</td>
-																<td>3%</td>
-															</tr>
-															<tr>
-																<td>Opportunities to be successful in course</td>
-																<td>4.4</td>
-																<td>47%</td>
-																<td>47%</td>
-																<td>5%</td>
-																<td>0%</td>
-																<td>2%</td>
-															</tr>
-															<tr>
-																<td>Overall course helped learn required concepts/skills</td>
-																<td>4.1</td>
-																<td>41%</td>
-																<td>39%</td>
-																<td>15%</td>
-																<td>3%</td>
-																<td>2%</td>
-															</tr>
-															<tr>
-																<td>Instructor presented material in way that helped engage in course</td>
-																<td>4.0</td>
-																<td>40%</td>
-																<td>38%</td>
-																<td>12%</td>
-																<td>7%</td>
-																<td>3%</td>
-															</tr>
-															<tr>
-																<td>Instructor helped to understand relevance of course content</td>
-																<td>4.1</td>
-																<td>41%</td>
-																<td>38%</td>
-																<td>16%</td>
-																<td>2%</td>
-																<td>3%</td>
-															</tr>
-															<tr>
-																<td>Instructor tailored instructions/lessons to variety of perspectives</td>
-																<td>4.0</td>
-																<td>40%</td>
-																<td>33%</td>
-																<td>17%</td>
-																<td>5%</td>
-																<td>5%</td>
-															</tr>
-															<tr>
-																<td>Instructor's teaching methods helped to learn course content</td>
-																<td>3.9</td>
-																<td>40%</td>
-																<td>33%</td>
-																<td>10%</td>
-																<td>10%</td>
-																<td>7%</td>
-															</tr>
-															<tr>
-																<td class="fs-6"><strong>Number of Students:</strong></td>
-																<td class="text-center" colspan="4"><strong>59/109 (54%)</strong></td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
+								</div> <!-- Spring 24 -->
+								<div class="tab-pane fade" id="tab-spring24" role="tabpanel" aria-labelledby="tab-spring24-tab">
+									<div class="container-fluid px-3">
+										<div class="card mb-3">
+											<div class="card-body">
+												<h5 class="card-title mb-2 fs-4">Evaluations from Spring 2024</h5>
+												<p class="mb-1 ps-4 sp-eval"> Number of Students Responded:18/28 (64%) </p>
+												<p class="mb-1 ps-4 sp-eval"> Overall Average: 4.4/5 </p>
 											</div>
 										</div>
-									</div> <!-- Most Effective Aspects -->
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="headingEffective">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEffective" aria-expanded="false"
-												aria-controls="collapseEffective"> Most Effective Learning Aspects </button>
-										</h2>
-										<div id="collapseEffective" class="accordion-collapse collapse" aria-labelledby="headingEffective" data-bs-parent="#accordionFall2024">
-											<div class="accordion-body">
-												<div class="masonry-grid">
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homeworks. It not only tested my knowledge of the required material but also further made sure I understood it.</p>
-															</div>
+										<div class="container-fluid px-5">
+											<div class="table-responsive">
+												<table class="table table-hover inter-tabular">
+													<thead>
+														<tr>
+															<th>Question Text</th>
+															<th>Avg.</th>
+															<th>Str Agree</th>
+															<th>Agree</th>
+															<th>Neutral</th>
+															<th>Disagree</th>
+															<th>Str Disagree</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Instructor followed course objectives</td>
+															<td>4.6</td>
+															<td>67%</td>
+															<td>22%</td>
+															<td>11%</td>
+															<td>0%</td>
+															<td>0%</td>
+														</tr>
+														<tr>
+															<td>Overall Instructor effectiveness</td>
+															<td>4.3</td>
+															<td>61%</td>
+															<td>11%</td>
+															<td>28%</td>
+															<td>0%</td>
+															<td>0%</td>
+														</tr>
+														<tr>
+															<td>Course a valuable learning experience</td>
+															<td>4.4</td>
+															<td>61%</td>
+															<td>22%</td>
+															<td>17%</td>
+															<td>0%</td>
+															<td>0%</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="container-fluid px-5"> <span class="sp-cc"> Student Comments: </span>
+											<div class="mt-2 masonry-grid">
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">She was a great professor</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Your mock exams on blackboard were helpful because it prepared me for the actual exam. Made the real exam less scary and
-																	more familiar.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">None to add</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I liked the way the lectures were organized.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Ivanna is a great teacher who thoroughly explains all the subjects! She also cares about her students and helps them achieve
+																their grades. If you go to her class in person, you will succeed in her class.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I sat towards the front rather than me usually sitting in the back. This allowed me to focus more. Focusing more on the
-																	lecture while also having the slides on blackboard were very beneficial.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">this was by far one of my favorite professors! she is super kind and helpful towards her students!</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The most effect aspects were lectures</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Good teacher, very helpful with giving real world examples. Many opportunities for EC and help with homework</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Having a professor that believes in you & sets you up for success</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">This class was not too difficult, but I feel like the instructor could've done better in some places. I have a different
+																learning style than what was used so I think that also impacted my experience. I liked the examples she used and how she related them to things
+																in our demographic. </p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The review and days before the test she did a super good job explaining.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">She is amazing!</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Homeworks</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Instructor was great very nice and helpful.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Extra credit opportunities</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Was extremely available for questions and review- paper reviews were also extremely helpful. Would not have done as well in
+																this class without her </p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The teacher was really good</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Course content was taken really really slow.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">In terms of my learning the most effective aspects of this course were the homework and practice exams. The homework was 50
-																	questions a piece and although they were long I feel that amount of questions gave me the opportunity to grasp the concept. The practice exam
-																	closely resembled the exams so I really think that helped me in properly understanding the correct concepts needed for the actual exam.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">My favorite Professor by far!</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The professor made the concepts easy</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Very good slides and extra material</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The most effective aspect of the course was the consistency of the schedule and the platform that the homework was offered
-																	on. Also, the reviews were very helpful for learning and understanding the connections of the material.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Notes in class because the instructor helped make it clear to people if they didn’t fully understand the notes.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The review sheets and reference guides</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The practice tests and review sheets because they showed the most accurate things on the test</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Bonus assignments</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">She was very thorough in her lectures and kept it engaging.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">How the slides were given.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homework assignments were the most effective because it gave us insight into a question that we got wrong and are able
-																	to fix our mistake. </p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">After learning a concept we would try problems related to the new topic.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Review Quizzes</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The most effective aspects were the review format.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">In-person help</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homeworks and the first 2 reviews for the exams.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homework</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homework was question heavy, but informational. The most effective aspect however would be the test reviews.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homework was very effective for this course.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The in-person Kahoot type study sessions</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The instructor was awesome</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">N/A</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The lectures</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The tests were very similar to the practice tests</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The homework assignments were the most helpful.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">For me personally office hours were the most helpful</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">HW</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Speaks very well. Great at her job and always willing to meet with students</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Homework</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The extra explanations</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The connection to real life</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I think the most effective aspects of this course was that if it is very obtainable to do well in this class. She gives a
-																	lot of extra credit assignments; if you do the work, you will be fine.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Definitely the practice exams and the in class activities we did before exams to cement what we know before taking the
-																	exam.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Taught with understandable terms and examples</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">I appreciated how Ivanna would switch her teaching style when she could tell we were struggling. I also thought class was
+																enjoyable and went at a great pace</p>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-									</div> <!-- Least Effective Aspects -->
-									<div class="accordion-item">
-										<h2 class="accordion-header" id="headingLeast">
-											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLeast" aria-expanded="false"
-												aria-controls="collapseLeast"> Least Effective Learning Aspects </button>
-										</h2>
-										<div id="collapseLeast" class="accordion-collapse collapse" aria-labelledby="headingLeast" data-bs-parent="#accordionFall2024">
-											<div class="accordion-body">
-												<div class="masonry-grid">
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The lack of interaction because of individuals fearing being wrong during class when asked a question.</p>
-															</div>
+									</div>
+								</div> <!-- Fall 23 -->
+								<div class="tab-pane fade" id="tab-fall23" role="tabpanel" aria-labelledby="tab-fall23-tab">
+									<div class="container-fluid px-3">
+										<div class="card mb-3">
+											<div class="card-body">
+												<h5 class="card-title mb-2 fs-4">Evaluations from Fall 2023</h5>
+												<p class="mb-1 ps-4 sp-eval">Number of Students Responded: 41/99 (41%)</p>
+												<p class="mb-1 ps-4 sp-eval">Overall Average: 3.7/5</p>
+											</div>
+										</div>
+										<div class="container-fluid px-5">
+											<div class="table-responsive">
+												<table class="table table-hover inter-tabular">
+													<thead>
+														<tr>
+															<th>Question Text</th>
+															<th>Avg.</th>
+															<th>Str Agree</th>
+															<th>Agree</th>
+															<th>Neutral</th>
+															<th>Disagree</th>
+															<th>Str Disagree</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Instructor followed course objectives</td>
+															<td>3.8</td>
+															<td>34%</td>
+															<td>29%</td>
+															<td>22%</td>
+															<td>10%</td>
+															<td>5%</td>
+														</tr>
+														<tr>
+															<td>Overall Instructor effectiveness</td>
+															<td>3.0</td>
+															<td>29%</td>
+															<td>10%</td>
+															<td>17%</td>
+															<td>22%</td>
+															<td>22%</td>
+														</tr>
+														<tr>
+															<td>Course a valuable learning experience</td>
+															<td>3.3</td>
+															<td>27%</td>
+															<td>17%</td>
+															<td>29%</td>
+															<td>12%</td>
+															<td>15%</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="container-fluid px-5"> <span class="sp-cc"> Student Comments:</span>
+											<div class="mt-2 masonry-grid">
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">This course, while difficult at times, was wonderful. Ivanna was accessible at reasonable times and made it extremely clear
+																what her expectations were. If you met these expectations, she would be willing to work with you.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">That one review day where we had to be in team was distracting, and not helpful.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Very easy to communicate with and helpful throughout the course.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Required attendance</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Really enjoyed the professor's teaching style!</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I do not necessarily have a least effective aspect.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Needs a smaller classroom in order to hear the lecture.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">None</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Class went great!</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The class could drag out sometimes and hard to stay lock in.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Mrs. Tindle was a great professor and I learned so much from her. She gave me a great foundation for economics and I look
+																forward to taking Business Economics next semester after taking ECO 2305 with Mrs. Tindle.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Tests</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Like that</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Homework took a long time</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">She lacked the finishing touch of some confidence but was a great and nice professor overall. I see this professor changing
+																students' lives over time.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">none</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">I enjoyed this class and all I learned from the instructor.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I don’t have anything specific that was least effective. However, the only thing I have is that the final exam is not
-																	written by my professor so there will be concepts on the final that were not fully covered in class which is frustrating, but other than that I
-																	don’t have anything.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Ms. Tindle is a very amazing person, but when it comes to teaching she struggles to explain concepts in ways that students
+																will understand it. There were many times where I was super lost in class because of how she explained/showed us how to do things. I was very
+																happy with the SI sessions, and most of the review notes that she posted before the test. I feel like if she were to put the formulas on the
+																test/allow us to use them without having to memorize them, it would be much easier.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">nothing</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">She was a great professor and teacher and took the time to ensure we learned the material.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">-</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">This class started off not the best, but she asked for feedback and the class gave it to her, after that the class did start
+																improving. Still not the best class but better than the beginning of the year.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The least effective aspect of the course was the lecturing method. The lectures did not have engaging content and were
-																	often slow to the point of distracting from the focus.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Good teacher and environment, I learned a lot more than I thought I would and had a good time in this class.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The course notes could have been better.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Ivanna is very passionate about economics and truly strives to foster a productive learning environment. She makes time to
+																thoroughly explain topics during her office hours when we visit. She used relevant applications in her lectures, and was always wanting to
+																improve the way she approached the class. She needs to work on her oratory skills and delivery of some of the material. Overall, I enjoyed
+																watching Ivanna grow as an instructor. </p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Some of the reviews done in class because I feel they didn’t stick in my brain after the fact and sometimes didn’t provide
-																	much explanation after or during.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Liked the course and loved the teacher thank you for a great semester. </p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Open response notes</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">You can tell she is a new professor. I will say at the start of the semester it didn't seem like she cared too much about
+																the class and cared more about her own classes, but a lot of the explanations lack in-depth explanations and are very minimal and the exams are
+																somewhat difficult and worded odd compared to the material that is given in class. She is not a bad teacher but if she just went more in-depth
+																about a lot of important concepts she would definitely be a great professor.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">N/A</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Professor speaks too low. You can tell she's only teaching because it's a part of her degree most likely. She pulls up a
+																slide and reads it basically. This is going to be the only class I get a B in because she's a horrible teacher and her class exam average is
+																failing basically.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The amount of definitions needed to learn.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text"> I would really enjoy a meeting with the director of Economics to discuss this class further.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The exam reviews because half of the answers were wrong and did not help me to prepare for the test at all.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">The instructor seemed very nice. I thought she wasn't very good at demanding attention, and not in a disrespectful way, but
+																you have to talk louder and more clearly, especially nowadays with the distractions that students have. I had a problem with the way she
+																responded to a question in class one time when a student simply asked "Is there any extra credit," she could have just said no, instead she made
+																an example out of the student and said "If you studied and did the reviews and paid attention in class and did the homework, then you wouldn't
+																have to ask that.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Skipping over terms or ideas in the course because she didn’t like them...</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">The instructor was not the best teacher but was slowly improving over the course of the semester. I think there were
+																sometimes where you would be talking about something and not give enough examples over a specific subject. For me it was examples of different
+																GDP situations.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Not sure</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Ivanna doesn't know how to teach economics. I pretty much taught myself the entire thing. Thankfully I had a background in
+																econ beforehand or I would have failed. She overcomplicated just about every topic and made it ten times harder to learn and retain. Econ is
+																already a challenge for some and she made it a nightmare.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The least effective aspects were required attendance.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Instructor Tindle was very good, there was noticeable progression through the semester in her teaching schedule.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Online help</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">The first few weeks were rough because she was so quiet, but she has found a good groove.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The 3rd review for the exam where we had to buzz in our answers was the worst possible way to review. Overall, it was okay
-																	though.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Ms. Tindle was not the best professor for this course. I understand that it was her first time teaching the course and that
+																she is also a student, but she did not do a good job teaching economics this semester. I know that she has a good comprehension of economics,
+																but that doesn't mean she can teach it. She was also very passive-aggressive during class when teaching. None of the students were engaged
+																because she would many times contradict things that she would say about the same topic and not know how to explain topics. When teaching us a
+																new chapter, she would only teach the basics and then test us on very difficult contents. It was a frustrating course to take because economics
+																shouldn't be as hard as she made it. I had to spend hours upon hours going to SI sessions because she did not teach us well enough to prepare
+																for her own exams. I would also like to add a critique for the department as a whole. I think for the next semester, every professor should have
+																to teach the same chapters at the same time because many times during SI sessions, every student would be learning something different so the SI
+																instructor had trouble figuring out what to teach us. And everyone should take the same chapter tests because it is not fair for students to all
+																take different midterm exams, then to all go and take the same common final.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The lecture structure</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">This was a fairly okay course. I feel like the teaching barrier between classes and test was a huge difference. I'm glad I
+																have had a background of some economics because this class was a lot of being self-taught.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I'm not sure, it is all pretty helpful.</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">This instructor did not seem quite ready to teach this class this semester. She seemed confused on some of the material she
+																was teaching and demonstrated examples in class wrong multiple times throughout the semester. Her material was extremely abstract, while her
+																tests were extremely specific and difficult. Almost every test score across this class had a 10% or lower median score than my financial
+																accounting class's median test scores. Even with these scores this professor never offered any extra credit and would curve tests just enough so
+																that the median score of every test was not failing. This class very much felt like a learning experience for a first-year professor and not a
+																learning experience for students. Overall, lectures were borderline useless tests were very tough.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">N/A</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">I'm not this honest but I feel a need to be. This course was possibly one of the worst ones I've taken at tech. This
+																professor seriously needs to revise her way of teaching and presenting information. She did the absolute minimum to teach us and that reflected
+																in our grades. First off she did not provide a course schedule until we were well into class. Secondly, on top of her speaking so softly it was
+																hard to hear what she was saying, she also had horrible handwriting and had the presentation very uninteresting to learn. She also has a very
+																apparent lack of empathy for students, which is especially surprising considering that she is a student herself. She refuses to make exceptions
+																on assignments even when citing serious reasons that you were unable to do the assignment. I personally was going through something very
+																personal to me and was unable to do an assignment and she showed no empathy whatsoever. There is a lot more to express when it comes to this
+																teacher, however, I digress. I sincerely hope she changes so her future students can have a better education.</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The mistakes that took place during learning</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Class notes didn't always reflect material on the test. The teacher would spend 30 minutes on an example and forget how to
+																do it and would say "I'm just going to take this off the test" and it was in fact still on the test. This is just one example out of the many.
+															</p>
 														</div>
 													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Nothing really</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">N/A</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The take home quiz</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">She didn't explain herself in any way and didn't explain thoroughly about each concept.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">I don't think there was anything that was ineffective in this course.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Could be better review days or more review days.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Lectures</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The test reviews because of incorrect information on them.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">It was hard for me to take in the amount of information in this course.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Nothing</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Could use better review days or more review days</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Lectures</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">The excessively long homework's</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Nothing really comes to mind I felt like there were resources for anything with multiple ways to study for test provided to
-																	us.</p>
-															</div>
-														</div>
-													</div>
-													<div class="col mb-2">
-														<div class="card">
-															<div class="card-body">
-																<p class="card-text">Not enough in class quizzes for students to ask questions based on the answers</p>
-															</div>
+												</div>
+												<div class="col mb-2">
+													<div class="card">
+														<div class="card-body">
+															<p class="card-text">Her lectures made little to no sense and her tests did not match the overall concepts covered in class.</p>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div> <!-- Additional Comments -->
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="headingComments">
-												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComments" aria-expanded="false"
-													aria-controls="collapseComments"> Additional Comments About Instructor </button>
-											</h2>
-											<div id="collapseComments" class="accordion-collapse collapse" aria-labelledby="headingComments" data-bs-parent="#accordionFall2024">
-												<div class="accordion-body">
-													<div class="masonry-grid">
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">I enjoyed this class.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Good instructor made it easy to understand and made class engaging.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">goat.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">She put a lot of time into the slides and giving us ample opportunity for extra credit, but in a way we were learning the
-																		material better which I appreciated. She really cared about the class and that was nice. Overall she did a good job.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">She knows her stuff about economics and makes class engaging</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">My favorite this semester</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">She is very understanding and I am so appreciative of her help towards students and her reviews. I just did not appreciate
-																		the in-class lecture style.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Overall good professor, loved the way she talked, it helped me understand what was confusing better.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">A good number of questions on the test reviews have wrong answers and are not fixed until the day of exam and makes
-																		everything confusing.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Well-spoken and easy to understand.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">I learned more from the teacher that filled in for her one day when she was sick then I did the whole semester from her,
-																		extremely slow talker which made it miserable to try and pay attention, messed up the answers on all of her reviews</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Thank you for a good year.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">None</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Super professional and entertaining, it isnt easy to keep economics interesting, but she did a great job.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Great professor who you can tell wanted to help us.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">I know she is new, so I hope she has a more successful semester in the spring.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">N/A</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Overall she is a nice person but it seemed like she didnt have a good grasp on what she was teaching. For example, she had
-																		the wrong answers marked right on several questions on all of the test reviews she gave out. This made the tests super confusing. On of the
-																		girls I talked to in the class said she brought the test reviews to the Econ help desk and they confirmed that the answers where wrong. Its
-																		genuinely a miracle that I scored as high as I did on the exams. Hopefully she can fix those mistakes if she teaches the course again.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">know what you are talking about.</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">helpful and understanding</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Very good</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Great!</p>
-																</div>
-															</div>
-														</div>
-														<div class="col mb-2">
-															<div class="card">
-																<div class="card-body">
-																	<p class="card-text">Good instructor that gave us plenary of resources needed for success and responded to emails very quickly.</p>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div> <!-- End Accordion -->
+										</div>
 									</div>
 								</div>
 								<div class="modal-footer p-1">
@@ -1255,6 +1510,8 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
 		</section>
 		<section>
 			<div class="sp-container justify-content-start">

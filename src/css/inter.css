@@ -2,17 +2,40 @@
    font-family: InterVariable;
    font-style: normal;
    font-weight: 100 900;
-   font-display: swap;
+   font-display: auto;
+   font-variation-settings: "opsz" 14, "slnt" 0, "ital" 0;
    src: url("./fonts/InterVariable.woff2") format("woff2");
    font-feature-settings: 'ss02' 1,'ss03' 1,'cv11' 1, 'liga' 1, 'calt' 1;
-   -moz-font-feature-settings: 'cv08' 1,'ss03' 1,'cv11' 1, 'liga' 1, 'calt' 1;
-	-webkit-font-feature-settings:'cv08' 1,'ss03' 1,'cv11' 1, 'liga' 1, 'calt' 1;
+   -moz-font-feature-settings: 'ss02' 1,'cv08' 1,'ss03' 1,'cv11' 1, 'liga' 1, 'calt' 1;
+	-webkit-font-feature-settings:'ss02' 1,'cv08' 1,'ss03' 1,'cv11' 1, 'liga' 1, 'calt' 1;
  }
  @font-face {
    font-family: InterVariable;
    font-style: italic;
    font-weight: 100 900;
-   font-display: swap;
+   font-display: auto;
    src: url("./fonts/InterVariable-Italic.woff2") format("woff2");
  }
  
+ @font-face {
+  font-family: InterTabular;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/InterVariable.woff2") format("woff2");
+  font-feature-settings: 'tnum' 1, 'ss02' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1;
+}
+
+@font-face {
+  font-family: InterTabular;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/InterVariable-Italic.woff2") format("woff2");
+  font-feature-settings: 'tnum' 1, 'ss02' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1,'zero'0;
+}
+
+.inter-tabular, .inter-tabular * {
+  font-family: InterTabular, InterVariable, sans-serif;
+  font-feature-settings: 'tnum' 1, 'ss02' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1,'zero'0;
+}
