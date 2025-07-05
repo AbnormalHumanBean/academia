@@ -21,5 +21,7 @@
         "markdown_latex_combined",
         "powershell",
         "tex"
-    ]
+    ],
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false
 }
