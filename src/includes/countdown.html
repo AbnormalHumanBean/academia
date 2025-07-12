@@ -2,17 +2,26 @@
   <meta charset="UTF-8" />
   <title>title</title>
   <base target="_parent">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-  </style>
+ <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  #countdown {
+    font: 2.2em "Lato Extended", sans-serif;
+    font-weight: bold;
+    letter-spacing: .04em;
+    text-align: center;
+    color: #cc0000;
+  }
+</style>
+
 </head>
 
 <body>
-   <div id="countdown" style="font:2.2em Lato Extended;font-weight:bold;letter-spacing:.04em"></div>
+   <div id="countdown"></div>
    <script>
       // Set the target date and time in CST (UTC-5 during daylight saving)
       var targetDate = new Date('2025-08-08T23:59:00-05:00');
