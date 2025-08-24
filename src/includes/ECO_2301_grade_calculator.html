@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Adapted from James Kemper: https://www.myweb.ttu.edu/jkemper/ECO_2305_grade_calculator.html--> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Grade Calculator - ECO 2301</title>
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				min-height: 100vh;
+			}
+			.grade-calculator {
+				margin: 20px auto;
+				padding: 20px;
+				background-color: #f9f9f9;
+				border-radius: 5px;
+				min-height: 100vh;
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+			
+			.grade-header {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				max-width: 350px;
+				margin: 0 auto 1em auto;
+			}
+			
+			.grade-logo {
+				max-width: 100%;
+				height: auto;
+				display: block;
+				margin-bottom: 0.3em;
+			}
+			
+			.grade-title {
+				margin: 0;
+				text-align: center;
+				width: 100%;
+			}
+			
+			.grade-calculator label {
+				display: inline-block;
+				width: 250px;
+				margin-bottom: 10px;
+				text-align: center;
+			}
+			
+			.grade-calculator input {
+				width: 60px;
+				padding: 5px;
+			}
+			
+			.grade-calculator button {
+				display: block;
+				margin: 20px auto;
+				padding: 10px 20px;
+				background-color: #cc0000;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			
+			#result {
+				text-align: center;
+				font-weight: bold;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<nav> </nav>
+		<div class="grade-calculator">
+			<div class="grade-header">
+				<img src="..\images\TTU ECO logo transparent.png" alt="TTU ECO Logo" class="grade-logo" />
+				<h2 class="grade-title">ECO 2305 Grade Calculator</h2>
+			</div>
+			<form id="gradeForm">
+				<center> <label for="quizzes">Quiz Average:</label> <input type="number" id="quizzes" min="0" max="100"><br> <label for="homework">MyEconLab
+						Average:</label> <input type="number" id="homework" min="0" max="100"><br> <label for="midterm1">Midterm 1:</label> <input type="number" id="midterm1"
+						min="0" max="100"><br> <label for="midterm2">Midterm 2:</label> <input type="number" id="midterm2" min="0" max="100"><br> <label for="midterm3">Midterm
+						3:</label> <input type="number" id="midterm3" min="0" max="100"><br> <label for="final">Final Exam (Midterm 4):</label> <input type="number" id="midterm4"
+						min="0" max="100"><br> </center>
+				<button type="button" onclick="calculateGrade()">Calculate Grade</button>
+			</form>
+			<div id="result"></div>
+		</div>
+		<script>
+			function calculateGrade() {
+				const quizzes = parseFloat(document.getElementById('quizzes').value) || 0;
+				const homework = parseFloat(document.getElementById('homework').value) || 0;
+				const midterm1 = parseFloat(document.getElementById('midterm1').value) || 0;
+				const midterm2 = parseFloat(document.getElementById('midterm2').value) || 0;
+				const midterm3 = parseFloat(document.getElementById('midterm3').value) || 0;
+				const midterm4 = parseFloat(document.getElementById('midterm4').value) || 0;
+				let totalGrade = 0;
+				let weightSum = 0;
+				// Quizzes and Homework
+				if (quizzes > 0) {
+					totalGrade += quizzes * 0.10;
+					weightSum += 0.10;
+				}
+				if (homework > 0) {
+					totalGrade += homework * 0.20;
+					weightSum += 0.20;
+				}
+				// Midterms
+				const midterms = [midterm1, midterm2, midterm3, midterm4].filter(grade => grade > 0).sort((a, b) => b - a);
+				if (midterms.length === 1) {
+					totalGrade += midterms[0] * 0.25; // Highest (25%)
+					weightSum += 0.25;
+				} else if (midterms.length === 2) {
+					totalGrade += midterms[0] * 0.25; // Highest (25%)
+					totalGrade += midterms[1] * 0.20; // 2nd Highest (20%)
+					weightSum += 0.45;
+				} else if (midterms.length === 3) {
+					totalGrade += midterms[0] * 0.25; // Highest (25%)
+					totalGrade += midterms[1] * 0.20; // 2nd Highest (20%)
+					totalGrade += midterms[2] * 0.15; // 3rd Highest (20%)
+					weightSum += 0.60;
+				} else if (midterms.length === 4) {
+					totalGrade += midterms[0] * 0.25; // Highest (25%)
+					totalGrade += midterms[1] * 0.20; // 2nd Highest (20%)
+					totalGrade += midterms[2] * 0.15; // 3rd Highest (20%)
+					totalGrade += midterms[3] * 0.10; // Lowest (10%)
+					weightSum += 0.70;
+				}
+				const adjustedGrade = weightSum < 1 ? totalGrade / weightSum : totalGrade;
+				let letterGrade;
+				if (adjustedGrade >= 89.9) letterGrade = 'A';
+				else if (adjustedGrade >= 79.9) letterGrade = 'B';
+				else if (adjustedGrade >= 69.9) letterGrade = 'C';
+				else if (adjustedGrade >= 59.9) letterGrade = 'D';
+				else letterGrade = 'F';
+				let resultMessage = `Based on the grades entered, your current standing is: ${adjustedGrade.toFixed(2)}% (${letterGrade})`;
+				if (weightSum < 1) {
+					resultMessage += `<br>Note: This is based on ${(weightSum * 100).toFixed(0)}% of your total grade.`;
+				}
+				document.getElementById('result').innerHTML = resultMessage;
+			}
+		</script>
+	</body>
+	
+</html>
