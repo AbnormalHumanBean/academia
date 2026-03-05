@@ -23,5 +23,7 @@
         "tex"
     ],
     "editor.formatOnSave": false,
-    "editor.formatOnType": false
+    "editor.formatOnType": false,
+    "cSpell.caseSensitive": true,
+    "cSpell.numSuggestions": 4
 }
