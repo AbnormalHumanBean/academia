@@ -1,0 +1,49 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>title</title>
+  <base target="_parent">
+ <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  #countdown {
+    font: 2.2em "Lato Extended", sans-serif;
+    font-weight: bold;
+    letter-spacing: .04em;
+    text-align: center;
+    color: #cc0000;
+  }
+</style>
+
+</head>
+
+<body>
+   <div id="countdown"></div>
+   <script>
+      // Set the target date and time in CST (UTC-5 during daylight saving)
+      var targetDate = new Date('2025-12-08T16:30:00-05:00');
+      function updateCountdown() {
+         var now = new Date();
+         // Convert now to CST (assume user is not in CST)
+         var nowCST = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+         var diff = targetDate - nowCST;
+         if (diff <= 0) {
+            document.getElementById('countdown').innerHTML = 'Time\'s up!';
+            clearInterval(timer);
+            return;
+         }
+         var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+         var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+         var minutes = Math.floor((diff / (1000 * 60)) % 60);
+         var seconds = Math.floor((diff / 1000) % 60);
+         document.getElementById('countdown').innerHTML =
+            days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+      }
+      updateCountdown();
+      var timer = setInterval(updateCountdown, 1000);
+   </script>
+</body>
+</html>

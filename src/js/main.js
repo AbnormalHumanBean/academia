@@ -1,17 +1,24 @@
-// Import the Bootstrap bundle
-//
-// This includes Popper and all of Bootstrap's JS plugins.
-import * as bootstrap from 'bootstrap';
+import Tooltip from 'bootstrap/js/dist/tooltip';
+import Popover from 'bootstrap/js/dist/popover';
+import Tab from 'bootstrap/js/dist/tab';
+import Collapse from 'bootstrap/js/dist/collapse';
+import Modal from 'bootstrap/js/dist/modal';
+import Dropdown from 'bootstrap/js/dist/dropdown';
 // Makes the auto light dark button
 import './color-modes.js';
+
+// Keep Bootstrap Data API modules alive for declarative data-bs-* behavior.
+void Collapse;
+void Modal;
+void Dropdown;
 // Initialize tooltip
 const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 const tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-	return new bootstrap.Tooltip(tooltipTriggerEl);
+	return new Tooltip(tooltipTriggerEl);
 });
 
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new Popover(popoverTriggerEl))
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -46,8 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 				getit2.classList.add("active");
 			};	
 			};
-			console.log("Current page:", page);
-			console.log("Checking drop item:", drop.getAttribute("href"));
 		 });
 		 
 	});
@@ -99,26 +104,36 @@ function createProgressBars() {
 	}
  };
 
- // Create and update progress bars on page load
+
  document.addEventListener('DOMContentLoaded', createProgressBars);
 
-import Masonry from 'masonry-layout';
+let masonryModulePromise;
 
-// ...other code...
+async function getMasonry() {
+	if (!masonryModulePromise) {
+		masonryModulePromise = import('masonry-layout');
+	}
+	const masonryModule = await masonryModulePromise;
+	return masonryModule.default;
+}
 
-function layoutMasonry(grid) {
-  if (grid) {
-    if (grid.masonryInstance) {
-      grid.masonryInstance.layout();
-    } else {
-      grid.masonryInstance = new Masonry(grid, {
-        itemSelector: '.col',
-        percentPosition: true,
-        gutter: 16,
-        columnWidth: '.col'
-      });
-    }
-  }
+async function layoutMasonry(grid) {
+	if (!grid) {
+		return;
+	}
+
+	if (grid.masonryInstance) {
+		grid.masonryInstance.layout();
+		return;
+	}
+
+	const Masonry = await getMasonry();
+	grid.masonryInstance = new Masonry(grid, {
+		itemSelector: '.col',
+		percentPosition: true,
+		gutter: 16,
+		columnWidth: '.col'
+	});
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -152,7 +167,7 @@ document.querySelectorAll('[data-bs-toggle="modal"][data-bs-tab]').forEach(btn =
     const handler = function () {
       const tabTrigger = document.querySelector(`[data-bs-target="${tabSelector}"]`);
       if (tabTrigger) {
-        new bootstrap.Tab(tabTrigger).show();
+		new Tab(tabTrigger).show();
       }
       modal.removeEventListener('shown.bs.modal', handler);
     };

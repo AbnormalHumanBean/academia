@@ -9,7 +9,6 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const nav_inject = require('./src/js/insert_nav');
-const FileManagerPlugin = require('filemanager-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const htmlWebpackPluginConfig = (template, filename, chunks) => ({
 	template,
@@ -21,29 +20,12 @@ const htmlWebpackPluginConfig = (template, filename, chunks) => ({
 		googlebot: "index,follow",
 	}
 });
-class RemoveEmptyJSChunksPlugin {
-    apply(compiler) {
-        compiler.hooks.thisCompilation.tap('RemoveEmptyJSChunksPlugin', (compilation) => {
-          compilation.hooks.processAssets.tapAsync({
-            name: 'RemoveEmptyJSChunksPlugin',
-            stage: compilation.constructor.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER, // Choose an appropriate stage
-          }, (assets, callback) => {
-            Object.keys(assets).forEach((asset) => {
-              if (asset.endsWith('.js')) {
-                const content = assets[asset].source();
-                if (!content.trim()) {
-                  delete compilation.assets[asset]; // Adjusted according to the new API
-                }
-              }
-            });
-            callback();
-          });
-        });
-      }
-  }
-module.exports = {
+module.exports = (env, argv) => {
+	const isProduction = argv.mode === 'production';
+
+	return {
 	context: __dirname,
-	mode: 'production',
+	mode: isProduction ? 'production' : 'development',
 	entry: {
 		font: ['./src/js/font.js'],
 		main: ['./src/js/main.js'],
@@ -72,26 +54,6 @@ module.exports = {
 						loader: MiniCssExtractPlugin.loader,
 					},
 					'css-loader',
-				],
-				generator: {
-					publicPath: 'css/',
-					outputPath: 'css/',
-				}
-			},
-			{
-				test: /\.scss$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					{
-						loader: 'postcss-loader',
-						options: {
-							postcssOptions: {
-								plugins: [autoprefixer],
-							},
-						},
-					},
-					'sass-loader',
 				],
 			},
 			{
@@ -122,7 +84,7 @@ module.exports = {
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_explain.html', 'coding_explain.html', ['font', 'main', 'style'])),
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/connect.html', 'connect.html', ['font', 'main', 'style', 'gh_card'])),
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['font', 'main', 'style', 'pdf_viewer_element'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/pdf_js_generic/web/viewer.html', './pdf_js/web/viewer.html', ['font', 'to_html'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/pdf_js_generic/web/viewer.html', './pdf_js/web/viewer.html', ['to_html'])),
 		new MiniCssExtractPlugin({
 			filename: 'css/[name].css',
 		}),
@@ -177,21 +139,6 @@ module.exports = {
 		new nav_inject({
 			options: ""
 		}),
-		/* new FileManagerPlugin({
-			events: {
-				onEnd: {
-					move: [{
-							source: 'dist/to_html.js',
-							destination: 'dist/pdf_js/build/to_html.js'
-						},
-						{
-							source: 'dist/css/to_html.css',
-							destination: 'dist/pdf_js/web/to_html.css'
-						},
-					],
-				},
-			},
-		}), */
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery'
@@ -200,7 +147,10 @@ module.exports = {
 
 	],
 	optimization: {
-		minimize: true,
+		minimize: isProduction,
+		splitChunks: {
+			chunks: 'all',
+		},
 		minimizer: [new TerserPlugin({
 				terserOptions: {
 					compress: true,
@@ -210,4 +160,5 @@ module.exports = {
 			new CssMinimizerPlugin(),
 		],
 	},
+	};
 };
