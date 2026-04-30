@@ -23,15 +23,14 @@
 <body>
    <div id="countdown"></div>
    <script>
-      // Set the target date and time in CST (UTC-5 during daylight saving)
-      var targetDate = new Date('2026-5-09T16:30:00-05:00');
+      // Target time in CDT (UTC-5); countdown math works in UTC internally.
+      var targetDate = new Date('2026-05-09T16:30:00-05:00');
       function updateCountdown() {
          var now = new Date();
-         // Convert now to CST (assume user is not in CST)
-         var nowCST = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
-         var diff = targetDate - nowCST;
+         var diff = targetDate - now;
+
          if (diff <= 0) {
-            document.getElementById('countdown').innerHTML = 'Time\'s up!';
+            document.getElementById('countdown').innerHTML = "Time's up!";
             clearInterval(timer);
             return;
          }
@@ -39,6 +38,7 @@
          var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
          var minutes = Math.floor((diff / (1000 * 60)) % 60);
          var seconds = Math.floor((diff / 1000) % 60);
+
          document.getElementById('countdown').innerHTML =
             days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
       }
