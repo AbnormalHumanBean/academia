@@ -1,6 +1,6 @@
 const { marked } = require('marked');
 
-const username = 'abnormalhumanbean';
+const username = 'AbnormalHumanBean';
 const token = process.env.GITHUB_TOKEN;
 
 async function fetchRequest(url, headers = {}) {
