@@ -7,17 +7,17 @@
 		<meta name="description" content="The webpage for materials tools pdfs examples code for economics courses taught by Ivanna">
 		<meta name="author" content="Ivanna Porter">
 		<meta name="keywords"
-			content="Ivanna, Porter, Ivana, Economics, Econ, TTU, texas tech, education, cv, website, about, calc, calculator, Blackboard, ultra, blackboard ultra, html, embed, Embed-able">
+								content="Ivanna, Porter, Ivana, Economics, Econ, TTU, texas tech, education, cv, website, about, calc, calculator, Blackboard, ultra, blackboard ultra, html, embed, Embed-able">
 		<title>Iv: Teaching tools and materials </title> <!-- Webpack will inject code here-->
 	</head>
 	
 	<body>
 		<section>
 			<div class="sp-container px-3 mt-2">
-				<h1> Example Materials </h1>
-				<p> In order to help students, I created my own slides and review based on the textbook we use. I wanted to narrow down the content compared to that the
-					provided material. The lecture slides are given to students ahead of time, while reviews are given near exams. The example review provided covers material
-					for a singular exam, while the example slides show a flexible section, which can change in how long it takes to cover it. </p>
+				<h1> Example Materials </h1> <p> In order to help students, I created my own slides and review based on the textbook we use. I wanted to narrow down the
+					content compared to that the provided material. The lecture slides are given to students ahead of time, while reviews are given near exams. The example
+					review provided covers material for a singular exam, while the example slides show a flexible section, which can change in how long it takes to cover it.
+				</p>
 			</div>
 			<div class="sp-container px-3 mt-2">
 				<div class="row">
@@ -32,58 +32,58 @@
 			<div class="row pdf-container px-5" id="pdfContainer1">
 				<div class="col-12 center">
 					<pdfjs-viewer-element src="/files/example_review.pdf" viewer-path="/pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
-						viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
+																											viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
 				</div>
 			</div>
 			<div class="row pdf-container px-5" id="pdfContainer2">
 				<div class="col-12 center">
 					<pdfjs-viewer-element src="/files/example_slides.pdf" viewer-path="/pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
-						viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> <embed src="files/example_slides.pdf" type="application/pdf" width="80%" height="600px" />
+																											viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> <embed src="files/example_slides.pdf" type="application/pdf" width="80%"
+													height="600px" />
 				</div>
 			</div>
 			<div class="row pdf-container px-5" id="pdfContainerBoth">
 				<div class="col-md-6 col-sm-12">
 					<pdfjs-viewer-element src="/files/example_review.pdf" viewer-path="/pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
-						viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
+																											viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<pdfjs-viewer-element src="/files/example_slides.pdf" viewer-path="/pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
-						viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
+																											viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
 				</div>
 			</div>
 			</div>
 		</section>
 		<div class="sp-container px-3">
-			<h1> Embed-able Grade Calculator for Blackboard: </h1>
-			<p> The grading scheme required for the course was confusing to students, and was difficult to explain. In addition, Blackboard doesn't have a grade
-				estimator like Canvas where students can input scores. Thus after much confusion around grades, I created the following calculator to limit the questions
-				around grades. It uses JavaScript within so that it could be easily uploaded to Blackboard and then included as an iframe. The polices decided by the
-				university, didn't allow direct inclusion of the JavaScript, thus the iframe. I can no longer find the instructions that I followed so the closest
-				explanation is <a href="https://community.canvaslms.com/t5/Canvas-Question-Forum/Embed-HTML-file-in-assignment-page/m-p/519604"> here</a>. The iframe would
-				look like this, with the proper URL. </p>
+			<h1> Embed-able Grade Calculator for Blackboard: </h1> <p> The grading scheme required for the course was confusing to students, and was difficult to
+				explain. In addition, Blackboard doesn't have a grade estimator like Canvas where students can input scores. Thus after much confusion around grades, I
+				created the following calculator to limit the questions around grades. It uses JavaScript within so that it could be easily uploaded to Blackboard and then
+				included as an iframe. The polices decided by the university, didn't allow direct inclusion of the JavaScript, thus the iframe. I can no longer find the
+				instructions that I followed so the closest explanation is <a
+							href="https://community.canvaslms.com/t5/Canvas-Question-Forum/Embed-HTML-file-in-assignment-page/m-p/519604"> here</a>. The iframe would look like this,
+				with the proper URL. </p>
 			<div class="hstack gap-3 justify-content-around">
-        <div class="coding">
-				<pre><code id="iframe-code">&lt;p&gt;&lt;iframe style=&quot;width: 100%; height: 800px; border: none;&quot; src=&quot;Permanent URL from content collection&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;</code></pre>
-        </div>
-          <div>
+				<div class="coding">
+					<pre><code id="iframe-code">&lt;p&gt;&lt;iframe style=&quot;width: 100%; height: 800px; border: none;&quot; src=&quot;Permanent URL from content collection&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;</code></pre>
+				</div>
+				<div>
 					<a href="./calc.html" download="embed-able-calc.html" class="btn btn-outline-success sp-btn-small"> <i class="bi bi-download"> </i> HTML </a>
 				</div>
-      </div>
-			<div class="row center mt-3">
-				<p> The styling is minimal, and it has no input restrictions. You can test it for yourself. </p>
+			</div>
+			<div class="row center mt-3"> <p> The styling is minimal, and it has no input restrictions. You can test it for yourself. </p>
 				<button id="s-calc" class="btn btn-cute sp-accord-btn fs-5b" data-bs-toggle="collapse" data-bs-target="#calc" aria-expanded="false"
-					aria-controls="collapseExample">Show calculator</button>
+												aria-controls="collapseExample">Show calculator</button>
 			</div>
 			<div class="row mt-3">
 				<div class="col-12 col-lg-10 collapse mx-auto" id="calc"> <embed src="./calc.html" type="text/html" width="100%" height="400px"> </div>
 			</div>
-			<div class="row center mb-3">
-				<p> The file itself has some explanations of what each step does, and shows how the grade is determined. </p>
+			<div class="row center mb-3"> <p> The file itself has some explanations of what each step does, and shows how the grade is determined. </p>
 				<button class="btn btn-cute sp-accord-btn fs-5b" data-bs-toggle="collapse" data-bs-target="#calc-code" aria-expanded="false"
-					aria-controls="collapseExample">Show calc. HTML code</button>
+												aria-controls="collapseExample">Show calc. HTML code</button>
 			</div>
 			<div class="row collapse" id="calc-code">
-        <div class="coding"><pre><code id="pre-code">&lt;!DOCTYPE html&gt;
+				<div class="coding">
+					<pre><code id="pre-code">&lt;!DOCTYPE html&gt;
       &lt;html&gt;
       &lt;head&gt;
         &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
@@ -235,7 +235,7 @@
         &lt;/script&gt;
       &lt;/body&gt;
       &lt;/html&gt;</code></pre>
-        </div>
+				</div>
 			</div>
 		</div>
 		</section>
@@ -244,9 +244,7 @@
 	<footer class="text-center">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<p>Copyright © Ivanna Porter. All rights reserved.</p>
-				</div>
+				<div class="col-12"> <p>Copyright © Ivanna Porter. All rights reserved.</p> </div>
 			</div>
 		</div>
 	</footer>

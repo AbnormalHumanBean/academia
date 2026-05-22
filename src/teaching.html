@@ -31,17 +31,17 @@
 								<div class="ps-5 ul-color">
 									<ul class="fs-4 eval-list">
 										<li>
-											<button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evalmodel2"
-																			data-bs-tab="#tab-fall25"> Evaluations </button>
+											<button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+														data-bs-course="#course-2301" data-bs-tab="#tab-fall25"> Evaluations </button>
 										</li>
-										<li> Spring 2026 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evalmodel2"
-																			data-bs-tab="#tab-spring26"> Eval. </button>
+										<li> Spring 2026 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+													data-bs-course="#course-2301" data-bs-tab="#tab-spring26"> Eval. </button>
 										</li>
-										<li> Fall 2025 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evalmodel2"
-																			data-bs-tab="#tab-fall25"> Eval. </button>
+										<li> Fall 2025 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+													data-bs-course="#course-2301" data-bs-tab="#tab-fall25"> Eval. </button>
 										</li>
-										<li> Summer 2025 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evalmodel2"
-																			data-bs-tab="#tab-summer25"> Eval. </button>
+										<li> Summer 2025 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
+													data-bs-course="#course-2301" data-bs-tab="#tab-summer25"> Eval. </button>
 										</li>
 									</ul>
 								</div>
@@ -50,19 +50,19 @@
 									<ul class="fs-4 eval-list">
 										<li>
 											<button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
-																			data-bs-tab="#tab-spring25"> Evaluations </button>
+														data-bs-course="#course-2305" data-bs-tab="#tab-spring25"> Evaluations </button>
 										</li>
 										<li> Spring 2025 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
-																			data-bs-tab="#tab-spring25"> Eval. </button>
+													data-bs-course="#course-2305" data-bs-tab="#tab-spring25"> Eval. </button>
 										</li>
 										<li> Fall 2024 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
-																			data-bs-tab="#tab-fall24"> Eval. </button>
+													data-bs-course="#course-2305" data-bs-tab="#tab-fall24"> Eval. </button>
 										</li>
 										<li> Spring 2024 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
-																			data-bs-tab="#tab-spring24"> Eval. </button>
+													data-bs-course="#course-2305" data-bs-tab="#tab-spring24"> Eval. </button>
 										</li>
 										<li> Fall 2023 <button type="button" class="btn btn-outline-success btn-sm sp-btn-small" data-bs-toggle="modal" data-bs-target="#evaluationsModal"
-																			data-bs-tab="#tab-fall23"> Eval. </button>
+													data-bs-course="#course-2305" data-bs-tab="#tab-fall23"> Eval. </button>
 										</li>
 									</ul>
 								</div>
@@ -100,17 +100,27 @@
 			</div>
 		</section>
 		<section>
-			<!-- Second model pop-up -->
-			<div class="modal fade" id="evalmodel2" tabindex="-1" aria-labelledby="evalmodel2Label" aria-hidden="true">
-				<div class="modal-dialog modal-fullscreen">
+			<!-- Evaluations modal -->
+			<div class="modal fade" id="evaluationsModal" tabindex="-1" aria-labelledby="evaluationsModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
 					<div class="modal-content">
-						<div class="modal-header py-0">
-							<h3 class="modal-title" id="evalmodel2Label"> 2301 Course Evaluations</h3>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<div class="modal-header py-2 bg-body border-bottom">
+							<div class="d-flex align-items-center w-100 gap-3">
+								<h3 class="modal-title" id="evaluationsModalLabel"> Course Evaluations</h3>
+								<div class="ms-auto d-flex align-items-center gap-2">
+									<label class="form-label mb-0" for="courseSelect">Course</label>
+									<select class="form-select form-select-sm" id="courseSelect">
+										<option value="course-2301" selected>ECO 2301</option>
+										<option value="course-2305">ECO 2305</option>
+									</select>
+								</div>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
 						</div>
-						<div class="modal-body py-0 px-5">
+						<div class="modal-body py-2 px-3">
+							<div class="course-panel" data-course="course-2301">
 							<!-- Tabs nav -->
-							<ul class="nav nav-tabs mb-3 sticky-top" id="evalTabs" role="tablist">
+							<ul class="nav nav-tabs mb-3 sticky-top bg-body border-bottom" id="evalTabs2301" role="tablist">
 								<li class="nav-item" role="presentation">
 									<button class="nav-link" id="tab-spring26-tab" data-bs-toggle="tab" data-bs-target="#tab-spring26" type="button" role="tab"
 																	aria-controls="tab-spring26" aria-selected="false">Spring 2026</button>
@@ -124,7 +134,7 @@
 																	aria-controls="tab-summer25" aria-selected="false">Summer 2025</button>
 								</li>
 							</ul>
-							<div class="tab-content" id="evalTabsContent">
+							<div class="tab-content" id="evalTabsContent2301">
 								<div class="tab-pane fade" id="tab-spring26" role="tabpanel" aria-labelledby="tab-spring26-tab">
 									<div class="container-fluid px-3">
 										<div class="card mb-3">
@@ -134,8 +144,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="tab-content" id="evalTabsContent">
 								<div class="tab-pane fade" id="tab-fall25" role="tabpanel" aria-labelledby="tab-fall25-tab">
 									<div class="container-fluid px-3">
 										<div class="card mb-3">
@@ -447,17 +455,23 @@
 															<div class="masonry-grid">
 																<div class="col mb-2">
 																	<div class="card">
-																		<div class="card-body"> <p class="card-text">Professor Porter is extremely inexperienced and needs to get her personal life in order before pursuing a career as an instructor. Her unprofessionalism was frustrating throughout the semester. I would not recommend her to other students who are looking to enroll in Economics 2301.</p> </div>
+																		<div class="card-body"> <p class="card-text">Professor Porter is extremely inexperienced and needs to get her personal life in order before
+																				pursuing a career as an instructor. Her unprofessionalism was frustrating throughout the semester. I would not recommend her to other
+																				students who are looking to enroll in Economics 2301.</p> </div>
 																	</div>
 																</div>
 																<div class="col mb-2">
 																	<div class="card">
-																		<div class="card-body"> <p class="card-text">Professor Porter did a wonderful job of teaching and engaging her students. We covered all course materials in a timely and efficient manner, and attending her class guaranteed that you left with an understanding of the material. She was accessible and went out of her way to make class as enjoyable as possible. Overall, it was a delightful experience to be a part of her class.</p> </div>
+																		<div class="card-body"> <p class="card-text">Professor Porter did a wonderful job of teaching and engaging her students. We covered all course
+																				materials in a timely and efficient manner, and attending her class guaranteed that you left with an understanding of the material. She was
+																				accessible and went out of her way to make class as enjoyable as possible. Overall, it was a delightful experience to be a part of her
+																				class.</p> </div>
 																	</div>
 																</div>
 																<div class="col mb-2">
 																	<div class="card">
-																		<div class="card-body"> <p class="card-text">Professor Porter was very funny, she did her best to keep the class entertained, along with giving extra credit through assignments and review games. 9/10 professor. I hope you enjoy your life Professor Porter!</p> </div>
+																		<div class="card-body"> <p class="card-text">Professor Porter was very funny, she did her best to keep the class entertained, along with
+																				giving extra credit through assignments and review games. 9/10 professor. I hope you enjoy your life Professor Porter!</p> </div>
 																	</div>
 																</div>
 																<div class="col mb-2">
@@ -487,7 +501,8 @@
 																</div>
 																<div class="col mb-2">
 																	<div class="card">
-																		<div class="card-body"> <p class="card-text">Great instructor overall, very very understanding and wants everyone to succeed in this course.</p> </div>
+																		<div class="card-body"> <p class="card-text">Great instructor overall, very very understanding and wants everyone to succeed in this
+																				course.</p> </div>
 																	</div>
 																</div>
 																<div class="col mb-2">
@@ -700,22 +715,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section>
-			<!-- Model pop-up -->
-			<div class="modal fade" id="evaluationsModal" tabindex="-1" aria-labelledby="evaluationsModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-fullscreen">
-					<div class="modal-content">
-						<div class="modal-header py-0">
-							<h3 class="modal-title" id="evaluationsModalLabel"> 2305 Course Evaluations</h3>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body py-0 px-5">
+						<div class="course-panel d-none" data-course="course-2305">
 							<!-- Tabs nav -->
-							<ul class="nav nav-tabs mb-3 sticky-top" id="evalTabs" role="tablist">
+							<ul class="nav nav-tabs mb-3 sticky-top bg-body border-bottom" id="evalTabs2305" role="tablist">
 								<li class="nav-item" role="presentation">
 									<button class="nav-link" id="tab-spring25-tab" data-bs-toggle="tab" data-bs-target="#tab-spring25" type="button" role="tab"
 																	aria-controls="tab-spring25" aria-selected="false">Spring 2025</button>
@@ -733,7 +735,7 @@
 																	aria-selected="false">Fall 2023</button>
 								</li>
 							</ul> <!-- Tabs content -->
-							<div class="tab-content" id="evalTabsContent">
+							<div class="tab-content" id="evalTabsContent2305">
 								<div class="tab-pane fade" id="tab-spring25" role="tabpanel" aria-labelledby="tab-spring25-tab">
 									<div class="container-fluid px-3">
 										<div class="card mb-3">
@@ -2516,10 +2518,10 @@
 										</div>
 									</div>
 								</div>
-								<div class="modal-footer p-1">
-									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								</div>
 							</div>
+						</div>
+						<div class="modal-footer p-1">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 						</div>
 					</div>
 				</div>
@@ -2533,7 +2535,84 @@
 				</div>
 			</div>
 		</section>
-	</body>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const modalEl = document.getElementById("evaluationsModal");
+				const courseSelect = document.getElementById("courseSelect");
+				if (!modalEl || !courseSelect || typeof bootstrap === "undefined") {
+					return;
+				}
+
+				const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+				const panels = Array.from(modalEl.querySelectorAll(".course-panel"));
+				const modalHash = "#evaluations";
+				let isHandlingPopstate = false;
+
+				const showCourse = (courseId) => {
+					panels.forEach((panel) => {
+						const isActive = panel.getAttribute("data-course") === courseId;
+						panel.classList.toggle("d-none", !isActive);
+					});
+					courseSelect.value = courseId;
+					const activePanel = panels.find(
+						(panel) => panel.getAttribute("data-course") === courseId
+					);
+					const firstTab = activePanel?.querySelector(
+						".nav-link[data-bs-toggle=\"tab\"]"
+					);
+					if (firstTab) {
+						bootstrap.Tab.getOrCreateInstance(firstTab).show();
+					}
+				};
+
+				courseSelect.addEventListener("change", () => {
+					showCourse(courseSelect.value);
+				});
+
+				const pushModalState = () => {
+					if (location.hash !== modalHash) {
+						history.pushState({ modal: true }, "", modalHash);
+					} else {
+						history.pushState({ modal: true }, "");
+					}
+				};
+
+				modalEl.addEventListener("shown.bs.modal", (event) => {
+					const trigger = event.relatedTarget;
+					const courseSelector = trigger?.getAttribute("data-bs-course");
+					const tabSelector = trigger?.getAttribute("data-bs-tab");
+
+					if (courseSelector) {
+						showCourse(courseSelector.replace("#", ""));
+					}
+
+					if (tabSelector) {
+						const innerTab = modalEl.querySelector(`[data-bs-target="${tabSelector}"]`);
+						if (innerTab) {
+							bootstrap.Tab.getOrCreateInstance(innerTab).show();
+						}
+					}
+
+					pushModalState();
+				});
+				window.addEventListener("popstate", () => {
+					if (modalEl.classList.contains("show")) {
+						isHandlingPopstate = true;
+						modal.hide();
+					}
+				});
+
+				modalEl.addEventListener("hidden.bs.modal", () => {
+					if (!isHandlingPopstate && location.hash === modalHash) {
+						history.back();
+					}
+					isHandlingPopstate = false;
+				});
+
+				showCourse(courseSelect.value);
+			});
+		</script>
+		</body>
 	</main>
 	</div>
 	<hr class="b">

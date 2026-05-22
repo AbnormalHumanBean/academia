@@ -464,6 +464,16 @@ hr.opt2 {
 	text-decoration: none;
 }
 
+.sp-card-title-link {
+	color: currentColor;
+	text-decoration: none;
+}
+
+.sp-card-title-link:hover {
+	color: currentColor;
+	text-decoration: underline;
+}
+
 :root {
 	font-feature-settings: 'cv08'1, 'ss03'1, 'cv11'1, 'liga'1, 'calt'1;
 	-moz-font-feature-settings: 'cv08'1, 'ss03'1, 'cv11'1, 'liga'1, 'calt'1;
