@@ -54,7 +54,7 @@ module.exports = (env, argv) => {
 				test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
 				type: 'asset/resource',
 				generator: {
-					publicPath: 'css/fonts/',
+					publicPath: '/css/fonts/',
 					outputPath: 'css/fonts/'
 				},
 			},
