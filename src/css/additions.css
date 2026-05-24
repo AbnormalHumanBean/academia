@@ -475,9 +475,33 @@ hr.opt2 {
 }
 
 :root {
-	font-feature-settings: 'cv08' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1, 'zero' 0;
-	-moz-font-feature-settings: 'cv08' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1, 'zero' 0;
-	-webkit-font-feature-settings: 'cv08' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1, 'zero' 0;
+	--sp-inter-features: "cv08" 1, "ss03" 1, "cv11" 1, "liga" 1, "calt" 1, "zero" 0;
+	font-feature-settings: var(--sp-inter-features);
+	-moz-font-feature-settings: var(--sp-inter-features);
+	-webkit-font-feature-settings: var(--sp-inter-features);
+}
+
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-variant-numeric: normal;
+	font-feature-settings: var(--sp-inter-features);
+	-moz-font-feature-settings: var(--sp-inter-features);
+	-webkit-font-feature-settings: var(--sp-inter-features);
 }
 
 .vline ul li {
