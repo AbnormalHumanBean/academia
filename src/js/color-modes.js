@@ -53,10 +53,10 @@
   
       const allDivs = document.querySelectorAll('.color-mode-choice');
   
-      const storedTheme = getStoredTheme();
-      const theme_stable = storedTheme === 'auto'
+      const activeTheme = getStoredTheme() || theme;
+      const theme_stable = activeTheme === 'auto'
         ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-        : storedTheme;
+        : activeTheme;
   
       allDivs.forEach(div => {
         div.classList.add('d-none');
