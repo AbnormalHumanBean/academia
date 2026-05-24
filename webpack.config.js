@@ -4,13 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const nav_inject = require('./src/js/insert_nav');
 const htmlWebpackPluginConfig = (template, filename, chunks) => ({
 	template,
 	filename,
 	chunks,
 	inject: 'body',
+	favicon: './src/images/icon2.png',
 	meta: {
 		robots: "index,follow",
 		googlebot: "index,follow",
@@ -81,23 +81,6 @@ module.exports = (env, argv) => {
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/pdf_js_generic/web/viewer.html', './pdf_js/web/viewer.html', ['to_html'])),
 		new MiniCssExtractPlugin({
 			filename: isProduction ? 'css/[name].[contenthash:8].css' : 'css/[name].css',
-		}),
-		new FaviconsWebpackPlugin({
-			logo: './src/images/icon2.png',
-			mode: 'light',
-			devMode: 'light',
-			cache: true,
-			prefix: 'favicon/',
-			outputPath: 'favicon/',
-			favicons: {
-				icons: {
-					appleStartup: false,
-					windows: false,
-					yandex: false,
-					coast: false,
-				}
-			},
-			inject: true,
 		}),
 		new CopyWebpackPlugin({
 			patterns: [{
