@@ -500,7 +500,6 @@ hr.opt2 {
 	padding: -1em;
 }
 
-
 .ul-color ul {
 	list-style: none;
 }
@@ -552,7 +551,6 @@ hr.opt2 {
 	color: var(--bs-body-color);
 }
 
-
 [data-bs-theme=dark] .masonry-grid .card:hover {
 	background-color: var(--bs-secondary-bg-subtle);
 	border-color: var(--bs-border-color-translucent);
@@ -560,7 +558,7 @@ hr.opt2 {
 }
 
 .masonry-grid .card:hover {
-	background-color:#dbd1ed;
+	background-color: #dbd1ed;
 	border-color: var(--bs-border-color-translucent);
 	color: var(--bs-body-color);
 }
@@ -610,7 +608,6 @@ hr.opt2 {
 	z-index: 1051;
 }
 
-
 #evaluationsModal .accordion-header {
 	background: var(--bs-body-bg);
 	color: var(--bs-heading-color);
@@ -641,6 +638,7 @@ hr.opt2 {
 	--bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239d66f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpolyline points='3.5 6 8 10.5 12.5 6'/%3E%3C/svg%3E");
 	--bs-accordion-btn-active-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239d66f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpolyline points='3.5 6 8 10.5 12.5 6'/%3E%3C/svg%3E");
 }
+
 #evaluationsModal .accordion-button:after {
 	--bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239d66f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpolyline points='3.5 6 8 10.5 12.5 6'/%3E%3C/svg%3E");
 	--bs-accordion-btn-active-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239d66f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpolyline points='3.5 6 8 10.5 12.5 6'/%3E%3C/svg%3E");
@@ -655,17 +653,45 @@ hr.opt2 {
 #evaluationsModal .nav-link {
 	color: var(--bs-iv-nav-rgb);
 }
+
 #evaluationsModal .nav-link.active {
 	color: var(--bs-emphasis-color);
 }
 
+#evaluationsModal .modal-content,
+#evaluationsModal .modal-header,
+#evaluationsModal .modal-body,
+#evaluationsModal .nav-tabs {
+	background-color: var(--bs-body-bg) !important;
+}
+
+#evaluationsModal .modal-body {
+	padding-top: 0 !important;
+	overflow-x: hidden;
+}
+
+#evaluationsModal .course-panel>.nav-tabs {
+	top: 0;
+	z-index: 1030;
+	margin-top: 0;
+	padding-top: .5rem;
+}
+
+#evaluationsModal .tab-pane:not(.active) {
+	display: none !important;
+}
+
 .eval-list li:first-child {
-    list-style: none;
-	 margin-left: -1rem;
+	list-style: none;
+	margin-left: -1rem;
 }
+
 .eval-list li:first-child:before {
-    content: none;
+	content: none;
 }
-.eval-list li:first-child > button {
+
+.eval-list li:first-child>button {
 	font-size: 1.25rem;
-};
+}
+
+;

@@ -157,110 +157,88 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+document.querySelectorAll('[data-bs-toggle="modal"][data-bs-tab]').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const tabSelector = btn.getAttribute('data-bs-tab');
+		const courseSelector = btn.getAttribute('data-bs-course');
+    const modal = document.querySelector(btn.getAttribute('data-bs-target'));
+    if (!modal) return;
+
+    // Listen for the modal to be fully shown, then switch tab
+    const handler = function () {
+			if (courseSelector) {
+				const courseSelect = modal.querySelector('#courseSelect');
+				if (courseSelect) {
+					courseSelect.value = courseSelector.replace('#', '');
+					courseSelect.dispatchEvent(new Event('change', { bubbles: true }));
+				}
+			}
+			const tabTrigger = modal.querySelector(`[data-bs-target="${tabSelector}"]`);
+      if (tabTrigger) {
+		new Tab(tabTrigger).show();
+      }
+      modal.removeEventListener('shown.bs.modal', handler);
+    };
+    modal.addEventListener('shown.bs.modal', handler);
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 	const modalEl = document.getElementById('evaluationsModal');
 	const courseSelect = document.getElementById('courseSelect');
-
 	if (!modalEl || !courseSelect) {
 		return;
 	}
 
 	const modal = Modal.getOrCreateInstance(modalEl);
 	const panels = Array.from(modalEl.querySelectorAll('.course-panel'));
-	const modalBody = modalEl.querySelector('.modal-body');
 	const modalHash = '#evaluations';
 	let isPopstateClose = false;
-	let requestedCourse = courseSelect.value;
-	let requestedTab = null;
 
-	function resetModalScroll() {
+	const showCourse = (courseId) => {
+		panels.forEach((panel) => {
+			const isActive = panel.getAttribute('data-course') === courseId;
+			panel.classList.toggle('d-none', !isActive);
+			panel.style.display = isActive ? '' : 'none';
+		});
+		const modalBody = modalEl.querySelector('.modal-body');
 		if (modalBody) {
 			modalBody.scrollTop = 0;
 		}
-		modalEl.scrollTop = 0;
-		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-	}
-
-	function clearActiveTabs(panel) {
-		panel.querySelectorAll('.nav-link[data-bs-toggle="tab"]').forEach((tab) => {
-			tab.classList.remove('active');
-			tab.setAttribute('aria-selected', 'false');
-		});
-
-		panel.querySelectorAll('.tab-pane').forEach((pane) => {
-			pane.classList.remove('active', 'show');
-		});
-	}
-
-	function activateTabNow(tabTrigger) {
-		if (!tabTrigger) return;
-
-		const activePanel = tabTrigger.closest('.course-panel');
-		if (!activePanel) return;
-
-		clearActiveTabs(activePanel);
-
-		const paneSelector = tabTrigger.getAttribute('data-bs-target');
-		const pane = paneSelector ? activePanel.querySelector(paneSelector) : null;
-
-		tabTrigger.classList.add('active');
-		tabTrigger.setAttribute('aria-selected', 'true');
-
-		if (pane) {
-			pane.classList.add('active', 'show');
-			pane.querySelectorAll('.masonry-grid').forEach(layoutMasonry);
-		}
-	}
-
-	function showCourse(courseId, tabSelector = null) {
-		requestedCourse = courseId;
-		requestedTab = tabSelector;
-
-		panels.forEach((panel) => {
-			const isActive = panel.dataset.course === courseId;
-			panel.classList.toggle('d-none', !isActive);
-			if (!isActive) {
-				clearActiveTabs(panel);
-			}
-		});
-
 		courseSelect.value = courseId;
-
-		const activePanel = panels.find((panel) => panel.dataset.course === courseId);
-		if (!activePanel) return;
-
-		const tabToShow = tabSelector
-			? activePanel.querySelector(`[data-bs-target="${tabSelector}"]`)
-			: activePanel.querySelector('.nav-link[data-bs-toggle="tab"]');
-
-		activateTabNow(tabToShow);
-		resetModalScroll();
-	}
+		const activePanel = panels.find(
+			(panel) => panel.getAttribute('data-course') === courseId
+		);
+		const firstTab = activePanel?.querySelector(
+			'.nav-link[data-bs-toggle="tab"]'
+		);
+		if (firstTab) {
+			Tab.getOrCreateInstance(firstTab).show();
+		}
+	};
 
 	courseSelect.addEventListener('change', () => {
 		showCourse(courseSelect.value);
 	});
 
-	modalEl.addEventListener('show.bs.modal', (event) => {
+	modalEl.addEventListener('shown.bs.modal', (event) => {
 		const trigger = event.relatedTarget;
-		requestedCourse = trigger?.getAttribute('data-bs-course')?.replace('#', '') || courseSelect.value;
-		requestedTab = trigger?.getAttribute('data-bs-tab') || null;
-		showCourse(requestedCourse, requestedTab);
-	});
-
-	modalEl.addEventListener('shown.bs.modal', () => {
-		resetModalScroll();
-		if (location.hash !== modalHash) {
+		const courseSelector = trigger?.getAttribute('data-bs-course');
+		const tabSelector = trigger?.getAttribute('data-bs-tab');
+		if (courseSelector) {
+			showCourse(courseSelector.replace('#', ''));
+		}
+		if (tabSelector) {
+			const innerTab = modalEl.querySelector(`[data-bs-target="${tabSelector}"]`);
+			if (innerTab) {
+				Tab.getOrCreateInstance(innerTab).show();
+			}
+		}
+		if (location.hash === modalHash) {
 			history.pushState({ modal: true }, '', modalHash);
+		} else {
+			location.hash = 'evaluations';
 		}
-	});
-
-	modalEl.addEventListener('shown.bs.tab', (event) => {
-		const pane = modalEl.querySelector(event.target.getAttribute('data-bs-target'));
-		if (pane) {
-			pane.querySelectorAll('.masonry-grid').forEach(layoutMasonry);
-		}
-		resetModalScroll();
 	});
 
 	window.addEventListener('hashchange', () => {
