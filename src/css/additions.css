@@ -475,9 +475,9 @@ hr.opt2 {
 }
 
 :root {
-	font-feature-settings: 'cv08'1, 'ss03'1, 'cv11'1, 'liga'1, 'calt'1;
-	-moz-font-feature-settings: 'cv08'1, 'ss03'1, 'cv11'1, 'liga'1, 'calt'1;
-	-webkit-font-feature-settings: 'cv08'1, 'ss03'1, 'cv11'1, 'liga'1, 'calt'1;
+	font-feature-settings: 'cv08' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1, 'zero' 0;
+	-moz-font-feature-settings: 'cv08' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1, 'zero' 0;
+	-webkit-font-feature-settings: 'cv08' 1, 'ss03' 1, 'cv11' 1, 'liga' 1, 'calt' 1, 'zero' 0;
 }
 
 .vline ul li {
