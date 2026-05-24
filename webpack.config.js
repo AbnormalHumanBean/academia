@@ -80,7 +80,12 @@ module.exports = (env, argv) => {
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['main', 'pdf_viewer_element'])),
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/pdf_js_generic/web/viewer.html', './pdf_js/web/viewer.html', ['to_html'])),
 		new MiniCssExtractPlugin({
-			filename: isProduction ? 'css/[name].[contenthash:8].css' : 'css/[name].css',
+			filename: ({ chunk }) => {
+				if (chunk && chunk.name === 'pdf_viewer_element') {
+					return 'css/[name].css';
+				}
+				return isProduction ? 'css/[name].[contenthash:8].css' : 'css/[name].css';
+			},
 		}),
 		new CopyWebpackPlugin({
 			patterns: [{
