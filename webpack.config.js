@@ -1,15 +1,11 @@
 'use strict';
 const path = require('path');
-const webpack = require("webpack");
-const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const nav_inject = require('./src/js/insert_nav');
-const Dotenv = require('dotenv-webpack');
 const htmlWebpackPluginConfig = (template, filename, chunks) => ({
 	template,
 	filename,
@@ -27,9 +23,7 @@ module.exports = (env, argv) => {
 	context: __dirname,
 	mode: isProduction ? 'production' : 'development',
 	entry: {
-		font: ['./src/js/font.js'],
 		main: ['./src/js/main.js'],
-		style: './src/js/style.js',
 		githubget: './src/js/githubget.js',
 		html_highlight: './src/js/html_highlight.js',
 		adjust: {
@@ -41,7 +35,7 @@ module.exports = (env, argv) => {
 		gh_card: ['./src/js/github_profile.js'],
 	},
 	output: {
-		filename: '[name].js',
+		filename: isProduction ? '[name].[contenthash:8].js' : '[name].js',
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',
 		clean: true,
@@ -74,29 +68,33 @@ module.exports = (env, argv) => {
 		port: 8080
 	},
 	plugins: [
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/index.html', 'index.html', ['font', 'main', 'style'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/about.html', 'about.html', ['font', 'main', 'style'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching.html', 'teaching.html', ['font', 'main', 'style'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching_tools.html', 'teaching_tools.html', ['font', 'main', 'style', 'html_highlight', 'adjust','pdf_viewer_element'
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/index.html', 'index.html', ['main'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/about.html', 'about.html', ['main'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching.html', 'teaching.html', ['main'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching_tools.html', 'teaching_tools.html', ['main', 'html_highlight', 'adjust','pdf_viewer_element'
 		])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/research.html', 'research.html', ['font', 'main', 'style'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_show.html', 'coding_show.html', ['font', 'main', 'style', 'githubget'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_explain.html', 'coding_explain.html', ['font', 'main', 'style'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/connect.html', 'connect.html', ['font', 'main', 'style', 'gh_card'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['font', 'main', 'style', 'pdf_viewer_element'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/research.html', 'research.html', ['main'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_show.html', 'coding_show.html', ['main', 'githubget'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/coding_explain.html', 'coding_explain.html', ['main'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/connect.html', 'connect.html', ['main', 'gh_card'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/cv.html', 'cv.html', ['main', 'pdf_viewer_element'])),
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/pdf_js_generic/web/viewer.html', './pdf_js/web/viewer.html', ['to_html'])),
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].css',
+			filename: isProduction ? 'css/[name].[contenthash:8].css' : 'css/[name].css',
 		}),
 		new FaviconsWebpackPlugin({
 			logo: './src/images/icon2.png',
+			mode: 'light',
+			devMode: 'light',
 			cache: true,
+			prefix: 'favicon/',
 			outputPath: 'favicon/',
 			favicons: {
 				icons: {
 					appleStartup: false,
 					windows: false,
-					yandex: true,
+					yandex: false,
+					coast: false,
 				}
 			},
 			inject: true,
@@ -139,11 +137,6 @@ module.exports = (env, argv) => {
 		new nav_inject({
 			options: ""
 		}),
-		new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery'
-		}),
-		   new Dotenv(),
 
 	],
 	optimization: {
@@ -151,14 +144,7 @@ module.exports = (env, argv) => {
 		splitChunks: {
 			chunks: 'all',
 		},
-		minimizer: [new TerserPlugin({
-				terserOptions: {
-					compress: true,
-					keep_classnames: true,
-				},
-			}),
-			new CssMinimizerPlugin(),
-		],
+		minimizer: ['...', new CssMinimizerPlugin()],
 	},
 	};
 };

@@ -1,3 +1,5 @@
+import './font.js';
+import './style.js';
 import Tooltip from 'bootstrap/js/dist/tooltip';
 import Popover from 'bootstrap/js/dist/popover';
 import Tab from 'bootstrap/js/dist/tab';

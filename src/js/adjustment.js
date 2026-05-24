@@ -30,27 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-	$('[data-bs-toggle="collapse"]').on("click", function() {
-    var text = $(this).text();
-    if (text.includes('Show')) {
-      $(this).text(text.replace('Show', 'Hide'));
-      this.classList.add("active");
-    } else if (text.includes('Hide')) {
-      $(this).text(text.replace('Hide', 'Show'));
-      this.classList.remove("active");
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  $('[data-bs-toggle="button"]').on("click", function() {
-    var text = $(this).text();
-    if (text.includes('Show')) {
-      $(this).text(text.replace('Show', 'Hide'));
-      this.classList.add("active");
-    } else if (text.includes('Hide')) {
-      $(this).text(text.replace('Hide', 'Show'));
-      this.classList.remove("active");
-    }
-  });
+	document.querySelectorAll('[data-bs-toggle="collapse"], [data-bs-toggle="button"]').forEach((button) => {
+		button.addEventListener('click', function() {
+			const text = this.textContent;
+			if (text.includes('Show')) {
+				this.textContent = text.replace('Show', 'Hide');
+				this.classList.add('active');
+			} else if (text.includes('Hide')) {
+				this.textContent = text.replace('Hide', 'Show');
+				this.classList.remove('active');
+			}
+		});
+	});
 });
