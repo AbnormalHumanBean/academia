@@ -55,40 +55,6 @@
 	--iv-sdark: #d9c8f1;
 }
 
-/*
-.navbar {
-	--bs-navbar-color: var(--iv-nav);
-}
-*/
-.nav-link.active:hover {
-	color: var(--bs-iv-active-hover);
-	font-weight: 600;
-}
-
-.nav-link:hover {
-	font-weight: 600;
-}
-
-[data-bs-theme=dark] .nav-link:hover {
-	color: #e3deeb;
-	font-weight: 600;
-}
-
-.nav-link.active {
-	font-weight: 550;
-}
-
-.avatar-circle {
-	border-radius: 50%;
-}
-
-.avatar {
-	width: 270px;
-	height: 270px;
-	margin: 0 auto;
-	object-fit: cover;
-}
-
 [data-bs-theme='light'] .d-dark {
 	display: none;
 }
@@ -105,6 +71,70 @@
 	display: none;
 }
 
+/* Theme helpers */
+[data-bs-theme=dark] {
+	iframe {
+		color-scheme: dark;
+	}
+}
+
+[data-bs-theme=light] {
+	iframe {
+		color-scheme: light;
+	}
+}
+
+/* Navbar and dropdowns */
+/*
+.navbar {
+	--bs-navbar-color: var(--iv-nav);
+}
+*/
+.sp-navbar {
+	border-bottom: var(--iv-nav-border);
+	border-bottom-style: solid;
+	font-weight: 500;
+}
+
+.sp-navbar .nav-link.active:hover {
+	text-decoration-line: underline;
+	text-decoration-thickness: .08em;
+	text-underline-offset: .35em;
+}
+
+.sp-navbar .nav-link:not(.active):hover {
+	color: var(--bs-navbar-color);
+	text-decoration-line: underline;
+	text-decoration-thickness: .08em;
+	text-underline-offset: .35em;
+}
+
+.nav-link.active {
+	font-weight: 550;
+}
+
+.split-nav-a {
+	margin-left: 0;
+	padding-left: var(--bs-navbar-nav-link-padding-x) !important;
+	padding-right: 0rem !important;
+}
+
+.split-nav-b {
+	margin-left: 0;
+	padding-left: .4rem !important;
+	padding-right: var(--bs-navbar-nav-link-padding-x) !important;
+}
+
+.dropdown-menu {
+	border-top: 0;
+	/* Remove the top border */
+}
+
+.dropdown-item {
+	color: var(--bs-nav-link-color);
+}
+
+/* Lists and icons */
 ul.mine.grad {
 	list-style: none;
 	margin-left: 0;
@@ -131,11 +161,61 @@ ul.mine.grad li:before {
 	color: inherit;
 }
 
+.sp-ul>li {
+	margin-bottom: 1.1em;
+	margin-right: 1.5em;
+}
+
+.bi-li {
+	left: calc(var(--fa-li-width, 2em)*-1);
+	font-weight: 800;
+	position: absolute;
+	text-align: center;
+	width: 2em;
+	line-height: inherit;
+	display: var(inline-block);
+	font-variant: normal;
+	line-height: 1;
+	text-rendering: auto;
+	top: 10px;
+}
+
+.ico-li {
+	left: calc(var(--fa-li-width, 2em)*-1);
+	position: absolute;
+	text-align: center;
+	width: 2em;
+	line-height: inherit;
+	display: var(inline-block);
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1;
+	text-rendering: auto;
+	top: 15px;
+}
+
+.ico-adj {
+	top: 10px;
+}
+
+/* Images */
+.avatar-circle {
+	border-radius: 50%;
+}
+
+.avatar {
+	width: 270px;
+	height: 270px;
+	margin: 0 auto;
+	object-fit: cover;
+}
+
 .img-size {
 	max-width: 50%;
 	height: auto;
 }
 
+/* Layout helpers */
 .col-sp {
 	width: 30%;
 }
@@ -177,43 +257,7 @@ ul.mine.grad li:before {
 	font-size: inherit;
 }
 
-.sp-ul>li {
-	margin-bottom: 1.1em;
-	margin-right: 1.5em;
-}
-
-.bi-li {
-	left: calc(var(--fa-li-width, 2em)*-1);
-	font-weight: 800;
-	position: absolute;
-	text-align: center;
-	width: 2em;
-	line-height: inherit;
-	display: var(inline-block);
-	font-variant: normal;
-	line-height: 1;
-	text-rendering: auto;
-	top: 10px;
-}
-
-.ico-li {
-	left: calc(var(--fa-li-width, 2em)*-1);
-	position: absolute;
-	text-align: center;
-	width: 2em;
-	line-height: inherit;
-	display: var(inline-block);
-	font-style: normal;
-	font-variant: normal;
-	line-height: 1;
-	text-rendering: auto;
-	top: 15px;
-}
-
-.ico-adj {
-	top: 10px;
-}
-
+/* Page base */
 body {
 	margin: 0;
 	font-family: var(--bs-body-font-family);
@@ -232,6 +276,7 @@ body {
 	background-color: var(--bs-nav-bg);
 }
 
+/* Code examples */
 .coding {
 	background-color: var(--bs-sp-bg);
 	border: 1px solid var(--bs-dd-bd-iv);
@@ -258,18 +303,7 @@ code {
 	letter-spacing: normal;
 }
 
-.split-nav-a {
-	margin-left: 0;
-	padding-left: var(--bs-navbar-nav-link-padding-x) !important;
-	padding-right: 0rem !important;
-}
-
-.split-nav-b {
-	margin-left: 0;
-	padding-left: .4rem !important;
-	padding-right: var(--bs-navbar-nav-link-padding-x) !important;
-}
-
+/* Embedded viewers and utility layout */
 .pdf-container {
 	display: none;
 	margin-top: 20px;
@@ -283,6 +317,13 @@ code {
 .side-by-side {
 	display: flex;
 	justify-content: space-around;
+}
+
+.hstack {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	align-self: stretch !important;
 }
 
 .sp-ti-zzz::before {
@@ -313,18 +354,7 @@ pdfjs-viewer-element {
 	height: 100dvh;
 }
 
-[data-bs-theme=dark] {
-	iframe {
-		color-scheme: dark;
-	}
-}
-
-[data-bs-theme=light] {
-	iframe {
-		color-scheme: light;
-	}
-}
-
+/* Progress bars */
 .progress {
 	height: 15px;
 	position: relative;
@@ -348,6 +378,7 @@ pdfjs-viewer-element {
 	background-color: var(--bs-new);
 }
 
+/* Dividers */
 [data-bs-theme='light'] hr.b {
 	color: white;
 	border-top-color: white;
@@ -369,12 +400,7 @@ hr.opt2 {
 	border-top-color: var(--bs-border-color-translucent);
 }
 
-.sp-navbar {
-	border-bottom: var(--iv-nav-border);
-	border-bottom-style: solid;
-	font-weight: 500;
-}
-
+/* Buttons */
 [data-bs-theme=dark] .btn-cute {
 	--bs-btn-color: var(--iv-con-bg);
 	--bs-btn-border-color: var(--iv-con-bg);
@@ -403,22 +429,7 @@ hr.opt2 {
 	--bs-gradient: none;
 }
 
-.dropdown-menu {
-	border-top: 0;
-	/* Remove the top border */
-}
-
-.dropdown-item {
-	color: var(--bs-nav-link-color);
-}
-
-.hstack {
-	display: flex !important;
-	flex-direction: row !important;
-	align-items: center !important;
-	align-self: stretch !important;
-}
-
+/* GitHub and link cards */
 .ghavatar:hover {
 	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
@@ -474,8 +485,7 @@ hr.opt2 {
 	text-decoration: underline;
 }
 
-
-
+/* Accent lists */
 .vline ul li {
 	position: relative;
 	left: 0;
@@ -508,6 +518,7 @@ hr.opt2 {
 	font-size: 95%;
 }
 
+/* Readme previews */
 .readme {
 	font-size: 14px;
 }
@@ -599,6 +610,14 @@ hr.opt2 {
 	font-weight: 600;
 }
 
+/* Evaluation modal */
+#evaluationsModal {
+	--bs-modal-border-color: var(--bs-border-color);
+	--bs-modal-border-width: 2px;
+	--iv-modal-border-color: var(--bs-modal-border-color);
+	--iv-modal-border-width: var(--bs-modal-border-width);
+}
+
 .nav-tabs.sticky-top {
 	background: var(--bs-modal-bg, var(--bs-body-bg));
 	z-index: 1051;
@@ -661,6 +680,34 @@ hr.opt2 {
 	background-color: var(--bs-body-bg) !important;
 }
 
+#evaluationsModal .card {
+	border: var(--iv-modal-border-width) solid var(--iv-modal-border-color);
+}
+
+#evaluationsModal .table {
+	--bs-table-border-color: var(--iv-modal-border-color);
+	border-color: var(--iv-modal-border-color);
+}
+
+#evaluationsModal .table > :not(caption) > * > * {
+	border-bottom-width: var(--iv-modal-border-width);
+}
+
+#evaluationsModal .nav-tabs {
+	--bs-nav-tabs-border-color: var(--iv-modal-border-color);
+	--bs-nav-tabs-border-width: var(--iv-modal-border-width);
+	--bs-nav-tabs-link-active-border-color: var(--iv-modal-border-color) var(--iv-modal-border-color) var(--bs-body-bg);
+	border-bottom: var(--iv-modal-border-width) solid var(--iv-modal-border-color) !important;
+}
+
+#evaluationsModal .nav-tabs .nav-link {
+	border-width: var(--iv-modal-border-width);
+}
+
+#evaluationsModal .nav-tabs .nav-link.active {
+	border-color: var(--iv-modal-border-color) var(--iv-modal-border-color) var(--bs-body-bg);
+}
+
 #evaluationsModal .modal-body {
 	padding-top: 0 !important;
 	overflow-x: hidden;
@@ -689,5 +736,109 @@ hr.opt2 {
 .eval-list li:first-child>button {
 	font-size: 1.25rem;
 }
+#evaluationsModal .sp-modal-close {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	color: var(--bs-body-color);
+	font-size: 1.45rem;
+	line-height: 1;
+	background-color: transparent;
+	border: var(--iv-modal-border-width) solid var(--iv-modal-border-color);
+	border-radius: .35rem;
+	opacity: 1;
+	box-shadow: none;
+}
 
+#evaluationsModal .sp-modal-close span {
+	position: relative;
+	top: -1px;
+}
+
+#evaluationsModal .sp-modal-close:hover,
+#evaluationsModal .sp-modal-close:focus {
+	color: var(--bs-emphasis-color);
+	border-color: var(--iv-modal-border-color);
+	background-color: rgba(var(--bs-emphasis-color-rgb), .03);
+	box-shadow: none;
+}
+
+#evaluationsModal .sp-modal-close:focus {
+	outline: 0;
+}
+
+#evaluationsModal .form-select {
+	appearance: none;
+	width: auto;
+	min-width: 8.5rem;
+	height: 2rem;
+	padding: .25rem 2rem .25rem .65rem;
+	color: var(--bs-body-color);
+	background-color: transparent;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%238561d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right .55rem center;
+	background-size: .85rem;
+	border-width: var(--iv-modal-border-width);
+	border-color: var(--iv-modal-border-color);
+	border-radius: .35rem;
+	box-shadow: none;
+}
+
+#evaluationsModal .form-select option {
+	color: var(--bs-body-color);
+	background-color: var(--bs-body-bg);
+}
+
+#evaluationsModal .form-select option:checked {
+	color: var(--bs-emphasis-color);
+	background-color: var(--bs-secondary-bg-subtle);
+}
+
+#evaluationsModal .form-select option:hover,
+#evaluationsModal .form-select option:focus {
+	color: var(--bs-emphasis-color);
+	background-color: var(--bs-primary-bg-subtle);
+}
+
+#evaluationsModal .form-select:hover {
+	border-color: var(--iv-modal-border-color);
+	background-color: transparent;
+}
+
+#evaluationsModal .form-select:focus {
+	outline: 0;
+	border-color: var(--iv-modal-border-color);
+	box-shadow: none;
+}
+
+#evaluationsModal .form-label {
+	color: var(--bs-secondary-color);
+	font-weight: 500;
+}
+
+#evaluationsModal .sp-modal-dismiss {
+	padding: .25rem .75rem;
+	color: var(--bs-body-color);
+	font: inherit;
+	line-height: 1.5;
+	background-color: transparent;
+	border: var(--iv-modal-border-width) solid var(--iv-modal-border-color);
+	border-radius: .35rem;
+}
+
+#evaluationsModal .sp-modal-dismiss:hover,
+#evaluationsModal .sp-modal-dismiss:focus {
+	color: var(--bs-emphasis-color);
+	background-color: rgba(var(--bs-emphasis-color-rgb), .03);
+	box-shadow: none;
+}
+
+#evaluationsModal .sp-modal-dismiss:focus {
+	outline: 0;
+}
 ;
