@@ -125,7 +125,55 @@
 	padding-right: var(--bs-navbar-nav-link-padding-x) !important;
 }
 
+@media (max-width: 575.98px) {
+	.sp-navbar .navbar-toggler {
+		display: block;
+		margin-left: auto;
+		z-index: 2;
+	}
+
+	.sp-navbar .nav-item.dropdown>.btn-group {
+		display: block;
+		width: 100%;
+	}
+
+	.sp-navbar .split-nav-a,
+	.sp-navbar .split-nav-b {
+		display: inline-block;
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+
+	.sp-navbar .split-nav-b {
+		padding-left: .25rem !important;
+	}
+
+	.sp-navbar .nav-item.dropdown>.btn-group>.dropdown-menu {
+		position: static;
+		float: none;
+		margin: 0;
+		transform: none !important;
+	}
+
+	.sp-navbar .nav-item.dropdown>.btn-group>.dropdown-menu .dropdown-item {
+		width: fit-content;
+		margin: .25rem 0 .5rem 1rem;
+		padding: .35rem .75rem;
+		color: var(--bs-navbar-color);
+		background-color: transparent;
+		border: 0;
+		border-radius: var(--bs-border-radius-sm);
+	}
+
+	.sp-navbar .nav-item.dropdown>.btn-group>.dropdown-menu .dropdown-item:hover,
+	.sp-navbar .nav-item.dropdown>.btn-group>.dropdown-menu .dropdown-item:focus {
+		color: var(--bs-navbar-color);
+		background-color: rgba(var(--bs-emphasis-color-rgb), .04);
+	}
+}
+
 .dropdown-menu {
+	border: 0;
 	border-top: 0;
 	/* Remove the top border */
 }
@@ -217,19 +265,62 @@ ul.mine.grad li:before {
 
 /* Layout helpers */
 .col-sp {
-	width: 30%;
+	flex: 0 0 clamp(11rem, 23vw, 18rem);
+	width: clamp(11rem, 23vw, 18rem);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-left: 1rem;
 }
 
 @media (min-width: 768px) {
 	.col-sp {
-		width: 30%;
+		flex-basis: clamp(12rem, 22vw, 18rem);
+		width: clamp(12rem, 22vw, 18rem);
 	}
 }
 
 @media (min-width: 992px) {
 	.col-sp {
-		width: 30%;
+		flex-basis: clamp(13rem, 20vw, 18rem);
+		width: clamp(13rem, 20vw, 18rem);
 		max-width: 300px;
+	}
+}
+
+.card .row.flex-nowrap {
+	--bs-gutter-x: 1rem;
+	align-items: flex-start;
+}
+
+.card .row.flex-nowrap>.col>.card-body {
+	padding-left: .75rem;
+}
+
+.col-sp img,
+.col-sp a {
+	max-width: 100%;
+}
+
+@media (max-width: 767.98px) {
+	.card .row.flex-nowrap {
+		flex-wrap: wrap !important;
+	}
+
+	.card .row.flex-nowrap>.col-sp {
+		flex-basis: 100%;
+		width: 100%;
+		max-width: none;
+		justify-content: flex-start;
+		padding: 1rem 1rem .25rem;
+	}
+
+	.card .row.flex-nowrap>.col-sp img {
+		max-width: min(14rem, 62vw);
+	}
+
+	.card .row.flex-nowrap>.col>.card-body {
+		padding: .75rem 1rem 1rem;
 	}
 }
 
@@ -272,6 +363,12 @@ body {
 	padding-top: 4rem;
 }
 
+@media (max-width: 575.98px) {
+	html {
+		font-size: 93.75%;
+	}
+}
+
 .bg-nav {
 	background-color: var(--bs-nav-bg);
 }
@@ -281,6 +378,7 @@ body {
 	background-color: var(--bs-sp-bg);
 	border: 1px solid var(--bs-dd-bd-iv);
 	max-width: 100%;
+	overflow-x: auto;
 	padding-top: 1px;
 	padding-bottom: 2px;
 }
@@ -352,6 +450,32 @@ code {
 pdfjs-viewer-element {
 	height: 100vh;
 	height: 100dvh;
+}
+
+@media (max-width: 575.98px) {
+	.sp-accord-btn {
+		width: 100%;
+		max-width: 11rem;
+		padding-right: .6rem;
+		padding-left: .6rem;
+	}
+
+	.coding {
+		width: 100%;
+	}
+
+	.coding pre {
+		overflow-x: auto;
+	}
+
+	.pdf-container {
+		padding-right: 1rem !important;
+		padding-left: 1rem !important;
+	}
+
+	.hstack {
+		flex-wrap: wrap;
+	}
 }
 
 /* Progress bars */
@@ -427,6 +551,41 @@ hr.opt2 {
 	--bs-btn-active-border-color: var(--iv-con-bg);
 	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 	--bs-gradient: none;
+}
+
+.sp-cv-title {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .35rem;
+}
+
+.sp-download-button {
+	overflow: hidden;
+	display: inline-flex;
+	align-items: center;
+	align-self: center;
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: .4rem .4rem;
+	justify-content: center;
+	color: var(--bs-body-color);
+	text-decoration: none;
+	border: 2px solid var(--bs-border-color);
+	background-color: transparent;
+	border-radius: var(--bs-border-radius);
+	margin: 0rem .5rem;
+}
+
+.sp-download-button:hover,
+.sp-download-button:focus {
+	color: var(--bs-body-bg);
+	background-color: var(--bs-success);
+}
+
+.sp-download-button:focus-visible {
+	outline: 2px solid var(--bs-success);
+	outline-offset: 2px;
 }
 
 /* GitHub and link cards */
@@ -508,6 +667,102 @@ hr.opt2 {
 
 .ul-color ul {
 	list-style: none;
+}
+
+.eval-list li:not(:first-child) {
+	display: grid;
+	grid-template-columns: max-content 10rem max-content;
+	align-items: center;
+	column-gap: .5rem;
+	justify-content: start;
+	text-align: left;
+}
+
+.eval-list li:not(:first-child)>.sp-btn-small {
+	justify-self: start;
+}
+
+@media (max-width: 575.98px) {
+	.sp-container>.row.row-cols-1.center.px-5 {
+		padding-right: .75rem !important;
+		padding-left: .75rem !important;
+	}
+
+	.sp-container>.row.row-cols-1.center.px-5 .px-5,
+	.sp-container>.row.row-cols-1.center.px-5 .ps-5 {
+		padding-right: 1rem !important;
+		padding-left: 1.35rem !important;
+	}
+
+	.sp-container>.row.row-cols-1.center.px-5 h1 {
+		font-size: 1.75rem;
+	}
+
+	.sp-container>.row.row-cols-1.center.px-5 h2 {
+		margin-bottom: .75rem;
+	}
+
+	.sp-container>.row.row-cols-1.center.px-5 h3,
+	.sp-container>.row.row-cols-1.center.px-5 h4 {
+		margin-top: 1.15rem;
+		margin-bottom: .55rem;
+		font-size: 1.35rem;
+		line-height: 1.2;
+	}
+
+	.sp-container>.row.row-cols-1.center.px-5 .ul-color,
+	.sp-container>.row.row-cols-1.center.px-5 .vline {
+		padding-left: 1.75rem !important;
+	}
+
+	.eval-list {
+		max-width: 15rem;
+		margin-bottom: 1.1rem;
+		padding-left: 0;
+		font-size: 1.1rem !important;
+		line-height: 1.25;
+	}
+
+	.eval-list li {
+		margin-bottom: .5rem;
+	}
+
+	.eval-list li:not(:first-child) {
+		grid-template-columns: auto minmax(7.8rem, 1fr) auto;
+		gap: .45rem;
+	}
+
+	.eval-list li:first-child {
+		margin-bottom: .65rem;
+		margin-left: 0;
+		text-align: center;
+	}
+
+	.ul-color .eval-list li:not(:first-child):before {
+		flex: 0 0 auto;
+		width: auto;
+		margin-right: .4rem;
+		margin-left: 0;
+		padding: 0;
+		font-size: .9rem;
+	}
+
+	.eval-list li:first-child>button {
+		font-size: .95rem;
+	}
+
+	.eval-list .sp-btn-small {
+		flex: 0 0 auto;
+		--bs-btn-font-size: .9rem;
+	}
+
+	.eval-list li:not(:first-child)>.sp-btn-small {
+		justify-self: start;
+	}
+
+	.vline {
+		font-size: 1.1rem !important;
+	}
 }
 
 .iv-pop {

@@ -10,24 +10,27 @@
 	<body>
 		<div class="sp-container h-97 w-95">
 			<div class="text-center">
-				<h1> Curriculum vitae </h1>
+				<h1 class="sp-cv-title"> Curriculum vitae 
+					<a aria-label="Download CV PDF" class="sp-download-button" download href="/files/CV_IvannaPorter.pdf"> <i aria-hidden="true"
+									class="bi bi-download"></i> </a>
+				</h1>
 			</div>
 			<hr class="mid">
 			<div class="row">
-				<div class="col">
+				<div class="text-center col">
 					<pdfjs-viewer-element src="/files/CV_IvannaPorter.pdf" viewer-path="./pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
 																											viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
 				</div>
 			</div>
 		</div>
 		<hr class="b">
-	</body>
-	<footer class="text-center">
-		<div class="container">
-			<div class="row">
-				<div class="col-12"> <p>Copyright © Ivanna Porter. All rights reserved.</p> </div>
+		<footer class="text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-12"> <p>Copyright &copy; Ivanna Porter. All rights reserved.</p> </div>
+				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
+	</body>
 	
 </html>
