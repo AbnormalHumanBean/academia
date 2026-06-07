@@ -53,5 +53,6 @@
     "editor.formatOnSave": false,
     "editor.formatOnType": false,
     "cSpell.caseSensitive": true,
-    "cSpell.numSuggestions": 4
+    "cSpell.numSuggestions": 4,
+    "beautify.ignore": ""
 }

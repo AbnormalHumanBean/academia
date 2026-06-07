@@ -401,6 +401,11 @@ code {
 	letter-spacing: normal;
 }
 
+.iframe-inline-code {
+	display: inline;
+	padding: 2px 6px;
+}
+
 /* Embedded viewers and utility layout */
 .pdf-container {
 	display: none;
