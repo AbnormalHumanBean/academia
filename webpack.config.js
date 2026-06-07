@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
 	},
 	plugins: [
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/index.html', 'index.html', ['main'])),
-		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/about.html', 'about.html', ['main'])),
+		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/about.html', 'about.html', ['main', 'pdf_viewer_element'])),
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching.html', 'teaching.html', ['main'])),
 		new HtmlWebpackPlugin(htmlWebpackPluginConfig('./src/teaching_tools.html', 'teaching_tools.html', ['main', 'html_highlight', 'adjust','pdf_viewer_element'
 		])),

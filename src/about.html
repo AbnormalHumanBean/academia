@@ -12,7 +12,22 @@
 	</head>
 	
 	<body>
-		<div class="sp-container">
+		<div class="sp-container h-97 w-95">
+			<div class="text-center">
+				<h1 class="sp-cv-title"> Curriculum vitae <a aria-label="Download CV PDF" class="sp-download-button" download href="/files/CV_IvannaPorter.pdf"> <i
+									aria-hidden="true"
+									class="bi bi-download"></i> </a>
+				</h1>
+			</div>
+			<hr class="mid">
+			<div class="row">
+				<div class="text-center col">
+					<pdfjs-viewer-element src="/files/CV_IvannaPorter.pdf" viewer-path="/pdf_js" locale="en-US" viewer-extra-styles="#openFile { display: none }"
+																											viewer-extra-styles-urls="['/css/pdf_viewer_element.css']"> </pdfjs-viewer-element>
+				</div>
+			</div>
+		</div>
+		<section id="about" class="mt-3 sp-container">
 			<div class="row">
 				<div class="col-12 text-center">
 					<h1>Hi!</h1>
@@ -36,6 +51,14 @@
 					</ul>
 				</div>
 			</div>
+	<!-- For myself 		<div>
+				<h1> Interests & Personal</h1>
+				<p> Outside of the CV version of myself, I am usually curious, overprepared, and pretending not to be nervous. In the classroom, that means I tend to be
+					relatively informal, make a few dad jokes, and accept that at least one of them will make students cringe. I collect random facts about people, bodies,
+					medicine, anthropology, and sociology, and I spend a suspicious amount of time organizing, troubleshooting, playing games, and tinkering with code. I am also
+					a productive procrastinator: important tasks sometimes get delayed by less important but still useful ones. Since I deal with health issues too, a lot of what
+					I do is held together by persistence, curiosity, and a willingness to keep going even when things are messier than they look on paper. </p>
+			</div> -->
 			<div id="skills-list">
 				<h1> Skills: </h1>
 				<div class="row row-cols-md-2 row-cols-1">
@@ -43,17 +66,17 @@
 						<h2> Technical </h2>
 						<ul class="fa-ul sp-ul">
 							<li> <i class="fa-li fab fa-r-project fs-3 ico-adj"> </i>
-								<div class="skill" data-skill="R" data-value="50">
+								<div class="skill" data-skill="R" data-value="72">
 									<div class="skill-header"> <span> R </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
 							<li> <i class="fa-li fas fa-code fs-3 ico-adj"></i>
-								<div class="skill" data-skill="HTML" data-value="30">
+								<div class="skill" data-skill="HTML" data-value="55">
 									<div class="skill-header"> <span> HTML </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
 							<li> <i class="bi-li bi-file-earmark-font fs-3"></i>
-								<div class="skill" data-skill="Latex" data-value="85">
+								<div class="skill" data-skill="Latex" data-value="90">
 									<div class="skill-header"> <span> Latex </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
@@ -83,17 +106,17 @@
 								</div>
 							</li>
 							<li> <i class="icofont-data icofont-lg ico-li fs-3"></i>
-								<div class="skill" data-skill="Data Analysis" data-value="50">
+								<div class="skill" data-skill="Data Analysis" data-value="77">
 									<div class="skill-header"> <span> Data Analysis </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
 							<li> <i class="icofont-presentation iconfont-lg ico-li fs-3"></i>
-								<div class="skill" data-skill="Presentations" data-value="45">
+								<div class="skill" data-skill="Presentations" data-value="65">
 									<div class="skill-header"> <span> Presentations</span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
 							<li><i class="fa-li fas fa-person-chalkboard fs-3 ico-adj"></i>
-								<div class="skill" data-skill="Lecturing" data-value="32">
+								<div class="skill" data-skill="Lecturing" data-value="80">
 									<div class="skill-header"> <span> Lecturing </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
@@ -103,7 +126,7 @@
 								</div>
 							</li>
 							<li><i class="icofont-graduate-alt iconfont-lg ico-li fs-3"></i>
-								<div class="skill" data-skill="Grad Economics" data-value="15">
+								<div class="skill" data-skill="Grad Economics" data-value="55">
 									<div class="skill-header"> <span> Grad Economics </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
@@ -120,12 +143,12 @@
 								</div>
 							</li>
 							<li> <i class="icon icon-zzz ico-li fs-3"></i>
-								<div class="skill" data-skill="Sleeping" data-value="150">
+								<div class="skill" data-skill="Sleeping" data-value="125">
 									<div class="skill-header"> <span> Sleeping </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
 							<li><i class="icofont-magic iconfont-lg ico-li fs-3"></i>
-								<div class="skill" data-skill="Wasting time making things pretty" data-value="200">
+								<div class="skill" data-skill="Wasting time making things pretty" data-value="190">
 									<div class="skill-header"> <span> Wasting time making things pretty </span> <span class="skill-value"> </span> </div>
 								</div>
 							</li>
@@ -133,15 +156,17 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	<hr class="b">
-	<footer class="text-center">
-		<div class="container">
-			<div class="row">
-				<div class="col-12"> <p>Copyright &copy; Ivanna Porter. All rights reserved.</p> </div>
+		</section>
+		<hr class="b">
+		<footer class="text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<p>Copyright &copy; Ivanna Porter. All rights reserved.</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</body>
 	
 </html>

@@ -348,6 +348,10 @@ ul.mine.grad li:before {
 	font-size: inherit;
 }
 
+#about {
+	scroll-margin-top: 5rem;
+}
+
 /* Page base */
 body {
 	margin: 0;

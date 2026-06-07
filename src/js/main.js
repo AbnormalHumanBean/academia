@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Get current page URL path and filename
 	let path = window.location.pathname;
 	let page = path.split("/").pop();
+	let currentHref = page + window.location.hash;
  
 	// Add .active class to navbar link based on current page
 	let navLinks = document.querySelectorAll(".nav-link");
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	  link.classList.remove("active");
 
 	  // Add .active class to the link that corresponds to the current page
-	  if (link.getAttribute("href") === page) {
+	  if (link.getAttribute("href") === currentHref || (!window.location.hash && link.getAttribute("href") === page)) {
 		 link.classList.add("active");
 	  }
 	  });
@@ -58,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		 });
 		 
 	});
- 
 
 function createProgressBars() {
 	const skills = document.querySelectorAll('.skill');
@@ -107,7 +107,7 @@ function createProgressBars() {
  };
 
 
- document.addEventListener('DOMContentLoaded', createProgressBars);
+ createProgressBars();
 
 let masonryModulePromise;
 
