@@ -47,7 +47,6 @@ function displayData(repoGroups) {
 
 	if (privateRepos.length > 0) {
 		privateSection.hidden = false;
-		privateMessage.textContent = 'Private repositories available through the Netlify GitHub token.';
 	} else if (hasPrivateAccess) {
 		privateSection.hidden = false;
 		privateMessage.textContent = 'No private repositories were returned for this account.';
@@ -61,7 +60,7 @@ function displayData(repoGroups) {
 		privateMessage.textContent = 'Private repositories are unavailable here unless the Netlify GitHub token has permission to read them.';
 		privateTableBody.innerHTML = `
 			<tr>
-				<td colspan="8">Private repositories are not available with the current Netlify token.</td>
+				<td colspan="8">Private repositories are not available with the current token.</td>
 			</tr>
 		`;
 	}
