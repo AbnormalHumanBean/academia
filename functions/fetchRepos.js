@@ -38,63 +38,87 @@ async function renderMarkdown(markdownText) {
    return marked(markdownText);
 }
 
+async function buildRepoData(repo) {
+   const repoName = repo.name;
+   let lastCommitDate = repo.pushed_at
+       ? new Date(repo.pushed_at).toLocaleDateString('en-US')
+       : 'Unknown';
+   let totalCommits = 'Unavailable';
+
+   try {
+       const commits = await fetchRequest(
+           `https://api.github.com/repos/${username}/${repoName}/commits?per_page=100`,
+           buildGithubHeaders()
+       );
+       if (commits.length > 0) {
+           lastCommitDate = new Date(commits[0].commit.author.date).toLocaleDateString('en-US');
+       }
+       totalCommits = commits.length;
+   } catch (error) {
+       // Some repos can return 409/404 here; keep the page working instead of failing the whole function.
+   }
+
+   let readmeText = '';
+   try {
+       readmeText = await fetchTextRequest(
+           `https://api.github.com/repos/${username}/${repoName}/readme`,
+           buildGithubHeaders({
+               'Accept': 'application/vnd.github.v3.raw'
+           })
+       );
+   } catch (error) {
+       readmeText = 'No README available';
+   }
+
+   const readmeHtml = await renderMarkdown(readmeText);
+   return {
+       name: repoName,
+       html_url: repo.html_url,
+       language: repo.language,
+       lastCommitDate,
+       totalCommits,
+       description: repo.description,
+       readmeHtml,
+       private: Boolean(repo.private)
+   };
+}
+
 exports.handler = async function(event, context) {
    try {
-       const repos = await fetchRequest(
+       const publicRepos = await fetchRequest(
            `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
            buildGithubHeaders()
        );
 
-       const promises = repos.map(async repo => {
-           const repoName = repo.name;
-           let lastCommitDate = repo.pushed_at
-               ? new Date(repo.pushed_at).toLocaleDateString('en-US')
-               : 'Unknown';
-           let totalCommits = 'Unavailable';
+       let privateRepos = [];
+       let hasPrivateAccess = false;
 
+       if (token) {
            try {
-               const commits = await fetchRequest(
-                   `https://api.github.com/repos/${username}/${repoName}/commits?per_page=100`,
+               const authenticatedRepos = await fetchRequest(
+                   'https://api.github.com/user/repos?visibility=all&affiliation=owner&per_page=100&sort=updated',
                    buildGithubHeaders()
                );
-               if (commits.length > 0) {
-                   lastCommitDate = new Date(commits[0].commit.author.date).toLocaleDateString('en-US');
-               }
-               totalCommits = commits.length;
-           } catch (error) {
-               // Some repos can return 409/404 here; keep the page working instead of failing the whole function.
-           }
 
-           // Fetch README
-           let readmeText = '';
-           try {
-               readmeText = await fetchTextRequest(
-                   `https://api.github.com/repos/${username}/${repoName}/readme`,
-                   buildGithubHeaders({
-                       'Accept': 'application/vnd.github.v3.raw'
-                   })
+               privateRepos = authenticatedRepos.filter(repo =>
+                   repo.private && repo.owner && repo.owner.login === username
                );
+               hasPrivateAccess = true;
            } catch (error) {
-               readmeText = 'No README available';
+               hasPrivateAccess = false;
            }
+       }
 
-           const readmeHtml = await renderMarkdown(readmeText);
-           return {
-            name: repoName,
-            html_url: repo.html_url,
-            language: repo.language,
-            lastCommitDate,
-            totalCommits,
-            description: repo.description,
-            readmeHtml
-        };
-    });
-
-    const repoData = await Promise.all(promises);
+       const publicRepoData = await Promise.all(publicRepos.map(buildRepoData));
+       const privateRepoData = await Promise.all(privateRepos.map(buildRepoData));
 
     return {
         statusCode: 200,
-        body: JSON.stringify(repoData)
+        body: JSON.stringify({
+            publicRepos: publicRepoData,
+            privateRepos: privateRepoData,
+            hasPrivateAccess
+        })
     };
 } catch (error) {
     return {

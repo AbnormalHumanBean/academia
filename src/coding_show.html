@@ -15,6 +15,7 @@
 			<div class="sp-container">
 				<h1>GitHub Repositories</h1>
 				<hr class="mid">
+				<h2 class="h3 mt-4">Public Repositories</h2>
 				<div class="table-responsive">
 					<table class="table table-hover" id="repoTable">
 						<thead>
@@ -33,6 +34,29 @@
 							<!-- Table content will be inserted here -->
 						</tbody>
 					</table>
+				</div>
+				<div id="privateReposSection" class="mt-5" hidden>
+					<h2 class="h3">Private Repositories</h2>
+					<p id="privateReposMessage" class="mb-3">These appear only when the Netlify GitHub token can access your private repositories.</p>
+					<div class="table-responsive">
+						<table class="table table-hover" id="privateRepoTable">
+							<thead>
+								<tr class="fs-5b">
+									<th>Repository</th>
+									<th></th>
+									<th>Lang.</th>
+									<th>Updated</th>
+									<th>Commits</th>
+									<th>Description</th>
+									<th>Read Me</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody class="table-group-divider" id="privateRepoTableBody">
+								<!-- Private table content will be inserted here -->
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</section>
