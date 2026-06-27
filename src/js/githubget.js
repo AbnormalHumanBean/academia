@@ -32,6 +32,16 @@ function displayData(repos) {
 		tableBody.innerHTML += row;
 	});
 }
+
+function displayError(message) {
+	const tableBody = document.getElementById('repoTableBody');
+	tableBody.innerHTML = `
+		<tr>
+			<td colspan="8">Error fetching repositories: ${message}</td>
+		</tr>
+	`;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
 	const cachedData = JSON.parse(localStorage.getItem(cacheKey));
 	const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
@@ -45,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			localStorage.setItem(`${cacheKey}_timestamp`, Date.now());
 			displayData(repos);
 		} catch (error) {
-			document.getElementById('repos').innerHTML = `<p>Error fetching repositories: ${error.message}</p>`;
+			displayError(error.message);
 		}
 	}
 });

@@ -2,12 +2,19 @@ exports.handler = async function(event, context) {
    const githubUsername = "AbnormalHumanBean";
    const githubToken = process.env.GITHUB_TOKEN;
 
+   const headers = {
+       'Accept': 'application/vnd.github+json',
+       'User-Agent': 'academia-site'
+   };
+
+   if (githubToken) {
+       headers['Authorization'] = `token ${githubToken}`;
+   }
+
    try {
        const { default: fetch } = await import('node-fetch');
        const response = await fetch(`https://api.github.com/users/${githubUsername}`, {
-           headers: {
-               'Authorization': `token ${githubToken}`
-           }
+           headers
        });
 
        if (!response.ok) {
