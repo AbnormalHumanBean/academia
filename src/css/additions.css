@@ -603,6 +603,46 @@ hr.opt2 {
 	-webkit-transform: rotate(45deg);
 }
 
+.sp-connect-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.25rem;
+}
+
+.sp-connect-item {
+	min-width: 0;
+}
+
+.sp-connect-card {
+	position: relative;
+	border: 3px solid rgba(157, 102, 247, 0.28);
+	background-clip: padding-box;
+	isolation: isolate;
+}
+
+.sp-connect-card::before {
+	content: "";
+	position: absolute;
+	inset: -1px;
+	border: 3px solid rgba(157, 102, 247, 0.22);
+	border-radius: inherit;
+	filter: blur(3px);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.sp-connect-badge {
+	width: 64px;
+	height: 64px;
+	transition: transform 0.2s ease;
+	flex: 0 0 auto;
+}
+
+.sp-connect-badge:hover {
+	transform: rotate(-38deg);
+	-webkit-transform: rotate(-38deg);
+}
+
 .ssp-div {
 	margin: 0;
 	padding: 0;
@@ -651,6 +691,100 @@ hr.opt2 {
 .sp-card-title-link:hover {
 	color: currentColor;
 	text-decoration: underline;
+}
+
+.sp-connect-card .card-body {
+	padding: 1.1rem 1.1rem 1rem;
+	position: relative;
+	z-index: 1;
+}
+
+.sp-connect-card .card-title {
+	margin-bottom: 0;
+}
+
+.sp-connect-head {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	align-items: center;
+	column-gap: .9rem;
+}
+
+.sp-connect-details {
+	margin-top: .65rem;
+	padding-left: 2rem;
+}
+
+.sp-connect-card .vstack:last-child {
+	min-width: 0;
+}
+
+.sp-contact-grid {
+	display: grid;
+	row-gap: .55rem;
+}
+
+.sp-contact-row {
+	display: grid;
+	grid-template-columns: minmax(5.75rem, 6.5rem) minmax(0, 1fr);
+	column-gap: 1rem;
+	align-items: start;
+}
+
+.sp-contact-label {
+	margin-bottom: 0;
+	line-height: 1.3;
+}
+
+.sp-contact-email {
+	display: block;
+	min-width: 0;
+	overflow-wrap: normal;
+	word-break: normal;
+	line-height: 1.3;
+}
+
+.sp-connect-card-email .sp-contact-email {
+	white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+	.sp-connect-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.sp-connect-grid {
+		gap: 1rem;
+	}
+
+	.sp-connect-card .card-body {
+		padding: 1.05rem .95rem .95rem;
+	}
+
+	.sp-connect-badge {
+		width: 56px;
+		height: 56px;
+	}
+
+	.sp-connect-head {
+		column-gap: .75rem;
+	}
+
+	.sp-connect-details {
+		margin-top: .6rem;
+		padding-left: .4rem;
+	}
+
+	.sp-contact-grid {
+		row-gap: .75rem;
+	}
+
+	.sp-contact-row {
+		grid-template-columns: 1fr;
+		row-gap: .15rem;
+	}
 }
 
 /* Accent lists */

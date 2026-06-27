@@ -13,17 +13,16 @@ import './color-modes.js';
 void Collapse;
 void Modal;
 void Dropdown;
-// Initialize tooltip
-const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-const tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-	return new Tooltip(tooltipTriggerEl);
-});
-
-const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new Popover(popoverTriggerEl))
-
 
 document.addEventListener("DOMContentLoaded", function() {
+	document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((tooltipTriggerEl) => {
+		new Tooltip(tooltipTriggerEl);
+	});
+
+	document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popoverTriggerEl) => {
+		new Popover(popoverTriggerEl);
+	});
+
 	// Get current page URL path and filename
 	let path = window.location.pathname;
 	let page = path.split("/").pop();
