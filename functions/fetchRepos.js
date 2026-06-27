@@ -1,5 +1,3 @@
-const { marked } = require('marked');
-
 const username = 'AbnormalHumanBean';
 const token = process.env.GITHUB_TOKEN;
 
@@ -33,6 +31,11 @@ async function fetchTextRequest(url, headers = {}) {
        throw new Error(`HTTP error! status: ${response.status}`);
    }
    return response.text();
+}
+
+async function renderMarkdown(markdownText) {
+   const { marked } = await import('marked');
+   return marked(markdownText);
 }
 
 exports.handler = async function(event, context) {
@@ -75,7 +78,7 @@ exports.handler = async function(event, context) {
                readmeText = 'No README available';
            }
 
-           const readmeHtml = marked(readmeText);
+           const readmeHtml = await renderMarkdown(readmeText);
            return {
             name: repoName,
             html_url: repo.html_url,
